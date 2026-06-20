@@ -17,4 +17,5 @@ func _process(delta: float) -> void:
 	else:
 		points = []
 		$Line2D.points = points
+		
 	pass
