@@ -52,22 +52,16 @@ func _process(delta: float) -> void:
 		
 			# only compute on every new point added
 			if (points.size() >= 1):
-				#print(points[points.size() - 2], "   ", points[points.size()-1])
-				print(points[points.size() - 2].angle_to(points[points.size() - 1]), " theta diff")
-				
-				
-				# this here calculates the theta difference as a percentage of a whole circle * (circumference while assuming the radius from the first point)
-				#                             v1  - center (to get it in terms of the center).angle_to(v2 - center)  / 										full turn  *    dist from first point to center for radius to compute circumference
-				circle_distance += ((points[points.size() - 2] - get_viewport_rect().size/2).angle_to(points[points.size() - 1] - get_viewport_rect().size/2  ))/(2*PI) * (points[0].distance_to(get_viewport_rect().size/2) * 2 * PI)
-				# it's also signed
-				print(circle_distance)
+				# this here calculates the theta difference as a percentage of a whole circle * (circumference while assuming the radius from the point before)
+				#                             v1  - center (to get it in terms of the center).angle_to(v2 - center)  / 										full turn  *   whatever circumference you'd like, smaller means smaller
+				circle_distance += ((points[points.size() - 2] - get_viewport_rect().size/2).angle_to(points[points.size() - 1] - get_viewport_rect().size/2  ))/(2*PI) * (500)
 	else:
 		points = []
 		set_process(false)
 
 
 # region entered signal function
-func _on_mouse_entered(node):
+func _on_mouse_entered(node) -> void:
 	next_region = hitbox_dictionary[node]
 
 
@@ -75,8 +69,6 @@ func _on_mouse_entered(node):
 var i = 0
 
 func _input(event):
-	# referenced
-	# https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#mouse-motion
 	if event.is_action("m1"):
 		if not is_circling and event.pressed:
 			starting_region = next_region
@@ -88,11 +80,10 @@ func _input(event):
 			is_clockwise = null
 			
 			if (revolution_count >= 1):
-				print("circle score ", compute_circle_accuracy(points))
+				compute_circle_accuracy(points)
 			
 			revolution_count = 0
 			
-		print("act")
 
 	# circling
 	if event is InputEventMouseMotion and is_circling:
@@ -225,5 +216,4 @@ func compute_circle_accuracy(points: Array) -> float:
 	# https://www.desmos.com/calculator/xtomoftjdy
 	# the base influences how fast it decreases
 	# d helps spread out this decrease
-	print("avg distance error ", error)
 	return exp(-1 * error / 80.0)
