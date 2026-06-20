@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bj4mi6ukj7hwc"]
 
-[ext_resource type="Script" uid="uid://b86ibllv5bln" path="res://test/spin.gd" id="1_4u4d0"]
-[ext_resource type="Texture2D" uid="uid://domx4xdpapir" path="res://icon.svg" id="2_17k7e"]
+[ext_resource type="Script" uid="uid://b86ibllv5bln" path="res://test/spin.gd" id="1_2cc23"]
+[ext_resource type="Texture2D" uid="uid://domx4xdpapir" path="res://icon.svg" id="2_qwc17"]
 
 [node name="Node2D" type="Node2D" unique_id=845692897]
-script = ExtResource("1_4u4d0")
+script = ExtResource("1_2cc23")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1008392921]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_17k7e")
+texture = ExtResource("2_qwc17")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1921623936]
 width = 5.0

@@ -1,0 +1,14 @@
+{
+	"test": {
+		"dialogue": [
+		{"speaker": "fih 2" , "text": "i need to find my dad"},
+		{"speaker": "fih 1" , "text": "hello other fih"},
+		{"speaker": "fih 2" , "text": "do you know where my dad is??"},
+		{"speaker": "fih 1" , "text": "no you smell stupid fih"},
+		{"speaker": "fih 2" , "text": "fuck you buddy ok"}
+		],
+		"position": ["fih 1", "fih 2"],
+		"fih 1": "res://assets/fih 2.png",
+		"fih 2": "res://assets/fih 1.webp"
+	}
+}
