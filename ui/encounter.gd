@@ -28,7 +28,7 @@ func load_dialogue(file_path: String) -> Dictionary:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_released("click") and $GrassButtonsArrow.visible:
+	if Input.is_action_just_released("m1") and $GrassButtonsArrow.visible:
 		index += 1
 		$NinePatchRect/RichTextLabel.visible_characters = 0
 		$NinePatchRect/RichTextLabel.text = dialogue["dialogue"][index]["text"]
