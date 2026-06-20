@@ -1,14 +1,39 @@
 [gd_scene format=3 uid="uid://bj4mi6ukj7hwc"]
 
 [ext_resource type="Script" uid="uid://b86ibllv5bln" path="res://test/spin.gd" id="1_2cc23"]
-[ext_resource type="Texture2D" uid="uid://domx4xdpapir" path="res://icon.svg" id="2_qwc17"]
+[ext_resource type="Texture2D" uid="uid://cv83h4xk7h47l" path="res://assets/hook.webp" id="2_17k7e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rgm4q"]
+radius = 610.43
 
 [node name="Node2D" type="Node2D" unique_id=845692897]
 script = ExtResource("1_2cc23")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1008392921]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_qwc17")
+[node name="Node2D" type="Node2D" parent="." unique_id=888902458]
+position = Vector2(0.99999994, 3.8146973e-06)
+scale = Vector2(0.05, 0.05)
+
+[node name="Icon" type="Sprite2D" parent="Node2D" unique_id=1008392921]
+position = Vector2(0, 500.00003)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_17k7e")
+
+[node name="Area2D" type="Area2D" parent="Node2D" unique_id=880123848]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=567979641]
+position = Vector2(1.1920929e-06, 439.99994)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_rgm4q")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1921623936]
 width = 5.0
+
+[node name="Node" type="Node" parent="." unique_id=1375233570]
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=1189563726]
+points = PackedVector2Array(720, 0, 0, 0)
+width = 2.0
+default_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
+
+[connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]

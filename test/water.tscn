@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c1es3ktmyj4h4"]
+
+[ext_resource type="Texture2D" uid="uid://doduqlsrpfscp" path="res://assets/water.jpg" id="1_xx1sx"]
+[ext_resource type="Texture2D" uid="uid://bdul37icimjyc" path="res://assets/gurt.png" id="2_6aw2q"]
+[ext_resource type="PackedScene" uid="uid://bj4mi6ukj7hwc" path="res://test/spin.tscn" id="3_kgra2"]
+[ext_resource type="PackedScene" uid="uid://c85lefw867g03" path="res://test/fish.tscn" id="4_qjf28"]
+
+[node name="Fish" type="Node2D" unique_id=355174588]
+
+[node name="Water" type="Sprite2D" parent="." unique_id=703332840]
+position = Vector2(641.25, 376)
+scale = Vector2(1.9554183, 1)
+texture = ExtResource("1_xx1sx")
+
+[node name="Gurt" type="Sprite2D" parent="." unique_id=2035526713]
+position = Vector2(215.99998, 180)
+scale = Vector2(0.4113402, 0.4113402)
+texture = ExtResource("2_6aw2q")
+
+[node name="Node2D" parent="." unique_id=845692897 instance=ExtResource("3_kgra2")]
+
+[node name="fish" parent="." unique_id=1086808920 instance=ExtResource("4_qjf28")]
+position = Vector2(-248, 515)
