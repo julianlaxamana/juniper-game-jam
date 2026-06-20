@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dost47d8gwtew"]
+
+[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="1_fblgx"]
+
+[node name="Main" type="Control" unique_id=157118352]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=59181791]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 52.0
+offset_right = 1238.0
+offset_bottom = 336.0
+theme_override_colors/font_outline_color = Color(0.3128576, 0.43300438, 0.94471014, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("1_fblgx")
+theme_override_font_sizes/normal_font_size = 100
+text = "UNTITLED FISH GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1543707482]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 388.0
+offset_right = 1247.0
+offset_bottom = 507.0
+theme_override_fonts/font = ExtResource("1_fblgx")
+theme_override_font_sizes/font_size = 40
+text = "START"
+
+[node name="Button2" type="Button" parent="." unique_id=2110183002]
+layout_mode = 0
+offset_left = 621.0
+offset_top = 529.0
+offset_right = 1248.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("1_fblgx")
+theme_override_font_sizes/font_size = 40
+text = "CREDITS"
