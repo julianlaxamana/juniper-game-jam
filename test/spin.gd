@@ -30,7 +30,6 @@ func _process(delta: float) -> void:
 		if (is_circle(line2d.points)):
 			print("circle score ", compute_circle_accuracy(line2d.points))
 		line2d.clear_points()
-	pass
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -102,8 +101,8 @@ func compute_circle_accuracy(points: Array) -> float:
 		center.x += p.x
 		center.y += p.y
 	
-	center.y /= line2d.get_point_count() 
-	center.x /= line2d.get_point_count()
+	center.y /= points.size()
+	center.x /= points.size()
 	
 	#TODO remove this eventually
 	# visual indicator of center for now
@@ -115,14 +114,14 @@ func compute_circle_accuracy(points: Array) -> float:
 	
 	# now that we know the center we can calculate average radius
 	var radius = 0.0
-	for p in line2d.points:
+	for p in points:
 		radius += center.distance_to(p)
-	radius /= line2d.get_point_count()
+	radius /= points.size()
 	
 	
 	# now calculate the average distance
 	var error = 0.0
-	for p in line2d.points:
+	for p in points:
 		# imagine a line that goes from the center to a particular point
 		# we want to then find the point that lies a radius away on this line
 		# and then calculate the distance from these 2 points
@@ -130,7 +129,7 @@ func compute_circle_accuracy(points: Array) -> float:
 		# happens to just be equivalent to the distance of
 		# (point, center) - radius
 		error += absf(p.distance_to(center) - radius)
-	error /= line2d.get_point_count()
+	error /= points.size()
 	
 	# on experimentation and comparison with the neal.fun circle
 	# firstly we want a function that takes [0, inf) and outputs a percent
