@@ -10,19 +10,21 @@ extends Node2D
 
 
 # a signifier for if M1 is held down to run circle detection
-var is_circling : bool = false 
-var is_clockwise : Variant = null
+var is_circling: bool = false 
+var is_clockwise: Variant = null
 
-var starting_region : int = 1
-var current_region : int = 1
-var next_region : int = 1
+var starting_region: int = 1
+var current_region: int = 1
+var next_region: int = 1
 
-var current_velocity : float = 0.0
-var revolution_count : int = 0
+var current_velocity: float = 0.0
+var revolution_count: int = 0
 
-var points : Array = []
+var points: Array = []
+var radius: float = 0.0
+var circle_distance: float = 0.0
 
-var hitbox_dictionary : Dictionary = {}
+var hitbox_dictionary: Dictionary = {}
 
 
 # Called when the node enters the scene tree for the first time.
@@ -47,13 +49,30 @@ func _process(delta: float) -> void:
 	if (is_circling):
 		if (points.get(points.size() - 1) != get_global_mouse_position()):
 			points.append(get_global_mouse_position())
+		
+			# only compute on every new point added
+			if (points.size() >= 1):
+				#print(points[points.size() - 2], "   ", points[points.size()-1])
+				print(points[points.size() - 2].angle_to(points[points.size() - 1]), " theta diff")
+				
+				
+				# this here calculates the theta difference as a percentage of a whole circle * (circumference while assuming the radius from the first point)
+				#                             v1  - center (to get it in terms of the center).angle_to(v2 - center)  / 										full turn  *    dist from first point to center for radius to compute circumference
+				circle_distance += ((points[points.size() - 2] - get_viewport_rect().size/2).angle_to(points[points.size() - 1] - get_viewport_rect().size/2  ))/(2*PI) * (points[0].distance_to(get_viewport_rect().size/2) * 2 * PI)
+				# it's also signed
+				print(circle_distance)
 	else:
 		points = []
 		set_process(false)
 
+
 # region entered signal function
 func _on_mouse_entered(node):
 	next_region = hitbox_dictionary[node]
+
+
+
+var i = 0
 
 func _input(event):
 	# referenced
@@ -146,6 +165,30 @@ func _input(event):
 		print(is_clockwise)
 		print(revolution_count)
 		
+	
+	
+	if event.is_action_pressed("d"):
+		pass
+		
+		
+		#var v1 = Vector2(6)
+		#print(Vector2(x1,y1).angle_to(Vector2(x2, y2)))
+		
+		#var temp = Sprite2D.new()
+		#
+		#add_child(temp)
+		#temp.texture = load("res://test/Spin Detection/thing.png")
+		#
+		#temp.position = get_viewport_rect().size/2 + Vector2.from_angle( 2*PI/16 * i) * 100
+		#
+		#print(Vector2.from_angle( 2*PI/16 * i).angle_to(Vector2.from_angle( 2*PI/16 * (i+1))))
+		#print(Vector2.from_angle( 2*PI/16 * i), "  	", i)
+			#
+		#i += 1
+			
+			
+			
+	
 
 
 # helper function that 
