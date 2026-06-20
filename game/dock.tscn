@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c6fv1xbnpnkir"]
 
-[ext_resource type="Script" uid="uid://bsoh7jej23w7x" path="res://game/fisher.gd" id="1_vqsdp"]
 [ext_resource type="Shader" uid="uid://biobl5ygfj58r" path="res://game/water.gdshader" id="2_gdnvl"]
+[ext_resource type="Shader" uid="uid://ckpyqx4tqwst" path="res://game/sky.gdshader" id="3_if17d"]
+[ext_resource type="Texture2D" uid="uid://cj7hytipv86cb" path="res://assets/fih.png" id="3_r2j6y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdnvl"]
 render_priority = 0
@@ -13,7 +14,7 @@ shader_parameter/distortion_speed = 2.0
 shader_parameter/tile = Vector2(5, 5)
 shader_parameter/wave_speed = 1.0
 shader_parameter/wave_amplitude = 0.25
-shader_parameter/wave_frequency = 1.5
+shader_parameter/wave_frequency = 0.5
 shader_parameter/time_offset = 0.0
 shader_parameter/water_size = Vector2(128, 128)
 shader_parameter/water_transparency = 0.8
@@ -24,40 +25,76 @@ shader_parameter/foam_smoothness = 0.03
 shader_parameter/foam_distortion_speed = 0.5
 shader_parameter/foam_distortion_amount = 0.1
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_r2j6y"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_x40tj"]
 material = SubResource("ShaderMaterial_gdnvl")
 size = Vector2(5, 5)
-subdivide_width = 10
-subdivide_depth = 10
+subdivide_width = 5
+subdivide_depth = 5
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rgm4q"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6u35s"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_rgm4q"]
+size = Vector2(0.3, 0.6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ci1tc"]
 size = Vector3(5, 0.5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rgm4q"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_if17d"]
+shader = ExtResource("3_if17d")
+shader_parameter/day_top_color = Color(0.59023905, 0.79918987, 0.9594732, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.20999999530608
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.32500001473898
+shader_parameter/sun_blur = 10.24100048574898
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_ci1tc"]
+sky_material = SubResource("ShaderMaterial_if17d")
+
+[sub_resource type="Environment" id="Environment_rgm4q"]
+background_mode = 2
+sky = SubResource("Sky_ci1tc")
+ambient_light_source = 3
+
 [node name="Dock" type="Node3D" unique_id=1810924153]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=214351770]
-transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 0.010217667, 1.5796309, -41.32331)
-mesh = SubResource("PlaneMesh_r2j6y")
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=2084215699]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, -2.4843993, -5.0570736, -19.684391)
+radius = 0.02
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1588315140]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.52327305)
-script = ExtResource("1_vqsdp")
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=827088633]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 2.483869, -5.0570736, -19.684391)
+radius = 0.02
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=747972857]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4276974, -0.29670084)
+[node name="Water" type="MeshInstance3D" parent="." unique_id=214351770]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 0.010217667, -3.0037947, -22.478191)
+mesh = SubResource("PlaneMesh_x40tj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1163710266]
-shape = SubResource("CapsuleShape3D_rgm4q")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2119092684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0333972, 0)
-mesh = SubResource("CapsuleMesh_6u35s")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=215667978]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 0.022319794, -0.03853321, -15.138624)
+mesh = SubResource("PlaneMesh_rgm4q")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=545305540]
 gravity_scale = 0.0
@@ -67,9 +104,19 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -2.532692, 0)
 shape = SubResource("BoxShape3D_ci1tc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1499258906]
-transform = Transform3D(50, 0, 0, 0, 5, 0, 0, 0, 50, 0, -2.532692, 0)
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 0.022319794, -2.5326958, 0.06012726)
 mesh = SubResource("BoxMesh_rgm4q")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2137278675]
 transform = Transform3D(1, 0, 0, 0, 0.9625482, 0.27111068, 0, -0.27111068, 0.9625482, 0, 12.74988, 0)
 light_energy = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=623507848]
+environment = SubResource("Environment_rgm4q")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=343127362]
+transform = Transform3D(-0.04404804, 0, 0.9990294, 0, 1, 0, -0.9990294, 0, -0.04404804, 5.965626, 2.691527, -23.175392)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=489827920]
+transform = Transform3D(-0.031769577, 0, 0.49898967, 0, 0.5, 0, -0.49898967, 0, -0.031769577, 0, 2.156489, -19.793514)
+texture = ExtResource("3_r2j6y")
