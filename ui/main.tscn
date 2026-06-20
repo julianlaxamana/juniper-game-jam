@@ -20,7 +20,7 @@ theme_override_colors/font_outline_color = Color(0.3128576, 0.43300438, 0.944710
 theme_override_constants/outline_size = 50
 theme_override_fonts/normal_font = ExtResource("1_fblgx")
 theme_override_font_sizes/normal_font_size = 100
-text = "UNTITLED FISH GAME"
+text = "a serious fishing game."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -32,7 +32,7 @@ offset_right = 1247.0
 offset_bottom = 507.0
 theme_override_fonts/font = ExtResource("1_fblgx")
 theme_override_font_sizes/font_size = 40
-text = "START"
+text = "start"
 
 [node name="Button2" type="Button" parent="." unique_id=2110183002]
 layout_mode = 0
@@ -42,4 +42,4 @@ offset_right = 1248.0
 offset_bottom = 648.0
 theme_override_fonts/font = ExtResource("1_fblgx")
 theme_override_font_sizes/font_size = 40
-text = "CREDITS"
+text = "credits"

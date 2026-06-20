@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c6fv1xbnpnkir"]
+
+[ext_resource type="Script" uid="uid://bsoh7jej23w7x" path="res://game/fisher.gd" id="1_vqsdp"]
+[ext_resource type="Shader" uid="uid://biobl5ygfj58r" path="res://game/water.gdshader" id="2_gdnvl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdnvl"]
+render_priority = 0
+shader = ExtResource("2_gdnvl")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_amplitude = 0.25
+shader_parameter/wave_frequency = 1.5
+shader_parameter/time_offset = 0.0
+shader_parameter/water_size = Vector2(128, 128)
+shader_parameter/water_transparency = 0.8
+shader_parameter/water_depth_factor = 0.1
+shader_parameter/foam_width = 0.5
+shader_parameter/foam_edge_softness = 0.05
+shader_parameter/foam_smoothness = 0.03
+shader_parameter/foam_distortion_speed = 0.5
+shader_parameter/foam_distortion_amount = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r2j6y"]
+material = SubResource("ShaderMaterial_gdnvl")
+size = Vector2(5, 5)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rgm4q"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6u35s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ci1tc"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rgm4q"]
+
+[node name="Dock" type="Node3D" unique_id=1810924153]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=214351770]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 0.010217667, 1.5796309, -41.32331)
+mesh = SubResource("PlaneMesh_r2j6y")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1588315140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.52327305)
+script = ExtResource("1_vqsdp")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=747972857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4276974, -0.29670084)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1163710266]
+shape = SubResource("CapsuleShape3D_rgm4q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2119092684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0333972, 0)
+mesh = SubResource("CapsuleMesh_6u35s")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=545305540]
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1773273557]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -2.532692, 0)
+shape = SubResource("BoxShape3D_ci1tc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1499258906]
+transform = Transform3D(50, 0, 0, 0, 5, 0, 0, 0, 50, 0, -2.532692, 0)
+mesh = SubResource("BoxMesh_rgm4q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2137278675]
+transform = Transform3D(1, 0, 0, 0, 0.9625482, 0.27111068, 0, -0.27111068, 0.9625482, 0, 12.74988, 0)
+light_energy = 2.0
