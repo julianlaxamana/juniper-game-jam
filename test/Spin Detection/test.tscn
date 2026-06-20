@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bwtd2ak6erit3"]
+
+[ext_resource type="Script" uid="uid://bsjpglntd4iir" path="res://test/Spin Detection/spin_detector.gd" id="1_cf6ek"]
+[ext_resource type="Texture2D" uid="uid://ckdx4ap0f3ml3" path="res://test/Spin Detection/thing.png" id="2_c2sk5"]
+[ext_resource type="Texture2D" uid="uid://eo38nldkrq5f" path="res://test/Spin Detection/guidelines.png" id="3_c2sk5"]
+
+[node name="Test" type="Node2D" unique_id=665341579]
+script = ExtResource("1_cf6ek")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=227355088]
+texture_filter = 1
+position = Vector2(640, 360)
+texture = ExtResource("2_c2sk5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1767288054]
+position = Vector2(640, 360)
+texture = ExtResource("3_c2sk5")
+
+[node name="BottomRight" type="Area2D" parent="." unique_id=1607495569]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomRight" unique_id=407760241]
+position = Vector2(640, 360)
+rotation = 2.1078908
+polygon = PackedVector2Array(202.8901, -362.90436, 0, 0, -327.4507, -549.88727, -18.998322, -733.5667)
+
+[node name="BottomLeft" type="Area2D" parent="." unique_id=652032555]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomLeft" unique_id=334668238]
+position = Vector2(640, 360)
+rotation = -2.094395
+polygon = PackedVector2Array(319.99994, -554.2563, 0, 0, -208.26917, -359.26724, 8.230774, -734.2562)
+
+[node name="TopRight" type="Area2D" parent="." unique_id=1048431449]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="TopRight" unique_id=774215732]
+position = Vector2(640, 360)
+rotation = 1.0576726
+polygon = PackedVector2Array(314.17664, -557.5778, 0, 0, -212.02103, -357.06592, 0.53912354, -734.3022)
+
+[node name="TopLeft" type="Area2D" parent="." unique_id=1005771338]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TopLeft" unique_id=1378984374]
+position = Vector2(640, 360)
+rotation = -1.0471977
+polygon = PackedVector2Array(207.76918, -360.13324, 0, 0, -319.99994, -554.2562, -8.230774, -734.2562)
+
+[node name="Bottom" type="Area2D" parent="." unique_id=1510121617]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottom" unique_id=686875137]
+position = Vector2(640, 360)
+rotation = -3.1415925
+polygon = PackedVector2Array(207, -360, 0, 0, -208, -360)
+
+[node name="Top" type="Area2D" parent="." unique_id=1624310069]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top" unique_id=317474876]
+position = Vector2(640, 360)
+polygon = PackedVector2Array(207, -360, 0, 0, -208, -360)
