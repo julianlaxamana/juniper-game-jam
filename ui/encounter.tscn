@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://bhbbqp2bl8i8l"]
 
-[ext_resource type="Texture2D" uid="uid://4ne0jrrwbfqr" path="res://assets/base.png" id="1_5mbbo"]
 [ext_resource type="Script" uid="uid://cdg28im8b4bgw" path="res://ui/encounter.gd" id="1_52y11"]
-[ext_resource type="Texture2D" uid="uid://canql0ddex11" path="res://assets/fih 1.webp" id="1_sh5as"]
 [ext_resource type="Texture2D" uid="uid://doduqlsrpfscp" path="res://assets/water.jpg" id="2_5o2sh"]
-[ext_resource type="Texture2D" uid="uid://dkud6l4uh02q5" path="res://assets/fih 2.png" id="2_52y11"]
-[ext_resource type="FontFile" uid="uid://cqi56olycj4pu" path="res://assets/CherryBombOne-Regular.ttf" id="2_p03xe"]
+[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="2_p03xe"]
+[ext_resource type="Texture2D" uid="uid://4ne0jrrwbfqr" path="res://assets/base.png" id="5_hbhfc"]
 [ext_resource type="Texture2D" uid="uid://d3arvewhxycs8" path="res://assets/Grass-Buttons-arrow.png" id="7_hbhfc"]
 
 [node name="Encounter" type="Control" unique_id=641299931]
@@ -22,16 +20,13 @@ position = Vector2(658.00006, 362)
 scale = Vector2(2.1838136, 0.758)
 texture = ExtResource("2_5o2sh")
 
-[node name="PngtreeFreshNileTilapiaOrPlaNinInThaiFreshwaterFishIsolatedPngImage10086755" type="Sprite2D" parent="." unique_id=640324083]
-position = Vector2(1073.0001, 413.00003)
+[node name="rightSprite" type="Sprite2D" parent="." unique_id=640324083]
+position = Vector2(1033.0001, 378)
 rotation = 3.1415925
-scale = Vector2(1.137477, -1.1247468)
-texture = ExtResource("2_52y11")
+scale = Vector2(1, -1)
 
-[node name="Fish1" type="Sprite2D" parent="." unique_id=1672078430]
-position = Vector2(271, 359.00003)
-scale = Vector2(0.5970098, 0.5970098)
-texture = ExtResource("1_sh5as")
+[node name="leftSprite" type="Sprite2D" parent="." unique_id=1672078430]
+position = Vector2(325.09805, 399.00003)
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=1595954341]
 layout_mode = 0
@@ -39,7 +34,7 @@ offset_left = 37.0
 offset_top = 376.0
 offset_right = 271.0
 offset_bottom = 457.0
-texture = ExtResource("1_5mbbo")
+texture = ExtResource("5_hbhfc")
 region_rect = Rect2(0, 0, 353, 73)
 patch_margin_left = 18
 patch_margin_top = 15
@@ -71,7 +66,7 @@ offset_left = 34.0
 offset_top = 466.0
 offset_right = 1263.0
 offset_bottom = 708.0
-texture = ExtResource("1_5mbbo")
+texture = ExtResource("5_hbhfc")
 region_rect = Rect2(0, 0, 353, 73)
 patch_margin_left = 18
 patch_margin_top = 15
