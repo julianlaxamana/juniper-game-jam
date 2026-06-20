@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bhbbqp2bl8i8l"]
 
 [ext_resource type="Script" uid="uid://cdg28im8b4bgw" path="res://ui/dialogue.gd" id="1_tqx3j"]
-[ext_resource type="Texture2D" uid="uid://4ne0jrrwbfqr" path="res://assets/base.png" id="3_wyt3e"]
-[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="4_jmpb1"]
-[ext_resource type="Texture2D" uid="uid://d3arvewhxycs8" path="res://assets/Grass-Buttons-arrow.png" id="5_mlxx2"]
+[ext_resource type="Texture2D" uid="uid://4ne0jrrwbfqr" path="res://Assets/base.png" id="3_wyt3e"]
+[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://Assets/CherryBombOne-Regular.ttf" id="4_jmpb1"]
+[ext_resource type="Texture2D" uid="uid://d3arvewhxycs8" path="res://Assets/Grass-Buttons-arrow.png" id="5_mlxx2"]
 
 [node name="Encounter" type="Control" unique_id=641299931]
 layout_mode = 3
