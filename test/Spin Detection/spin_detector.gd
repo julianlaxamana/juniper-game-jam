@@ -87,7 +87,46 @@ func _input(event):
 
 	# circling
 	if event is InputEventMouseMotion and is_circling:
-
+		# initial direction detection
+		if (is_clockwise == null):
+			if (next_region != starting_region):
+				# edge cases
+				if (current_region == 6 && next_region == 1):
+					is_clockwise = true
+					starting_region = current_region
+				elif (current_region == 6 && next_region == 5):
+					is_clockwise = false
+					starting_region = current_region
+				elif (current_region == 1 && next_region == 6):
+					is_clockwise = true
+					starting_region = current_region
+				elif (current_region == 1 && next_region == 2):
+					is_clockwise = false
+					starting_region = current_region
+				else:
+					is_clockwise = (starting_region > next_region)
+					starting_region = current_region
+		
+		# is the next section the right way?
+		elif (is_clockwise):
+			# edge case
+			if (current_region == 1 && next_region == 6):
+				current_region = next_region
+				
+				# made a loop?
+				if (current_region == starting_region):
+					revolution_count += 1
+					
+			# default case
+			elif (current_region - 1 == next_region):
+				
+				current_region = next_region
+				# made a loop?
+				if (current_region == starting_region):
+					revolution_count += 1
+					
+					
+			# set speed
 			current_velocity = event.velocity.length()
 		# other case
 		elif (is_clockwise == false):
