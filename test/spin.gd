@@ -98,7 +98,6 @@ func is_circle(points: Array) -> bool:
 
 	for b in direction_booleans:
 		if (b == false):
-			print("FALSE")
 			return false
 
 	return true
