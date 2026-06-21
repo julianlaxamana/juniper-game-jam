@@ -52,6 +52,12 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 # given an array of Vector2 (points)
 # outputs if it's a circle based on vectors and nearby starting/endpoints
 func is_circle(points: Array) -> bool:
+	# There's a few things i can think of doing circle detection with an arbitrary center is 
+	# (beside online suggestions which basically suggest an optical ai model)
+	# would be to ensure that the L/R and U/D deviation is vaguely about the same
+	# and that no points are really close to this supposed center (this however would force a minimum circle size (but i don't expect that to be a problem))
+	# i'll implemenet a few things
+	
 	# assume it's true
 	
 	if (points.size() == 0):
@@ -61,13 +67,6 @@ func is_circle(points: Array) -> bool:
 	# distance < 90 seems fair to me
 	if (points[0].distance_to(points[points.size() - 1]) < 90 == false):
 		return false
-	
-	# There's a few things i can think of doing circle detection with an arbitrary center is 
-	# (beside online suggestions which basically suggest an optical ai model)
-	# would be to ensure that the L/R and U/D deviation is vaguely about the same
-	# and that no points are really close to this supposed center (this however would force a minimum circle size (but i don't expect that to be a problem))
-	# however, i'm just going to ensure that from point to point, there's atleast 1 vector that points in 6 different ranges, similar to the
-	# discretized spin detector
 	
 	
 	# is circle? 
@@ -150,7 +149,6 @@ func compute_circle_accuracy(points: Array) -> float:
 	# https://www.desmos.com/calculator/xtomoftjdy
 	# the base influences how fast it decreases
 	# d helps spread out this decrease
-	print("avg distance error ", error)
 	return exp(-1 * error / 80.0)
 
 func count_revolutions(points: Array) -> int:

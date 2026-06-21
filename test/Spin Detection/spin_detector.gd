@@ -26,6 +26,8 @@ var circle_distance: float = 0.0
 
 var hitbox_dictionary: Dictionary = {}
 
+@onready var center: Vector2 = get_viewport_rect().size/2
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,7 +56,7 @@ func _process(delta: float) -> void:
 			if (points.size() >= 1):
 				# this here calculates the theta difference as a percentage of a whole circle * (circumference while assuming the radius from the point before)
 				#                             v1  - center (to get it in terms of the center).angle_to(v2 - center)  / 										full turn  *   whatever circumference you'd like, smaller means smaller
-				circle_distance += ((points[points.size() - 2] - get_viewport_rect().size/2).angle_to(points[points.size() - 1] - get_viewport_rect().size/2  ))/(2*PI) * (500)
+				circle_distance += ((points[points.size() - 2] - center).angle_to(points[points.size() - 1] - center  ))/(2*PI) * (500)
 	else:
 		points = []
 		set_process(false)
@@ -188,7 +190,7 @@ func _input(event):
 func compute_circle_accuracy(points: Array) -> float:
 	# we don't need to calculate the center this time
 
-	var center = get_viewport_rect().size/2
+	var center = center
 	
 	# radius calculation
 	var radius : float = 0.0

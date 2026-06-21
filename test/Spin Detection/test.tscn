@@ -2,39 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://domx4xdpapir" path="res://icon.svg" id="1_1n1vo"]
 [ext_resource type="Script" uid="uid://bsjpglntd4iir" path="res://test/Spin Detection/spin_detector.gd" id="1_cf6ek"]
+[ext_resource type="Script" uid="uid://c312o85o185d" path="res://test/Spin Detection/sprite_2d_3.gd" id="3_c2sk5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y4jdy"]
 load_path = "res://.godot/imported/thing.png-251d80c15da259438a796f612a72b129.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l632g"]
 load_path = "res://.godot/imported/guidelines.png-da53bfb0769f5d8f0268e7181f6eac10.ctex"
-
-[sub_resource type="GDScript" id="GDScript_b3pv2"]
-script/source = "extends Sprite2D
-
-
-var pressed: bool = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	set_process(false)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	rotation = (get_global_mouse_position() - get_viewport_rect().size/2).angle()
-
-func _input(event):
-	if event.is_action(\"m1\"):
-		if (not pressed):
-			set_process(true)
-			pressed = true
-		else:
-			pressed = false
-			set_process(false)
-	
-"
 
 [node name="Test" type="Node2D" unique_id=665341579]
 script = ExtResource("1_cf6ek")
@@ -93,4 +67,4 @@ polygon = PackedVector2Array(207, -360, 0, 0, -208, -360)
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("1_1n1vo")
-script = SubResource("GDScript_b3pv2")
+script = ExtResource("3_c2sk5")
