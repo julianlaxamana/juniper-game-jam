@@ -2,12 +2,20 @@
 
 [ext_resource type="Script" uid="uid://b86ibllv5bln" path="res://test/spin.gd" id="1_2cc23"]
 [ext_resource type="Texture2D" uid="uid://cv83h4xk7h47l" path="res://Assets/hook.webp" id="2_17k7e"]
+[ext_resource type="Texture2D" uid="uid://domx4xdpapir" path="res://icon.svg" id="3_0f6el"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgm4q"]
 radius = 610.43
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gwi5"]
+radius = 59.2
+
 [node name="Node2D" type="Node2D" unique_id=845692897]
 script = ExtResource("1_2cc23")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1918182665]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox" unique_id=1430866894]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=888902458]
 position = Vector2(0.99999994, 3.8146973e-06)
@@ -36,6 +44,12 @@ points = PackedVector2Array(720, 0, 0, 0)
 width = 2.0
 default_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Line2D2" unique_id=1430866894]
+[node name="totallyfish" type="Sprite2D" parent="." unique_id=1893115715]
+position = Vector2(633.00006, 326.00003)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("3_0f6el")
 
-[connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="Area2D" type="Area2D" parent="totallyfish" unique_id=1756473930]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="totallyfish/Area2D" unique_id=1976011312]
+shape = SubResource("CircleShape2D_3gwi5")

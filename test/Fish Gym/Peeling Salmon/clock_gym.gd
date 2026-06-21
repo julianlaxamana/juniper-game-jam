@@ -12,8 +12,8 @@ var points: Array[Vector2] = []
 var revolutions: float = 0.0
 
 # https://www.desmos.com/calculator/iigrxslpgy
-# 30 seems fair to me
-var epsilon: float = 30
+# 60 feels fair to me since people are going to keep the cursor close to the center and won't really think about being precise
+var epsilon: float = 60
 var intervals: Array[float] = [-2*PI - (epsilon/360 * PI), 
 							   -2*PI + (epsilon/360 * PI), 2*PI ]
 # left win boundary + left lose boundary, right win boundary, right lose boundary

@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var line2d = $Line2D
+@onready var hitbox = $hitbox
 
 var reeled: bool = false
 
@@ -38,8 +39,30 @@ func _process(delta: float) -> void:
 		if (is_circle(line2d.points)):
 			print("circle score ", compute_circle_accuracy(line2d.points))
 			print("revolution count ", count_revolutions(line2d.points))
+			
+			#hitbox detection
+			hitbox.get_child(0).polygon = line2d.points
+			hitbox.get_child(0)
+			hitbox.area_entered.connect(_on_hitbox_area_entered.bind("hitbox_area_entered"))
+			hitbox.body_entered.connect(_on_hitbox_area_entered.bind("hitbox_area_entered"))
+			hitbox.area_shape_entered.connect(_on_hitbox_area_entered.bind("hitbox_area_shape_entered"))
+			hitbox.body_shape_entered.connect(_on_hitbox_area_entered.bind("hitbox_area_shape_entered"))
+			
+			$totallyfish/Area2D.area_entered.connect(_on_hitbox_area_entered.bind("fish_area_entered"))
+			$totallyfish/Area2D.body_entered.connect(_on_hitbox_area_entered.bind("fish_area_entered"))
+			$totallyfish/Area2D.area_shape_entered.connect(_on_hitbox_area_entered.bind("fish_area_shape_entered"))
+			$totallyfish/Area2D.body_shape_entered.connect(_on_hitbox_area_entered.bind("fish_area_shape_entered"))
+			
+			$Node2D/Area2D.area_entered.connect(_on_hitbox_area_entered.bind("hook_area_entered"))
+			$Node2D/Area2D.body_entered.connect(_on_hitbox_area_entered.bind("hook_area_entered"))
+			$Node2D/Area2D.area_shape_entered.connect(_on_hitbox_area_entered.bind("hook_area_shape_entered"))
+			$Node2D/Area2D.body_shape_entered.connect(_on_hitbox_area_entered.bind("hook_area_shape_entered"))
+			var temp = hitbox.get_child(0)
+			
 		line2d.clear_points()
 
+func _on_hitbox_area_entered(input):
+	print("CAUGHT ", input)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	reeled = true
@@ -118,7 +141,7 @@ func compute_circle_accuracy(points: Array) -> float:
 	#TODO remove this eventually
 	# visual indicator of center for now
 	var temp = Sprite2D.new()
-	add_child(temp)
+	#add_child(temp)
 	temp.texture = load("res://icon.svg")
 	temp.position = center
 	#TODO
