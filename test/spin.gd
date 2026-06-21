@@ -46,11 +46,24 @@ func _process(delta: float) -> void:
 			
 			hitbox.area_entered.connect(_on_hitbox_area_entered)
 			
+			# hitbox exists for 3 frames, long enough for the signal to proc but short enough
+			# so new fish don't enter the area
+			get_tree().create_timer(3/60.0).timeout.connect(_on_timeout)
+			
 			var temp = hitbox.get_child(0)
 			
 		line2d.clear_points()
 
+func _on_timeout():
+	hitbox.get_child(0).polygon = []
+
 func _on_hitbox_area_entered(area):
+	# the player's hook is most likely always going to be one of the 2 that get set off initially by it
+	# also, there's likely multiple fish at once also going to be caught
+	
+	# for 1, just make sure the node is actually a fish
+	# for 2, we could do a "what's closest to the center of the polygon calculation" and choose the thing with the min distance
+	# 
 	print(area)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
