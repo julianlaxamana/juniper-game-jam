@@ -8,7 +8,9 @@ const sound_dictionary = {
 		"stadium": preload("res://icon.svg"),
 		"whirlpool": preload("res://icon.svg"),
 	},
+	
 	"SFX": {
+		
 		"speak": {
 			"player": preload("res://icon.svg"),
 			"business_fish": preload("res://icon.svg"),

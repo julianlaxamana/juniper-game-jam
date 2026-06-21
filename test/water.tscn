@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1es3ktmyj4h4"]
 
-[ext_resource type="Texture2D" uid="uid://doduqlsrpfscp" path="res://assets/water.jpg" id="1_xx1sx"]
-[ext_resource type="Texture2D" uid="uid://bdul37icimjyc" path="res://assets/gurt.png" id="2_6aw2q"]
+[ext_resource type="Texture2D" uid="uid://doduqlsrpfscp" path="res://Assets/water.jpg" id="1_xx1sx"]
+[ext_resource type="Texture2D" uid="uid://bdul37icimjyc" path="res://Assets/gurt.png" id="2_6aw2q"]
 [ext_resource type="PackedScene" uid="uid://bj4mi6ukj7hwc" path="res://test/spin.tscn" id="3_kgra2"]
 [ext_resource type="PackedScene" uid="uid://c85lefw867g03" path="res://test/fish.tscn" id="4_qjf28"]
 
