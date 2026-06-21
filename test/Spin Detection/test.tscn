@@ -86,6 +86,7 @@ position = Vector2(640, 360)
 polygon = PackedVector2Array(207, -360, 0, 0, -208, -360)
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1260930160]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("4_12mbp")
 script = SubResource("GDScript_b3pv2")

@@ -2,8 +2,14 @@ extends Node2D
 
 @onready var line2d = $Line2D
 
-var reeled = false
-var circle_accuracy = 0.0
+var reeled: bool = false
+
+var current_velocity: float = 0.0
+var circle_accuracy: float = 0.0
+var revolution_count: int = 0
+var delta_theta: float = 0.0
+var center: Vector2 = Vector2(0.0, 0.0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -26,9 +32,12 @@ func _process(delta: float) -> void:
 		# only add new point if it's actually new
 		if (line2d.get_point_position(line2d.get_point_count() - 1) != get_global_mouse_position()):
 			line2d.add_point(get_global_mouse_position())
+			
+			current_velocity = Input.get_last_mouse_screen_velocity().length()
 	else:
 		if (is_circle(line2d.points)):
 			print("circle score ", compute_circle_accuracy(line2d.points))
+			print("revolution count ", count_revolutions(line2d.points))
 		line2d.clear_points()
 
 
@@ -50,7 +59,6 @@ func is_circle(points: Array) -> bool:
 		
 	# check if the endpoints are close to eachother, we can save compute if they aren't
 	# distance < 90 seems fair to me
-	print(points[0].distance_to(points[points.size() - 1]))
 	if (points[0].distance_to(points[points.size() - 1]) < 90 == false):
 		return false
 	
@@ -62,39 +70,44 @@ func is_circle(points: Array) -> bool:
 	# discretized spin detector
 	
 	
-	# is circle? 6 regions like last time, 1 2 3 4 5 6
-	#                     1       2      3       4       5      6
-	var direction_bins = [false, false, false, false, false, false]
-
+	# is circle? 
+	# bins should actually be something fairly low because too high would mean that nearly every direction needs to be covered
+	# which means it needs to be a nearly perfect circle 
+	# but because the game runs well enough, the delta_x and delta_y's are only a few pixels in each direction
+	# which means there won't be a lot of possible theta values we get out
+	var bins: int = 6
+	var direction_intervals: Array[float] = []
+	direction_intervals.resize(bins + 1)
+	
+	var direction_booleans: Array[bool] = []
+	direction_booleans.resize(bins)
+	direction_booleans.fill(false)
+	
+	
+	for i in range(bins):
+		direction_intervals[i] = -PI + (2.0 * PI / float(bins)) * i
+	direction_intervals[-1] = PI
+	
 	for i in range(line2d.get_point_count()):
 		# create vector pointing towards next point and then take it's angle (computes arctan y/x)
 		var direction = line2d.get_point_position(i).direction_to(line2d.get_point_position(i+1)).angle()
 		
-		# we aren't computing the vector direction from the end point to the start but 
-		# the bins are really wide so this shouldn't be a problem
-		
-		# going from left to right in interval starts with region 3
-		if ((-PI <= direction) and (direction < -2*PI/3)):
-			direction_bins[2] = true
-		elif ((-2*PI/3 <= direction) and (direction < -PI/3)):
-			direction_bins[1] = true
-		elif ((-PI/3 <= direction) and (direction < 0)):
-			direction_bins[0] = true
-		elif ((0 <= direction) and (direction < PI/3)):
-			direction_bins[5] = true
-		elif ((PI/3 <= direction) and (direction < 2*PI/3)):
-			direction_bins[4] = true
-		elif ((2*PI/3 <= direction) and (direction < PI)):
-			direction_bins[3] = true
+		for j in range(direction_intervals.size() - 1):
+			if ((direction_intervals[j] < direction) and (direction < direction_intervals[j + 1])):
+				direction_booleans[j] = true
 
-	# final pass
-	return (direction_bins[0] and direction_bins[1] and direction_bins[2] and direction_bins[3] and direction_bins[4] and direction_bins[5])
+	for b in direction_booleans:
+		if (b == false):
+			print("FALSE")
+			return false
+
+	return true
 
 # helper function that 
 # given an array of Vector2 (points)
 # outputs a percentage
 func compute_circle_accuracy(points: Array) -> float:
-	var center = Vector2(0.0, 0.0)
+	center = Vector2(0.0, 0.0)
 	
 	# we'll favor the player and calculate the radius and center that will minimize the average distance during computation
 	for p in points:
@@ -140,3 +153,13 @@ func compute_circle_accuracy(points: Array) -> float:
 	# d helps spread out this decrease
 	print("avg distance error ", error)
 	return exp(-1 * error / 80.0)
+
+func count_revolutions(points: Array) -> int:
+	delta_theta = 0
+	# this here calculates the theta difference as a percentage of a whole circle * (circumference while assuming the radius from the point before)
+	#                             v1  - center (to get it in terms of the center).angle_to(v2 - center)
+	for i in (points.size() - 1):
+		delta_theta += (points[i] - center).angle_to(points[i+1] - center)
+
+	revolution_count = roundi(delta_theta / (2*PI))
+	return revolution_count
