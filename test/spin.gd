@@ -43,28 +43,18 @@ func _process(delta: float) -> void:
 			#hitbox detection
 			hitbox.get_child(0).polygon = line2d.points
 			hitbox.get_child(0)
-			hitbox.area_entered.connect(_on_hitbox_area_entered.bind("hitbox_area_entered"))
-			hitbox.body_entered.connect(_on_hitbox_area_entered.bind("hitbox_area_entered"))
-			hitbox.area_shape_entered.connect(_on_hitbox_area_entered.bind("hitbox_area_shape_entered"))
-			hitbox.body_shape_entered.connect(_on_hitbox_area_entered.bind("hitbox_area_shape_entered"))
 			
-			$totallyfish/Area2D.area_entered.connect(_on_hitbox_area_entered.bind("fish_area_entered"))
-			$totallyfish/Area2D.body_entered.connect(_on_hitbox_area_entered.bind("fish_area_entered"))
-			$totallyfish/Area2D.area_shape_entered.connect(_on_hitbox_area_entered.bind("fish_area_shape_entered"))
-			$totallyfish/Area2D.body_shape_entered.connect(_on_hitbox_area_entered.bind("fish_area_shape_entered"))
+			hitbox.area_entered.connect(_on_hitbox_area_entered)
 			
-			$Node2D/Area2D.area_entered.connect(_on_hitbox_area_entered.bind("hook_area_entered"))
-			$Node2D/Area2D.body_entered.connect(_on_hitbox_area_entered.bind("hook_area_entered"))
-			$Node2D/Area2D.area_shape_entered.connect(_on_hitbox_area_entered.bind("hook_area_shape_entered"))
-			$Node2D/Area2D.body_shape_entered.connect(_on_hitbox_area_entered.bind("hook_area_shape_entered"))
 			var temp = hitbox.get_child(0)
 			
 		line2d.clear_points()
 
-func _on_hitbox_area_entered(input):
-	print("CAUGHT ", input)
+func _on_hitbox_area_entered(area):
+	print(area)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
 	reeled = true
 	print($"Node2D".get_child(1))
 	area.get_parent().reparent($"Node2D")
