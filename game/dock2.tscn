@@ -1,12 +1,27 @@
 [gd_scene format=3 uid="uid://covakd4i810lh"]
 
 [ext_resource type="Shader" uid="uid://biobl5ygfj58r" path="res://game/water.gdshader" id="1_8l8rx"]
+[ext_resource type="Script" uid="uid://qclxkjg1qfhd" path="res://game/bobber.gd" id="1_8v7ur"]
 [ext_resource type="Shader" uid="uid://ckpyqx4tqwst" path="res://game/sky.gdshader" id="2_bptbs"]
+[ext_resource type="Script" uid="uid://idq1f1kjm40m" path="res://game/water.gd" id="3_ac0r2"]
 [ext_resource type="Script" uid="uid://bek4epnr57bbw" path="res://game/test.gd" id="4_8v7ur"]
 [ext_resource type="PackedScene" uid="uid://bc1872p5pqvv5" path="res://game/fisher.tscn" id="4_bptbs"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_rgm4q"]
+size = Vector2(7, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5auy4"]
+size = Vector3(7, 0, 12)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dwvqn"]
+radius = 0.25
+
+[sub_resource type="SphereMesh" id="SphereMesh_pgrle"]
+radius = 0.25
+height = 0.5
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgrle"]
-size = Vector3(7.897888, 4.6641846, 10.216858)
+size = Vector3(7.897888, 4.6641846, 6.539093)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdnvl"]
 render_priority = 0
@@ -35,11 +50,11 @@ size = Vector2(5, 5)
 subdivide_width = 5
 subdivide_depth = 5
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rgm4q"]
-size = Vector2(0.3, 0.6)
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ik0m"]
+size = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ci1tc"]
-size = Vector3(5, 0.5, 5)
+size = Vector3(20, 5, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rgm4q"]
 
@@ -84,11 +99,33 @@ ambient_light_source = 3
 
 [node name="Dock" type="Node3D" unique_id=1810924153]
 
+[node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=1634958208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022319794, -0.03853321, -15.138624)
+gravity_scale = 0.0
+freeze = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" unique_id=215667978]
+mesh = SubResource("PlaneMesh_rgm4q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=1894211990]
+shape = SubResource("BoxShape3D_5auy4")
+
+[node name="Bobber" type="RigidBody3D" parent="." unique_id=1614339537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.460903, -8.972204)
+mass = 0.25
+linear_damp = 2.0
+script = ExtResource("1_8v7ur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bobber" unique_id=1093353436]
+shape = SubResource("SphereShape3D_dwvqn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bobber" unique_id=22472698]
+mesh = SubResource("SphereMesh_pgrle")
+
 [node name="Area3D" type="Area3D" parent="." unique_id=352609884]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.791729, -15.535793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9198704, -18.240063)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=498886903]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9343739, 0)
 shape = SubResource("BoxShape3D_pgrle")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=2084215699]
@@ -103,15 +140,19 @@ radius = 0.02
 transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 0.010217667, -3.0037947, -22.478191)
 mesh = SubResource("PlaneMesh_x40tj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=215667978]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 0.022319794, -0.03853321, -15.138624)
-mesh = SubResource("PlaneMesh_rgm4q")
+[node name="Area3D" type="Area3D" parent="Water" unique_id=1251731826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4874048, 0)
+script = ExtResource("3_ac0r2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Area3D" unique_id=1970575677]
+shape = SubResource("BoxShape3D_3ik0m")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=545305540]
 gravity_scale = 0.0
+freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1773273557]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -2.532692, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.532692, 0.14282227)
 shape = SubResource("BoxShape3D_ci1tc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1499258906]
@@ -149,5 +190,4 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="body_entered" from="Area3D" to="Control" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="Control" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Water/Area3D" to="Bobber" method="_on_area_3d_body_entered"]
