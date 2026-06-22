@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doduqlsrpfscp"
-path="res://.godot/imported/water.jpg-f93d3cabbd892bfaae6231801493664d.ctex"
+uid="uid://cojpnncni2oaq"
+path="res://.godot/imported/rod.webp-13d989abb8d0867be7617fa708021dc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/water.jpg"
-dest_files=["res://.godot/imported/water.jpg-f93d3cabbd892bfaae6231801493664d.ctex"]
+source_file="res://assets/rod.webp"
+dest_files=["res://.godot/imported/rod.webp-13d989abb8d0867be7617fa708021dc6.ctex"]
 
 [params]
 

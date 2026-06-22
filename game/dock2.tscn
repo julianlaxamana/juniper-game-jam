@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://covakd4i810lh"]
+
+[ext_resource type="Shader" uid="uid://biobl5ygfj58r" path="res://game/water.gdshader" id="1_8l8rx"]
+[ext_resource type="Shader" uid="uid://ckpyqx4tqwst" path="res://game/sky.gdshader" id="2_bptbs"]
+[ext_resource type="Script" uid="uid://idq1f1kjm40m" path="res://game/water.gd" id="3_ac0r2"]
+[ext_resource type="Script" uid="uid://bek4epnr57bbw" path="res://game/test.gd" id="4_8v7ur"]
+[ext_resource type="PackedScene" uid="uid://bc1872p5pqvv5" path="res://game/fisher.tscn" id="4_bptbs"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rgm4q"]
+size = Vector2(7, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5auy4"]
+size = Vector3(7, 0, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pgrle"]
+size = Vector3(7.897888, 4.6641846, 6.539093)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdnvl"]
+render_priority = 0
+shader = ExtResource("1_8l8rx")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_amplitude = 0.25
+shader_parameter/wave_frequency = 0.5
+shader_parameter/time_offset = 0.0
+shader_parameter/water_size = Vector2(128, 128)
+shader_parameter/water_transparency = 0.8
+shader_parameter/water_depth_factor = 0.1
+shader_parameter/foam_width = 0.5
+shader_parameter/foam_edge_softness = 0.05
+shader_parameter/foam_smoothness = 0.03
+shader_parameter/foam_distortion_speed = 0.5
+shader_parameter/foam_distortion_amount = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x40tj"]
+material = SubResource("ShaderMaterial_gdnvl")
+size = Vector2(5, 5)
+subdivide_width = 5
+subdivide_depth = 5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ik0m"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ci1tc"]
+size = Vector3(20, 5, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rgm4q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_if17d"]
+shader = ExtResource("2_bptbs")
+shader_parameter/day_top_color = Color(0.59023905, 0.79918987, 0.9594732, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.20999999530608
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.32500001473898
+shader_parameter/sun_blur = 10.24100048574898
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_ci1tc"]
+sky_material = SubResource("ShaderMaterial_if17d")
+
+[sub_resource type="Environment" id="Environment_rgm4q"]
+background_mode = 2
+sky = SubResource("Sky_ci1tc")
+ambient_light_source = 3
+
+[node name="Dock" type="Node3D" unique_id=1810924153]
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=1634958208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022319794, -0.03853321, -15.138624)
+gravity_scale = 0.0
+freeze = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" unique_id=215667978]
+mesh = SubResource("PlaneMesh_rgm4q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=1894211990]
+shape = SubResource("BoxShape3D_5auy4")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=352609884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9198704, -18.240063)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=498886903]
+shape = SubResource("BoxShape3D_pgrle")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=2084215699]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, -2.4843993, -5.0570736, -19.684391)
+radius = 0.02
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=827088633]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 2.483869, -5.0570736, -19.684391)
+radius = 0.02
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=214351770]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 0.010217667, -3.0037947, -22.478191)
+mesh = SubResource("PlaneMesh_x40tj")
+
+[node name="Area3D" type="Area3D" parent="Water" unique_id=1251731826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4874048, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_ac0r2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Area3D" unique_id=1970575677]
+shape = SubResource("BoxShape3D_3ik0m")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=545305540]
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1773273557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.532692, 0.14282227)
+shape = SubResource("BoxShape3D_ci1tc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1499258906]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 0.022319794, -2.5326958, 0.06012726)
+mesh = SubResource("BoxMesh_rgm4q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2137278675]
+transform = Transform3D(1, 0, 0, 0, 0.9625482, 0.27111068, 0, -0.27111068, 0.9625482, 0, 12.74988, 0)
+light_energy = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=623507848]
+environment = SubResource("Environment_rgm4q")
+
+[node name="CharacterBody3D" parent="." unique_id=1291809336 instance=ExtResource("4_bptbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4353603, -0.032692075, -0.8715949)
+
+[node name="Control" type="Control" parent="." unique_id=1445944531]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1279.0
+offset_bottom = 721.0
+mouse_filter = 2
+script = ExtResource("4_8v7ur")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=998331365]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 488.0
+offset_top = 506.0
+offset_right = 788.0
+offset_bottom = 613.0
+text = "press e to cast ur rod"
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
