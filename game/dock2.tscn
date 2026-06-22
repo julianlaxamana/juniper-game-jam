@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://covakd4i810lh"]
 
 [ext_resource type="Shader" uid="uid://biobl5ygfj58r" path="res://game/water.gdshader" id="1_8l8rx"]
-[ext_resource type="Script" uid="uid://qclxkjg1qfhd" path="res://game/bobber.gd" id="1_8v7ur"]
 [ext_resource type="Shader" uid="uid://ckpyqx4tqwst" path="res://game/sky.gdshader" id="2_bptbs"]
 [ext_resource type="Script" uid="uid://idq1f1kjm40m" path="res://game/water.gd" id="3_ac0r2"]
 [ext_resource type="Script" uid="uid://bek4epnr57bbw" path="res://game/test.gd" id="4_8v7ur"]
@@ -12,13 +11,6 @@ size = Vector2(7, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5auy4"]
 size = Vector3(7, 0, 12)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_dwvqn"]
-radius = 0.25
-
-[sub_resource type="SphereMesh" id="SphereMesh_pgrle"]
-radius = 0.25
-height = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgrle"]
 size = Vector3(7.897888, 4.6641846, 6.539093)
@@ -110,18 +102,6 @@ mesh = SubResource("PlaneMesh_rgm4q")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=1894211990]
 shape = SubResource("BoxShape3D_5auy4")
 
-[node name="Bobber" type="RigidBody3D" parent="." unique_id=1614339537]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.460903, -8.972204)
-mass = 0.25
-linear_damp = 2.0
-script = ExtResource("1_8v7ur")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bobber" unique_id=1093353436]
-shape = SubResource("SphereShape3D_dwvqn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bobber" unique_id=22472698]
-mesh = SubResource("SphereMesh_pgrle")
-
 [node name="Area3D" type="Area3D" parent="." unique_id=352609884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9198704, -18.240063)
 
@@ -142,6 +122,8 @@ mesh = SubResource("PlaneMesh_x40tj")
 
 [node name="Area3D" type="Area3D" parent="Water" unique_id=1251731826]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4874048, 0)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("3_ac0r2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Area3D" unique_id=1970575677]
@@ -189,5 +171,3 @@ text = "press e to cast ur rod"
 shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="body_entered" from="Water/Area3D" to="Bobber" method="_on_area_3d_body_entered"]

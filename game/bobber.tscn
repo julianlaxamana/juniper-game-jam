@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://clm1h0grs6naj"]
+
+[ext_resource type="Script" uid="uid://qclxkjg1qfhd" path="res://game/bobber.gd" id="1_s1dgs"]
+[ext_resource type="Shader" uid="uid://c54x250v4elqg" path="res://game/bobber.gdshader" id="2_7gnix"]
+[ext_resource type="Texture2D" uid="uid://cv83h4xk7h47l" path="res://assets/hook.webp" id="3_sh6my"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dwvqn"]
+radius = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5rnj"]
+render_priority = 0
+shader = ExtResource("2_7gnix")
+
+[sub_resource type="SphereMesh" id="SphereMesh_pgrle"]
+material = SubResource("ShaderMaterial_j5rnj")
+radius = 0.25
+height = 0.5
+
+[node name="Bobber" type="RigidBody3D" unique_id=1662215049]
+collision_layer = 2
+collision_mask = 2
+mass = 0.25
+linear_damp = 1.0
+script = ExtResource("1_s1dgs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1017798273]
+shape = SubResource("SphereShape3D_dwvqn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=949523554]
+mesh = SubResource("SphereMesh_pgrle")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=837800578]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.3735019, 0)
+texture = ExtResource("3_sh6my")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1595612722]
+transform = Transform3D(-0.997247, -5.5725518e-09, 0.07415217, 0.02310304, 0.95022565, 0.31070495, -0.07046128, 0.3115627, -0.94760966, 0.040516853, 1.0825415, -4.347761)
