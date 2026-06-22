@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://1d7e7wsn0h8j"]
+
+[ext_resource type="Texture2D" uid="uid://cjh2erbhge31n" path="res://test/Fish Gym/Soccer/square.png" id="1_1sw0s"]
+[ext_resource type="Texture2D" uid="uid://djd80foy26awy" path="res://test/Fish Gym/Soccer/leg.png" id="2_bktqm"]
+
+[sub_resource type="GDScript" id="GDScript_3gwi5"]
+script/source = "extends Node2D
+
+@onready var bar = $ColorRect
+@onready var leg = $Leg
+
+# to keep the bar a certain size
+const max_size: int = 974
+var initial_position = null
+
+
+var pressed: bool = false
+var angular_velocity: float = 0.0
+var velocity_minimum: float = 14
+var scaler: float = 1.0/7
+#var previous_angle: float = 0.0
+var previous_coordinate: Vector2 = Vector2.ZERO
+
+@export var smoothing_curve : Curve
+var squish = .2
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	initial_position = bar.position
+	bar.size.x = 0
+	bar.color = Color.from_hsv(0.0, 0.68, 0.83, 1.0)
+	pass # Replace with function body.
+
+
+var averager = []
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if (pressed):
+		var location = get_global_mouse_position() - leg.position
+		
+		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
+		
+		#angular_velocity = (leg.rotation - previous_angle) / delta
+		#averager.append((leg.rotation - previous_angle) / delta)
+		
+		angular_velocity = ((previous_coordinate.angle_to(location)) / delta)
+		
+		#averager.append((previous_coordinate.angle_to(location)) / delta)
+		
+		## number here is how many frames you want to average over
+		#if (averager.size() == 6):
+			#
+			## calculated average, this specifically is a lambda function
+			## .reduce runs a function on every element
+			#angular_velocity = averager.reduce(func(accum, number): return accum + number)/averager.size()
+			
+			
+			#if (angular_velocity > velocity_minimum):
+				#print(\"winning \", angular_velocity)
+			#else:
+				#print(\"LOSING \", angular_velocity)
+			
+		if (angular_velocity > velocity_minimum):
+			
+			print(\"winning \", angular_velocity)
+		else:
+			print(\"LOSING \", angular_velocity)
+			
+			#averager = []
+			
+			
+		#if (angular_velocity > velocity_minimum):
+			#print(\"winning \", angular_velocity)
+		#else:
+			#print(\"LOSING \", angular_velocity)
+		
+		bar.size.x += angular_velocity * scaler
+		
+		# update
+		#previous_angle = leg.rotation
+		previous_coordinate = location
+	bar.size.x -= velocity_minimum * scaler
+	bar.size.x = clampf(bar.size.x, 0, max_size)
+	
+	# aesthetics
+	bar.color = Color.from_hsv((bar.size.x / float(max_size) * 60)/360.0, 0.68, 0.83, 1.0)
+	
+	var percent = bar.size.x / float(max_size)
+	bar.position = initial_position + Vector2(randi_range(-5, 5), randi_range(-5, 5)) * smoothing_curve.sample(percent)
+	
+	# this is linear right not but can become cubic
+	leg.scale.y = 1 - (squish * smoothing_curve.sample(percent))
+	leg.scale.x = 1 + (squish * smoothing_curve.sample(percent))
+	
+	
+
+#contorlling minute hand
+func _input(event):
+	if event.is_action(\"m1\"):
+		if (not pressed):
+			pressed = true
+
+			#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
+			#previous_angle = leg.rotation
+			
+			previous_coordinate = get_global_mouse_position() - leg.position
+			
+		else:
+			pressed = false
+			
+	#if event is InputEventMouseMotion and pressed:
+		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
+		#previous_angle = leg.rotation
+"
+
+[sub_resource type="Curve" id="Curve_3gwi5"]
+_data = [Vector2(0, 0), 0.0, 0.09517513, 0, 0, Vector2(1, 1), 1.6932318, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_count = 2
+
+[node name="SoccerGym" type="Node2D" unique_id=1576657110]
+script = SubResource("GDScript_3gwi5")
+smoothing_curve = SubResource("Curve_3gwi5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=279971456]
+offset_left = 153.0
+offset_top = 93.0
+offset_right = 187.22
+offset_bottom = 173.0
+color = Color(0.83, 0.2656, 0.2656, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect" unique_id=176101985]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = -13.0
+offset_top = -13.057999
+offset_right = 987.0
+offset_bottom = 92.941925
+texture = ExtResource("1_1sw0s")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Leg" type="Sprite2D" parent="." unique_id=2023722982]
+position = Vector2(770, 566)
+texture = ExtResource("2_bktqm")
