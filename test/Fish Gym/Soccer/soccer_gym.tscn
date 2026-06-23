@@ -2,12 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://cjh2erbhge31n" path="res://test/Fish Gym/Soccer/square.png" id="1_1sw0s"]
 [ext_resource type="Texture2D" uid="uid://djd80foy26awy" path="res://test/Fish Gym/Soccer/leg.png" id="2_bktqm"]
+[ext_resource type="Texture2D" uid="uid://domx4xdpapir" path="res://icon.svg" id="3_02obd"]
 
 [sub_resource type="GDScript" id="GDScript_3gwi5"]
 script/source = "extends Node2D
 
 @onready var bar = $ColorRect
 @onready var leg = $Leg
+@onready var goalie = $Path2D/PathFollow2D
+
+var intervals = [.333, .666]
 
 # to keep the bar a certain size
 const max_size: int = 974
@@ -21,8 +25,11 @@ var scaler: float = 1.0/7
 #var previous_angle: float = 0.0
 var previous_coordinate: Vector2 = Vector2.ZERO
 
+
+
+
 @export var smoothing_curve : Curve
-var squish = .2
+var squish = .25
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -80,6 +87,8 @@ func _process(delta: float) -> void:
 		# update
 		#previous_angle = leg.rotation
 		previous_coordinate = location
+		
+		
 	bar.size.x -= velocity_minimum * scaler
 	bar.size.x = clampf(bar.size.x, 0, max_size)
 	
@@ -109,6 +118,13 @@ func _input(event):
 		else:
 			pressed = false
 			
+			
+
+			
+			if ( (bar.size.x / float(max_size) > .98) and
+				((goalie.progress_ratio < intervals[0]) or (intervals[1] < goalie.progress_ratio)) ):
+				print(\"BIG WIN\")
+			
 	#if event is InputEventMouseMotion and pressed:
 		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
 		#previous_angle = leg.rotation
@@ -118,6 +134,37 @@ func _input(event):
 _data = [Vector2(0, 0), 0.0, 0.09517513, 0, 0, Vector2(1, 1), 1.6932318, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_bktqm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 220, 299, 0, 0, 0, 0, 1104, 299)
+}
+point_count = 2
+
+[sub_resource type="GDScript" id="GDScript_b3pv2"]
+script/source = "extends PathFollow2D
+
+var go_right = true
+var speed_scaler: float = .8
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if (go_right): 
+		progress_ratio += delta * speed_scaler
+		
+		if (progress_ratio == 1):
+			go_right = false
+	else:
+		progress_ratio -= delta * speed_scaler
+		
+		if (progress_ratio == 0):
+			go_right = true
+"
 
 [node name="SoccerGym" type="Node2D" unique_id=1576657110]
 script = SubResource("GDScript_3gwi5")
@@ -147,3 +194,14 @@ patch_margin_bottom = 8
 [node name="Leg" type="Sprite2D" parent="." unique_id=2023722982]
 position = Vector2(770, 566)
 texture = ExtResource("2_bktqm")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1653691701]
+curve = SubResource("Curve2D_bktqm")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=143235321]
+position = Vector2(220, 299)
+loop = false
+script = SubResource("GDScript_b3pv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=1641171072]
+texture = ExtResource("3_02obd")

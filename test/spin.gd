@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 			
 			# hitbox exists for 3 frames, long enough for the signal to proc but short enough
 			# so new fish don't enter the area
-			get_tree().create_timer(3/60.0).timeout.connect(_on_timeout)
+			#get_tree().create_timer(3/60.0).timeout.connect(_on_timeout)
 			
 			var temp = hitbox.get_child(0)
 			
