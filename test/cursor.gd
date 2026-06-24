@@ -5,6 +5,11 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 func _process(delta: float) -> void:
+	if get_parent().caught:
+		$FishHook.global_position = lerp($FishHook.global_position, Vector2(640, 0), 0.075)
+		$Line2D.points = [$Line2D.points[0], $FishHook/Node2D.global_position]
+		return
+		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		$enclose.add_point(get_global_mouse_position())
 		$enclose2.add_point(get_global_mouse_position())
