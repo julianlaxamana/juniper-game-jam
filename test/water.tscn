@@ -70,6 +70,10 @@ script = ExtResource("3_o8mdw")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cursor/Area2D" unique_id=1662092975]
 scale = Vector2(0.99999994, 0.99999994)
 
+[node name="Timer" type="Timer" parent="Cursor/Area2D" unique_id=960129803]
+wait_time = 0.1
+one_shot = true
+
 [node name="FishHook" type="Sprite2D" parent="Cursor" unique_id=566435158]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_qjf28")
@@ -98,3 +102,4 @@ width_curve = SubResource("Curve_qjf28")
 
 [connection signal="area_shape_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_2d_area_shape_entered"]
 [connection signal="body_shape_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_2d_body_shape_entered"]
+[connection signal="timeout" from="Cursor/Area2D/Timer" to="Cursor" method="_on_timer_timeout"]

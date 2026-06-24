@@ -4,7 +4,7 @@ extends Node2D
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		$enclose.add_point(get_global_mouse_position())
 		$enclose2.add_point(get_global_mouse_position())
@@ -13,7 +13,9 @@ func _process(delta: float) -> void:
 		$enclose2.points = []
 	if line_intersects_itself($enclose.points):
 		var convex = Geometry2D.convex_hull($enclose.points)
-		$Area2D/CollisionPolygon2D.polygon = convex
+		if len(convex) > 10:
+			$Area2D/CollisionPolygon2D.polygon = convex
+			$Area2D/Timer.start()
 		$enclose.points = []
 		$enclose2.points = []
 
@@ -55,4 +57,9 @@ func segments_intersect(a1: Vector2, a2: Vector2, b1: Vector2, b2: Vector2) -> b
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("fih"):
 		body.damage(10)
+	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	$Area2D/CollisionPolygon2D.polygon = []
 	pass # Replace with function body.

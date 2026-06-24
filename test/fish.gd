@@ -8,6 +8,9 @@ func _process(delta: float) -> void:
 	elif linear_velocity.x > 0:
 		$MinnowWorkerNormalSticker.scale.x = lerp($MinnowWorkerNormalSticker.scale.x, -0.2, 0.5)
 	$ProgressBar.value = health / 2.0
+	
+	if health > 200:
+		get_parent().queue_free()
 	pass
 
 
