@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doduqlsrpfscp"
-path="res://.godot/imported/water.jpg-f93d3cabbd892bfaae6231801493664d.ctex"
+uid="uid://nxfxhceuqsxk"
+path="res://.godot/imported/PEELING_SALMON_STICKER.png-f81a09b03ce6ef359d78da591675fd81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/water.jpg"
-dest_files=["res://.godot/imported/water.jpg-f93d3cabbd892bfaae6231801493664d.ctex"]
+source_file="res://assets/PEELING_SALMON_STICKER.png"
+dest_files=["res://.godot/imported/PEELING_SALMON_STICKER.png-f81a09b03ce6ef359d78da591675fd81.ctex"]
 
 [params]
 

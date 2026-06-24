@@ -11,6 +11,10 @@ size = Vector2(73, 757.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5auy4"]
 size = Vector2(1323, 20)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgrle"]
+radius = 335.82
+height = 893.67
+
 [sub_resource type="Curve" id="Curve_qjf28"]
 _data = [Vector2(0, 1), 0.0, -2.8714101, 0, 0, Vector2(1, 0.22471917), 0.05480951, 0.0, 0, 0]
 point_count = 2
@@ -22,12 +26,8 @@ position = Vector2(639.9444, 359.75003)
 scale = Vector2(0.6667245, 0.66712964)
 texture = ExtResource("1_fycyv")
 
-[node name="fih" parent="." unique_id=137526851 groups=["fih"] instance=ExtResource("3_j57go")]
+[node name="fih" parent="." unique_id=137526851 instance=ExtResource("3_j57go")]
 position = Vector2(126.51, 500)
-lock_rotation = true
-
-[node name="fih2" parent="." unique_id=2043730164 groups=["fih"] instance=ExtResource("3_j57go")]
-position = Vector2(321, 280)
 lock_rotation = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=8417957]
@@ -77,6 +77,11 @@ texture = ExtResource("3_qjf28")
 [node name="Node2D" type="Node2D" parent="Cursor/FishHook" unique_id=1662586676]
 position = Vector2(9.545, -338.905)
 
+[node name="Area2D" type="Area2D" parent="Cursor/FishHook" unique_id=46768041]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/FishHook/Area2D" unique_id=554252113]
+shape = SubResource("CapsuleShape2D_pgrle")
+
 [node name="Line2D" type="Line2D" parent="Cursor" unique_id=1421866472]
 points = PackedVector2Array(640, 0, 0, 0)
 width = 1.0
@@ -95,6 +100,3 @@ self_modulate = Color(0.20819649, 0.39705575, 0.39012074, 1)
 top_level = true
 width = 5.0
 width_curve = SubResource("Curve_qjf28")
-
-[connection signal="area_shape_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_2d_area_shape_entered"]
-[connection signal="body_shape_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_2d_body_shape_entered"]

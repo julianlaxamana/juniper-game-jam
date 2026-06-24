@@ -3,7 +3,9 @@ extends Control
 @onready var area = $"../Area3D"
 @onready var fisher = $"../CharacterBody3D"
 const BOBBER = preload("res://game/bobber.tscn")
+const FISH = preload("res://test/water.tscn")
 
+var currBobber = null
 func _ready() -> void:
 	area.body_entered.connect(_on_area_3d_body_entered)
 	area.body_exited.connect(_on_area_3d_body_exited)
@@ -18,6 +20,17 @@ func _process(delta: float) -> void:
 		bobber_instance.global_position = fisher.global_position
 		bobber_instance.apply_force(-300.0 * $"../CharacterBody3D".head.transform.basis.z)
 		bobber_instance.apply_force(Vector3(0.0, 250.0, 0.0))
+		currBobber = bobber_instance
+		
+	if Input.is_action_just_pressed("q") and currBobber != null and currBobber.tickle:
+		$AnimationPlayer.play('dissolbe')
+		await $AnimationPlayer.animation_finished
+		var fish = FISH.instantiate()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		$"../Node2D".add_child(fish)
+		$AnimationPlayer.play_backwards('dissolbe')
+		
+		
 		
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:

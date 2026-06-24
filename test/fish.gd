@@ -1,12 +1,23 @@
-extends Node2D
+extends RigidBody2D
+
+var health = 0.0
+
+func _process(delta: float) -> void:
+	if linear_velocity.x < 0:
+		$MinnowWorkerNormalSticker.scale.x = lerp($MinnowWorkerNormalSticker.scale.x, 0.2, 0.5)
+	elif linear_velocity.x > 0:
+		$MinnowWorkerNormalSticker.scale.x = lerp($MinnowWorkerNormalSticker.scale.x, -0.2, 0.5)
+	$ProgressBar.value = health / 2.0
+	pass
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+
+func _on_timer_timeout() -> void:
+	$Timer.wait_time = randf_range(1.0, 2.5)
+	if randi() % 2 == 1:
+		linear_velocity = Vector2.from_angle(randf_range(-2 * PI, 2 * PI)) * randf_range(100.0, 200.0)
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	position.x += 1
-	pass
+func damage(dmg: float) -> void:
+	print(health)
+	health += dmg

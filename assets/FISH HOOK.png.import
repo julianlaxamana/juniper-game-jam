@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doduqlsrpfscp"
-path="res://.godot/imported/water.jpg-f93d3cabbd892bfaae6231801493664d.ctex"
+uid="uid://dqaxft405ujmt"
+path="res://.godot/imported/FISH HOOK.png-b8c21fe73b13a25c0e0ec81794da8678.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/water.jpg"
-dest_files=["res://.godot/imported/water.jpg-f93d3cabbd892bfaae6231801493664d.ctex"]
+source_file="res://assets/FISH HOOK.png"
+dest_files=["res://.godot/imported/FISH HOOK.png-b8c21fe73b13a25c0e0ec81794da8678.ctex"]
 
 [params]
 

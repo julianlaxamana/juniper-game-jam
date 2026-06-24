@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doduqlsrpfscp"
-path="res://.godot/imported/water.jpg-f93d3cabbd892bfaae6231801493664d.ctex"
+uid="uid://ws57b2yl4skw"
+path="res://.godot/imported/MINNOW_WORKER_NORMAL_STICKER.png-9b928be93cd97ef7ed5d672fe4bb738e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/water.jpg"
-dest_files=["res://.godot/imported/water.jpg-f93d3cabbd892bfaae6231801493664d.ctex"]
+source_file="res://assets/MINNOW_WORKER_NORMAL_STICKER.png"
+dest_files=["res://.godot/imported/MINNOW_WORKER_NORMAL_STICKER.png-9b928be93cd97ef7ed5d672fe4bb738e.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3arvewhxycs8"
-path="res://.godot/imported/Grass-Buttons-arrow.png-a2214eec559e2a9b7c91399ce17cadba.ctex"
+path="res://.godot/imported/Grass-Buttons-arrow.png-851c5dce39f3455328f4834396dc60a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Grass-Buttons-arrow.png"
-dest_files=["res://.godot/imported/Grass-Buttons-arrow.png-a2214eec559e2a9b7c91399ce17cadba.ctex"]
+source_file="res://assets/Grass-Buttons-arrow.png"
+dest_files=["res://.godot/imported/Grass-Buttons-arrow.png-851c5dce39f3455328f4834396dc60a9.ctex"]
 
 [params]
 

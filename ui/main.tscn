@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dost47d8gwtew"]
 
 [ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="1_fblgx"]
+[ext_resource type="Script" uid="uid://be0ho637bh08t" path="res://ui/main.gd" id="1_loxbi"]
 [ext_resource type="PackedScene" uid="uid://c6fv1xbnpnkir" path="res://game/dock.tscn" id="2_vcrq8"]
 
 [node name="Main" type="Control" unique_id=157118352]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_loxbi")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=59181791]
 layout_mode = 0
@@ -46,3 +48,5 @@ theme_override_font_sizes/font_size = 40
 text = "credits"
 
 [node name="Dock" parent="." unique_id=1810924153 instance=ExtResource("2_vcrq8")]
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
