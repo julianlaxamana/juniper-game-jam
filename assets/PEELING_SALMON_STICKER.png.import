@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nxfxhceuqsxk"
-path="res://.godot/imported/PEELING_SALMON_STICKER.png-f81a09b03ce6ef359d78da591675fd81.ctex"
+path="res://.godot/imported/PEELING_SALMON_STICKER.png-ad5c6a8a764b2c7bc104b355c11ac853.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PEELING_SALMON_STICKER.png"
-dest_files=["res://.godot/imported/PEELING_SALMON_STICKER.png-f81a09b03ce6ef359d78da591675fd81.ctex"]
+source_file="res://Assets/PEELING_SALMON_STICKER.png"
+dest_files=["res://.godot/imported/PEELING_SALMON_STICKER.png-ad5c6a8a764b2c7bc104b355c11ac853.ctex"]
 
 [params]
 

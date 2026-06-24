@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojpnncni2oaq"
-path="res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"
+uid="uid://c2bf6ysd16kjo"
+path="res://.godot/imported/PEELING_SALMON_STICKER.png-b7c0993d4323a56c19c68c25ffdc109e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rod.webp"
-dest_files=["res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"]
+source_file="res://Scenes/Fish/Peeling Salmon/Assets/PEELING_SALMON_STICKER.png"
+dest_files=["res://.godot/imported/PEELING_SALMON_STICKER.png-b7c0993d4323a56c19c68c25ffdc109e.ctex"]
 
 [params]
 

@@ -1,0 +1,91 @@
+extends Node2D
+
+@onready var hour = $hour
+@onready var minute = $minute
+
+var hand_ratio: float = 5
+# real clock is too fast, 60
+# this could also easily be written to be controlling the minute hand
+
+var pressed: bool = false
+var points: Array[Vector2] = []
+var revolutions: float = 0.0
+
+# https://www.desmos.com/calculator/iigrxslpgy
+# 60 feels fair to me since people are going to keep the cursor close to the center and won't really think about being precise
+var epsilon: float = 60
+var intervals: Array[float] = [-2*PI - (epsilon/360 * PI), 
+							   -2*PI + (epsilon/360 * PI), 2*PI ]
+# left win boundary + left lose boundary, right win boundary, right lose boundary
+
+var previous_mouse_location: Vector2 = Vector2.ZERO
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	set_process(false)
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if (pressed):
+		if (points.get(points.size() - 1) != get_global_mouse_position() - minute.position):
+			points.append(get_global_mouse_position() - minute.position)
+		
+			# only compute on every new point added
+			if (points.size() >= 1):
+				revolutions += (points[points.size() - 2]).angle_to(points[points.size() - 1])
+	else:
+		if (revolutions < intervals[0]):
+			#TODO
+			# replace this with something else
+			var temp = Label.new()
+			temp.text = "big lost"
+			temp.position = Vector2(640, 360) + Vector2(randi_range(-600, 600), randi_range(-320, 320))
+			add_child(temp)
+			print("OVER LEFT")
+			
+		elif ((intervals[0] < revolutions) and (revolutions < intervals[1])):
+			#TODO
+			# replace this with something else
+			var temp = Label.new()
+			temp.text = "big win"
+			temp.position = Vector2(640, 360) + Vector2(randi_range(-600, 600), randi_range(-320, 320))
+			print("GOT")
+			add_child(temp)
+		elif (intervals[2] < revolutions):
+			#TODO
+			# replace this with something else
+			var temp = Label.new()
+			temp.text = "big lost"
+			temp.position = Vector2(640, 360) + Vector2(randi_range(-600, 600), randi_range(-320, 320))
+			print("OVER RIGHT")
+			add_child(temp)
+		points = []
+		revolutions = 0
+		set_process(false)
+
+#contorlling minute hand
+func _input(event):
+	if event.is_action("m1"):
+		if (not pressed):
+			pressed = true
+			set_process(true)
+			
+			# most likely, user clicks somewhere not aligned with hour hand and so
+			# let's calculate where the minute hand should be
+			var delta_theta = Vector2.from_angle(minute.rotation).angle_to(get_global_mouse_position() - minute.position)
+			
+			# update hands
+			minute.rotation += delta_theta
+			hour.rotation += delta_theta * (1.0 / hand_ratio)
+			
+			previous_mouse_location = get_global_mouse_position() - minute.position
+		else:
+			pressed = false
+			
+	if event is InputEventMouseMotion and pressed:
+		minute.rotation = (get_global_mouse_position() - minute.position).angle()
+		hour.rotation += (previous_mouse_location.angle_to(get_global_mouse_position() - minute.position)) * (1.0 / hand_ratio)
+		previous_mouse_location = get_global_mouse_position() - minute.position

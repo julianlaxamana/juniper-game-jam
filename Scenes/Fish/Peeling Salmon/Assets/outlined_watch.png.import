@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojpnncni2oaq"
-path="res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"
+uid="uid://b5o8plbifmnba"
+path="res://.godot/imported/outlined_watch.png-ea3cc3dc463070d13b0d5e82add00c91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rod.webp"
-dest_files=["res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"]
+source_file="res://Scenes/Fish/Peeling Salmon/Assets/outlined_watch.png"
+dest_files=["res://.godot/imported/outlined_watch.png-ea3cc3dc463070d13b0d5e82add00c91.ctex"]
 
 [params]
 

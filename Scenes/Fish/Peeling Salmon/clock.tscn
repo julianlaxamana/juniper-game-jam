@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bdqqmgtendcmf"]
+
+[ext_resource type="Script" uid="uid://hsugnat80la2" path="res://Scenes/Fish/Peeling Salmon/clock.gd" id="1_kvxpr"]
+[ext_resource type="Texture2D" uid="uid://b5o8plbifmnba" path="res://Scenes/Fish/Peeling Salmon/Assets/outlined_watch.png" id="2_1fkv7"]
+[ext_resource type="Texture2D" uid="uid://domx4xdpapir" path="res://icon.svg" id="2_ir2lh"]
+
+[node name="Clock" type="Node2D" unique_id=737982760]
+script = ExtResource("1_kvxpr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1260323256]
+texture_filter = 3
+position = Vector2(636, 373)
+scale = Vector2(0.28300005, 0.28300005)
+texture = ExtResource("2_1fkv7")
+
+[node name="hour" type="Sprite2D" parent="." unique_id=22437476]
+position = Vector2(583, 347.25003)
+scale = Vector2(1.045, 0.176)
+texture = ExtResource("2_ir2lh")
+offset = Vector2(64, 0)
+
+[node name="minute" type="Sprite2D" parent="." unique_id=477602843]
+position = Vector2(583, 347.25003)
+scale = Vector2(2.0515735, 0.50390655)
+texture = ExtResource("2_ir2lh")
+offset = Vector2(64, 0)
