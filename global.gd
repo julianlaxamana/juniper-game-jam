@@ -27,3 +27,12 @@ const sound_dictionary = {
 		
 	}
 }
+
+const art_dictionary = {
+	"background": {
+		"peeling_salmon": {
+			"ancestor": preload("uid://6pk6tps1g15o"),
+			"ashes": preload("uid://dl7ktff17qw3d")
+		}
+	}
+}
