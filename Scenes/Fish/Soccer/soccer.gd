@@ -4,6 +4,7 @@ extends Node2D
 @onready var leg = $Leg
 @onready var goalie = $Path2D/PathFollow2D
 @onready var ball = $ball
+@onready var foreground = $Foreground
 var intervals = [.25 , .75]
 
 # to keep the bar a certain size
@@ -21,6 +22,7 @@ var previous_coordinate: Vector2 = Vector2.ZERO
 var leg_scale = null
 
 var ball_initial_position
+var speed = 1674
 
 @export var smoothing_curve : Curve
 @export var color_curve : Curve
@@ -28,6 +30,8 @@ var squish = .1
 
 
 var failure = false
+var win = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,6 +53,12 @@ var random_direction
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if (win):
+		ball.translate(Vector2(0, -1 * speed) * delta)
+		ball.rotate(delta * 50)
+		ball.scale = ball.scale - Vector2(.6, .6) * delta
+		ball.scale = Vector2(clampf(ball.scale.x, 0, 1), clampf(ball.scale.y, 0, 1))
 	if (failure):
 		print("awd")
 		bar.size.x /= 1.03
@@ -56,7 +66,7 @@ func _process(delta: float) -> void:
 		ball.rotate(delta * 50)
 		ball.translate(random_direction * delta)
 		
-	if (pressed):
+	if (pressed and (not win) and (not failure)):
 		var location = get_global_mouse_position() - leg.position
 		
 		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
@@ -112,13 +122,10 @@ func _process(delta: float) -> void:
 	
 
 #contorlling minute hand
-func _input(event):
+func _input(event) -> void:
 	if (event.is_action("m1") and not failure):
 		if (not pressed):
 			pressed = true
-
-			#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
-			#previous_angle = leg.rotation
 			
 			previous_coordinate = get_global_mouse_position() - leg.position
 			
@@ -126,13 +133,15 @@ func _input(event):
 			pressed = false
 			
 			
-
 			
 			if ( (bar.size.x / float(max_size) > .98) and
 				((goalie.progress_ratio < intervals[0]) or (intervals[1] < goalie.progress_ratio)) ):
-				print("BIG WIN")
+				
+				get_tree().create_timer(2.5).timeout.connect(_on_timer_timeout_win)
+				win = true
+				
 			else:
-				random_direction = Vector2(0, 1674).rotated(randf_range(-PI/2, PI/2))
+				random_direction = Vector2(0, speed).rotated(randf_range(-PI/2, PI/2))
 				failure = true
 				get_tree().create_timer(1).timeout.connect(_on_timer_timeout)
 				
@@ -140,6 +149,10 @@ func _input(event):
 	#if event is InputEventMouseMotion and pressed:
 		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
 		#previous_angle = leg.rotation
+
+func _on_timer_timeout_win() -> void:
+	foreground.visible = true
+	$Path2D/PathFollow2D.visible = false
 
 func _on_timer_timeout() -> void:
 	failure = false
