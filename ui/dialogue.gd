@@ -44,14 +44,14 @@ func _on_timer_timeout() -> void:
 	if $NinePatchRect/RichTextLabel.visible_characters < len($NinePatchRect/RichTextLabel.text):
 		if names.find(dialogue["dialogue"][index]["speaker"]) == 1:
 			$rightSprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
-			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.9, -0.9), 0.25)
+			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.22, 0.22), 0.25)
 			$leftSprite.modulate = Color(0.5, 0.5, 0.5, 1.0)
-			$leftSprite.scale = lerp($leftSprite.scale, Vector2(0.7, 0.7), 0.25)
+			$leftSprite.scale = lerp($leftSprite.scale, Vector2(0.17, 0.17), 0.25)
 		else:
 			$leftSprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
-			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.7, -0.7), 0.25)
+			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.17, 0.17), 0.25)
 			$rightSprite.modulate = Color(0.5, 0.5, 0.5, 1.0)
-			$leftSprite.scale = lerp($leftSprite.scale, Vector2(0.9, 0.9), 0.25)
+			$leftSprite.scale = lerp($leftSprite.scale, Vector2(0.22, 0.22), 0.25)
 		$NinePatchRect/RichTextLabel.visible_characters += 1
 		$GrassButtonsArrow.visible = false
 	else:

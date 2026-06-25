@@ -6,6 +6,7 @@ const BOBBER = preload("res://game/bobber.tscn")
 const FISH = preload("res://test/water.tscn")
 
 var catch = false
+var scene = null
 
 var currBobber = null
 func _ready() -> void:
@@ -23,7 +24,13 @@ func _process(delta: float) -> void:
 		bobber_instance.apply_force(-300.0 * $"../CharacterBody3D".head.transform.basis.z)
 		bobber_instance.apply_force(Vector3(0.0, 250.0, 0.0))
 		currBobber = bobber_instance
-		
+	
+	if currBobber != null && currBobber.visible:
+		$"../Path3D".curve.set_point_position(0, $"../CharacterBody3D".head.global_position)
+		$"../Path3D".curve.set_point_position(1, currBobber.global_position)
+		$"../Path3D".visible = true
+	else:
+		$"../Path3D".visible = false
 	if Input.is_action_just_pressed("q") and currBobber != null and currBobber.tickle:
 		$AnimationPlayer.play('dissolbe')
 		await $AnimationPlayer.animation_finished
@@ -32,9 +39,10 @@ func _process(delta: float) -> void:
 		$"../Node2D".add_child(fish)
 		fish.connect("catch", _on_catch)
 		fish.connect("skibidi", skibidi)
+		$"../CharacterBody3D".bruh = false
 		$AnimationPlayer.play_backwards('dissolbe')
 		$"../WorldEnvironment".environment = load("res://test/2d.tres")
-		for i in range(8):
+		for i in range(9):
 			get_parent().get_child(i).visible = false
 		currBobber.visible = false
 		
@@ -43,10 +51,14 @@ func _process(delta: float) -> void:
 		currBobber.global_position = lerp(currBobber.global_position, $"../CharacterBody3D".global_position, 0.1)
 
 func skibidi(fih: Node2D):
-	for i in range(8):
+	for i in range(9):
 		get_parent().get_child(i).visible = true
 	currBobber.visible = true
 	currBobber.fih.texture = fih.sprite.texture
+	if fih.sprite.texture.resource_path == "res://assets/MINNOW_WORKER_NORMAL_STICKER.png":
+		var test = preload("res://ui/dialogue.tscn")
+		scene = test.instantiate()
+		
 	$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
 func _on_catch() -> void:
 	currBobber.tickle = false
@@ -71,4 +83,7 @@ func _on_timer_timeout() -> void:
 	catch = false
 	currBobber.queue_free()
 	$"../CharacterBody3D".camera.current = true
+	$"../CharacterBody3D".bruh = true
+	if scene != null:
+		add_child(scene)
 	pass # Replace with function body.

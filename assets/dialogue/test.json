@@ -1,14 +1,16 @@
 {
 	"test": {
 		"dialogue": [
-		{"speaker": "fih 2" , "text": "i need to find my dad"},
-		{"speaker": "fih 1" , "text": "hello other fih"},
-		{"speaker": "fih 2" , "text": "do you know where my dad is??"},
-		{"speaker": "fih 1" , "text": "no you smell stupid fih"},
-		{"speaker": "fih 2" , "text": "fuck you buddy ok"}
+		{"speaker": "fih" , "text": "Good afternoon, Angler."},
+		{"speaker": "fisher" , "text": "what."},
+		{"speaker": "fih" , "text": "I hope you are having a good day."},
+		{"speaker": "fih" , "text": "My wife is gone."},
+		{"speaker": "fisher" , "text": "Oh. I'm sorry for your loss."},
+		{"speaker": "fih" , "text": "My apologies for the confusion, I meant she's missing."},
+		{"speaker": "fih" , "text": "Please help me find her."},
 		],
-		"position": ["fih 1", "fih 2"],
-		"fih 1": "res://assets/fih 2.png",
-		"fih 2": "res://assets/fih 1.webp"
+		"position": ["fisher", "fih"],
+		"fisher": "res://assets/Idle.png",
+		"fih": "res://assets/MINNOW_WORKER_NORMAL_STICKER.png"
 	}
 }

@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bek4epnr57bbw" path="res://game/test.gd" id="4_8v7ur"]
 [ext_resource type="PackedScene" uid="uid://bc1872p5pqvv5" path="res://game/fisher.tscn" id="4_bptbs"]
 [ext_resource type="AudioStream" uid="uid://b6k83e6dgflp4" path="res://assets/lake.mp3" id="6_ac0r2"]
-[ext_resource type="Shader" uid="uid://dfjiso3sn18ob" path="res://game/rod.gdshader" id="7_4q62c"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rgm4q"]
 size = Vector2(7, 12)
@@ -16,17 +15,6 @@ size = Vector3(7, 0, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgrle"]
 size = Vector3(7.897888, 4.6641846, 6.539093)
-
-[sub_resource type="Curve3D" id="Curve3D_4q62c"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, -7.198, 12.478, -8.947),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_70rah"]
-render_priority = 0
-shader = ExtResource("7_4q62c")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdnvl"]
 render_priority = 0
@@ -128,25 +116,6 @@ radius = 0.02
 transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 2.483869, -5.0570736, -19.684391)
 radius = 0.02
 
-[node name="Path3D" type="Path3D" parent="." unique_id=1278797739]
-curve = SubResource("Curve3D_4q62c")
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D" unique_id=262365105]
-polygon = PackedVector2Array(0, 0, 0.01, 0, 0.01, 0.01, 0, 0.01)
-mode = 2
-path_node = NodePath("..")
-path_interval_type = 0
-path_interval = 0.58
-path_simplify_angle = 0.0
-path_rotation = 2
-path_rotation_accurate = false
-path_local = false
-path_continuous_u = true
-path_u_distance = 1.0
-path_joined = false
-smooth_faces = true
-material = SubResource("ShaderMaterial_70rah")
-
 [node name="Water" type="MeshInstance3D" parent="." unique_id=214351770]
 transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 0.010217667, -3.0037947, -22.478191)
 mesh = SubResource("PlaneMesh_x40tj")
@@ -226,5 +195,13 @@ stream = ExtResource("6_ac0r2")
 volume_db = 1.0
 autoplay = true
 parameters/looping = false
+
+[node name="Node3D" type="Node3D" parent="." unique_id=305834788]
+transform = Transform3D(0.926717, -0.3757601, 0, 0.3757601, 0.926717, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Node3D" unique_id=1025002295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34233695, 0)
+radius = 0.01
+height = 0.7
 
 [connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
