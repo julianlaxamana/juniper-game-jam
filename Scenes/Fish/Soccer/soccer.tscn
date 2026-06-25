@@ -2,9 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dgy4p2aqtbvo1" path="res://Scenes/Fish/Soccer/Assets/SOCCER.png" id="1_ai21p"]
 [ext_resource type="Texture2D" uid="uid://cdi3q42yjki4g" path="res://Scenes/Fish/Soccer/black_square.png" id="2_hai52"]
-[ext_resource type="Texture2D" uid="uid://pp8rm2u4du44" path="res://Scenes/Fish/Soccer/Assets/GOALIE_STICKER.png" id="3_ai21p"]
+[ext_resource type="Texture2D" uid="uid://p2hcqi156w04" path="res://Scenes/Fish/Soccer/Assets/GOALIE_STICKER (1).png" id="3_ai21p"]
 [ext_resource type="Texture2D" uid="uid://bbrhgdjowi0m3" path="res://Scenes/Fish/Soccer/Assets/aaa.png" id="4_wrosr"]
-[ext_resource type="Texture2D" uid="uid://c6er7qy302s4t" path="res://Scenes/Fish/Soccer/Assets/PUFFERBALL_INFLATED_STICKER (1).png" id="5_42b1n"]
 [ext_resource type="Texture2D" uid="uid://bhmisj5pcpio" path="res://Scenes/Fish/Soccer/Assets/LEG_STICKER.png" id="5_hai52"]
 
 [sub_resource type="GDScript" id="GDScript_3gwi5"]
@@ -14,7 +13,7 @@ script/source = "extends Node2D
 @onready var leg = $Leg
 @onready var goalie = $Path2D/PathFollow2D
 @onready var ball = $ball
-var intervals = [.3333, .6666]
+var intervals = [.25 , .75]
 
 # to keep the bar a certain size
 const max_size: int = 974
@@ -47,7 +46,7 @@ func _ready():
 	bar.color = Color.from_hsv(0.0, 0.68, 0.83, 1.0)
 	
 	
-	ball.position
+	ball_initial_position = ball.position
 
 
 var averager = []
@@ -59,8 +58,14 @@ var averager = []
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if ((goalie.progress_ratio < intervals[0]) or (intervals[1] < goalie.progress_ratio)):
+		print(true)
+	else:
+		print(false)
 	if (failure):
-		bar.size.x /= 2
+		bar.size.x /= 1.02
+		leg.scale = (Vector2(leg_scale, leg_scale) - leg.scale) / 1.02 + leg.scale
+		
 	
 	if (pressed):
 		var location = get_global_mouse_position() - leg.position
@@ -198,6 +203,9 @@ func _process(delta):
 			go_right = true
 "
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hai52"]
+load_path = "res://.godot/imported/PUFFERBALL_INFLATED_STICKER (1).png-1cabeee813c53af9f2a5e9ac7133daf7.ctex"
+
 [node name="SoccerGym" type="Node2D" unique_id=1576657110]
 script = SubResource("GDScript_3gwi5")
 smoothing_curve = SubResource("Curve_3gwi5")
@@ -241,6 +249,7 @@ script = SubResource("GDScript_b3pv2")
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=1641171072]
 scale = Vector2(0.18463255, 0.18463239)
 texture = ExtResource("3_ai21p")
+offset = Vector2(32, 79)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Path2D/PathFollow2D/Sprite2D" unique_id=1793226982]
 position = Vector2(15, 5)
@@ -266,7 +275,7 @@ scale_amount_max = 1.2
 [node name="ball" type="Sprite2D" parent="." unique_id=166921455]
 position = Vector2(625, 531)
 scale = Vector2(0.15699999, 0.15699999)
-texture = ExtResource("5_42b1n")
+texture = SubResource("CompressedTexture2D_hai52")
 offset = Vector2(75, -100)
 
 [node name="Leg" type="Sprite2D" parent="." unique_id=2023722982]
