@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ecydmr6lgmjj"]
+
+[ext_resource type="Shader" uid="uid://bl2p1pwkna6ge" path="res://Scenes/Fish/Peeling Salmon/static.gdshader" id="1_miew0"]
+
+[resource]
+shader = ExtResource("1_miew0")
+shader_parameter/alpha_value = 0.0
+shader_parameter/seed_delta = 1.0

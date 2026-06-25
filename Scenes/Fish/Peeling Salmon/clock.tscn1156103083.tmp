@@ -3,11 +3,19 @@
 [ext_resource type="Script" uid="uid://hsugnat80la2" path="res://Scenes/Fish/Peeling Salmon/clock.gd" id="1_kvxpr"]
 [ext_resource type="Texture2D" uid="uid://b5o8plbifmnba" path="res://Scenes/Fish/Peeling Salmon/Assets/outlined_watch.png" id="2_1fkv7"]
 [ext_resource type="Texture2D" uid="uid://c6m4fmb7n538r" path="res://Assets/Underwater.png" id="2_cvwnf"]
+[ext_resource type="Shader" uid="uid://bl2p1pwkna6ge" path="res://Scenes/Fish/Peeling Salmon/static.gdshader" id="3_bv5ay"]
 [ext_resource type="Texture2D" uid="uid://d301g2qvnqlc1" path="res://Scenes/Fish/Peeling Salmon/Assets/hour_hand.png" id="4_02vs4"]
 [ext_resource type="Texture2D" uid="uid://cxba5vxgkoops" path="res://Scenes/Fish/Peeling Salmon/Assets/minute_hand.png" id="5_bv5ay"]
-[ext_resource type="Material" uid="uid://ecydmr6lgmjj" path="res://Scenes/Fish/Peeling Salmon/static.tres" id="6_02vs4"]
+[ext_resource type="Material" uid="uid://bs4ec1tc6hy6f" path="res://Scenes/Fish/Peeling Salmon/Assets/static_material.tres" id="7_pmakw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3gwi5"]
+blend_mode = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44fls"]
+shader = ExtResource("3_bv5ay")
 
 [node name="Clock" type="Node2D" unique_id=737982760]
+material = SubResource("CanvasItemMaterial_3gwi5")
 script = ExtResource("1_kvxpr")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1839310730]
@@ -17,7 +25,7 @@ texture = ExtResource("2_cvwnf")
 
 [node name="Watch" type="Sprite2D" parent="." unique_id=1260323256]
 texture_filter = 3
-material = ExtResource("6_02vs4")
+material = SubResource("ShaderMaterial_44fls")
 position = Vector2(640, 360)
 scale = Vector2(0.28300005, 0.28300005)
 texture = ExtResource("2_1fkv7")
@@ -31,3 +39,10 @@ texture = ExtResource("4_02vs4")
 position = Vector2(640, 360)
 scale = Vector2(0.283, 0.283)
 texture = ExtResource("5_bv5ay")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=55424047]
+material = ExtResource("7_pmakw")
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

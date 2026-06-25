@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ekrn0gul6utm"
-path="res://.godot/imported/Blue_idle.png-e307b8e5e3a29b0b39314000b511acbf.ctex"
+uid="uid://6pk6tps1g15o"
+path="res://.godot/imported/ANCESTOR_CG.png-4659239c8cdfd99fb46f846bb03b9810.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Blue_idle.png"
-dest_files=["res://.godot/imported/Blue_idle.png-e307b8e5e3a29b0b39314000b511acbf.ctex"]
+source_file="res://Scenes/Fish/Peeling Salmon/Assets/BG/ANCESTOR_CG.png"
+dest_files=["res://.godot/imported/ANCESTOR_CG.png-4659239c8cdfd99fb46f846bb03b9810.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ekrn0gul6utm"
-path="res://.godot/imported/Blue_idle.png-e307b8e5e3a29b0b39314000b511acbf.ctex"
+uid="uid://g7yyl55kgtq"
+path="res://.godot/imported/WELL_SALMON_STICKER.png-a961110fa2c4766c8c4e9c6820afd767.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Blue_idle.png"
-dest_files=["res://.godot/imported/Blue_idle.png-e307b8e5e3a29b0b39314000b511acbf.ctex"]
+source_file="res://Scenes/Fish/Peeling Salmon/Assets/Fish/WELL_SALMON_STICKER.png"
+dest_files=["res://.godot/imported/WELL_SALMON_STICKER.png-a961110fa2c4766c8c4e9c6820afd767.ctex"]
 
 [params]
 
