@@ -2,6 +2,12 @@ extends RigidBody2D
 
 var health = 0.0
 signal caught
+@onready var sprite = $MinnowWorkerNormalSticker
+
+var fishes = ["res://assets/WELL_SALMON.png", "res://assets/PEELING_SALMON_STICKER.png", "res://assets/MINNOW_WORKER_NORMAL_STICKER.png"]
+
+func _ready() -> void:
+	$MinnowWorkerNormalSticker.texture = load(fishes[randi() % len(fishes)])
 
 func _process(delta: float) -> void:
 	if get_parent().caught:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qclxkjg1qfhd" path="res://game/bobber.gd" id="1_s1dgs"]
 [ext_resource type="Shader" uid="uid://c54x250v4elqg" path="res://game/bobber.gdshader" id="2_7gnix"]
-[ext_resource type="Texture2D" uid="uid://cv83h4xk7h47l" path="res://assets/hook.webp" id="3_sh6my"]
+[ext_resource type="Texture2D" uid="uid://dqaxft405ujmt" path="res://assets/FISH HOOK.png" id="3_awfqx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dwvqn"]
 radius = 0.25
@@ -34,9 +34,12 @@ mesh = SubResource("SphereMesh_pgrle")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=837800578]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.3735019, 0)
-texture = ExtResource("3_sh6my")
+texture = ExtResource("3_awfqx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1595612722]
 transform = Transform3D(-0.997247, -5.5725518e-09, 0.07415217, 0.02310304, 0.95022565, 0.31070495, -0.07046128, 0.3115627, -0.94760966, 0.040516853, 1.0825415, -4.347761)
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1938113818]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.42452252, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

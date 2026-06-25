@@ -7,6 +7,7 @@ var b = 0
 
 @onready var camera = $Camera3D
 @onready var catchTimer = $Timer
+@onready var fih = $Sprite3D2
 func _ready() -> void:
 	#catchTimer.wait_time = randf_range(5.0, 10.0)
 	catchTimer.wait_time = 1

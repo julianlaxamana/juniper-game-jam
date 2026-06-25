@@ -30,7 +30,7 @@ func _on_fih_caught(fih: Node2D) -> void:
 	$Timer.start()
 	$Timer2.start()
 	var new_texture = load("res://assets/Blue_reel.png")
-	skibidi.emit()
+	skibidi.emit(fih)
 	caught = true
 	fish = fih
 	$BlueIdle.scale = Vector2(0.10, 0.20)

@@ -42,10 +42,11 @@ func _process(delta: float) -> void:
 	if catch:
 		currBobber.global_position = lerp(currBobber.global_position, $"../CharacterBody3D".global_position, 0.1)
 
-func skibidi():
+func skibidi(fih: Node2D):
 	for i in range(8):
 		get_parent().get_child(i).visible = true
 	currBobber.visible = true
+	currBobber.fih.texture = fih.sprite.texture
 	$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
 func _on_catch() -> void:
 	currBobber.tickle = false
