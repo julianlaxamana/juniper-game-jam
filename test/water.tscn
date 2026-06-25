@@ -14,8 +14,9 @@ size = Vector2(73, 757.5)
 size = Vector2(1323, 20)
 
 [sub_resource type="Curve" id="Curve_qjf28"]
-_data = [Vector2(0, 1), 0.0, -2.8714101, 0, 0, Vector2(1, 0.22471917), 0.05480951, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, -2.8714101, 0, 0, Vector2(1, 0.22471917), 0.05480951, -2.8714101, 0, 0]
 point_count = 2
+metadata/_snap_enabled = true
 
 [node name="Fish" type="Node2D" unique_id=355174588]
 script = ExtResource("1_q22b3")
@@ -82,18 +83,25 @@ width = 1.0
 default_color = Color(0, 0, 0, 1)
 
 [node name="enclose2" type="Line2D" parent="Cursor" unique_id=157313908]
-modulate = Color(8.065, 8.065, 8.065, 1)
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 self_modulate = Color(0, 0, 0, 1)
 top_level = true
 width_curve = SubResource("Curve_qjf28")
 default_color = Color(0, 0, 0, 1)
 
 [node name="enclose" type="Line2D" parent="Cursor" unique_id=1939263992]
-modulate = Color(8.065, 8.065, 8.065, 1)
-self_modulate = Color(0.20819649, 0.39705575, 0.39012074, 1)
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 top_level = true
 width = 5.0
 width_curve = SubResource("Curve_qjf28")
+
+[node name="enclose3" type="Line2D" parent="Cursor" unique_id=779355282]
+modulate = Color(0.9568556, 0.8981518, 0.49062872, 1)
+show_behind_parent = true
+top_level = true
+closed = true
+width = 5.0
+default_color = Color(0, 0, 0, 0)
 
 [node name="BlueIdle" type="Sprite2D" parent="." unique_id=1446155533]
 position = Vector2(188, 152)

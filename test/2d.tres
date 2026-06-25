@@ -1,0 +1,6 @@
+[gd_resource type="Environment" format=3 uid="uid://3vyx35yooq4o"]
+
+[resource]
+background_mode = 3
+background_canvas_max_layer = 1
+glow_enabled = true

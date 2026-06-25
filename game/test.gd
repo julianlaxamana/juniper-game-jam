@@ -31,11 +31,22 @@ func _process(delta: float) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		$"../Node2D".add_child(fish)
 		fish.connect("catch", _on_catch)
+		fish.connect("skibidi", skibidi)
 		$AnimationPlayer.play_backwards('dissolbe')
+		$"../WorldEnvironment".environment = load("res://test/2d.tres")
+		for i in range(8):
+			get_parent().get_child(i).visible = false
+		currBobber.visible = false
+		
 		
 	if catch:
 		currBobber.global_position = lerp(currBobber.global_position, $"../CharacterBody3D".global_position, 0.1)
-		
+
+func skibidi():
+	for i in range(8):
+		get_parent().get_child(i).visible = true
+	currBobber.visible = true
+	$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
 func _on_catch() -> void:
 	currBobber.tickle = false
 	currBobber.submerged = false

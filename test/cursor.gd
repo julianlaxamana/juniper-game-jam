@@ -6,6 +6,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if get_parent().caught:
+		$enclose3.default_color = lerp($enclose3.default_color, Color(0.0, 0.0, 0.0, 0.0), 0.1)
 		$FishHook.global_position = lerp($FishHook.global_position, Vector2(640, 0), 0.075)
 		$Line2D.points = [$Line2D.points[0], $FishHook/Node2D.global_position]
 		return
@@ -20,10 +21,12 @@ func _process(delta: float) -> void:
 		var convex = Geometry2D.convex_hull($enclose.points)
 		if len(convex) > 10:
 			$Area2D/CollisionPolygon2D.polygon = convex
+			$enclose3.points = convex
 			$Area2D/Timer.start()
 		$enclose.points = []
 		$enclose2.points = []
-
+		
+	$enclose3.default_color = lerp($enclose3.default_color, Color(0.0, 0.0, 0.0, 0.0), 0.1)
 	$Line2D.points = [$Line2D.points[0], $FishHook/Node2D.global_position]
 	$FishHook.global_position = get_global_mouse_position()
 
@@ -63,6 +66,7 @@ var foo = false
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("fih"):
 		$"../AudioStreamPlayer2D".pitch_scale = combo
+		$enclose3.default_color = Color(3 * combo, 3 * combo, 3 * combo, 1.0)
 		$"../AudioStreamPlayer2D".play()
 		combo += 0.1
 		combo = clamp(combo, 1.0, 1.5)

@@ -145,11 +145,11 @@ mesh = SubResource("BoxMesh_rgm4q")
 transform = Transform3D(1, 0, 0, 0, 0.9625482, 0.27111068, 0, -0.27111068, 0.9625482, 0, 12.74988, 0)
 light_energy = 2.0
 
-[node name="CharacterBody3D" parent="." unique_id=1291809336 instance=ExtResource("4_bptbs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4353603, 1.1179436, -0.8715949)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=623507848]
 environment = ExtResource("3_4q62c")
+
+[node name="CharacterBody3D" parent="." unique_id=1291809336 instance=ExtResource("4_bptbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4353603, 1.1179436, -0.8715949)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=401640017]
 

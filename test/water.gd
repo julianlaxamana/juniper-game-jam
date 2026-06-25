@@ -5,6 +5,7 @@ var caught = false
 var transition = false
 @onready var fih = preload("res://test/fih.tscn")
 signal catch
+signal skibidi
 
 var MAX_FISH = 4
 func _ready() -> void:
@@ -29,6 +30,7 @@ func _on_fih_caught(fih: Node2D) -> void:
 	$Timer.start()
 	$Timer2.start()
 	var new_texture = load("res://assets/Blue_reel.png")
+	skibidi.emit()
 	caught = true
 	fish = fih
 	$BlueIdle.scale = Vector2(0.10, 0.20)
