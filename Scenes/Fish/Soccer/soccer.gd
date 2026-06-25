@@ -1,0 +1,147 @@
+extends Node2D
+
+@onready var bar = $ColorRect
+@onready var leg = $Leg
+@onready var goalie = $Path2D/PathFollow2D
+@onready var ball = $ball
+var intervals = [.25 , .75]
+
+# to keep the bar a certain size
+const max_size: int = 974
+var initial_position = null
+
+
+var pressed: bool = false
+var angular_velocity: float = 0.0
+var velocity_minimum: float = 14
+var scaler: float = 1.0/7.0
+#var previous_angle: float = 0.0
+var previous_coordinate: Vector2 = Vector2.ZERO
+
+var leg_scale = null
+
+var ball_initial_position
+
+@export var smoothing_curve : Curve
+@export var color_curve : Curve
+var squish = .1
+
+
+var failure = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	leg_scale = leg.scale.y
+	initial_position = bar.position
+	bar.size.x = 0
+	bar.color = Color.from_hsv(0.0, 0.68, 0.83, 1.0)
+	
+	
+	ball_initial_position = ball.position
+
+
+var averager = []
+
+
+var random_direction
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if (failure):
+		print("awd")
+		bar.size.x /= 1.03
+		leg.scale = (Vector2(leg_scale, leg_scale) - leg.scale) / 1.03 + leg.scale
+		ball.rotate(delta * 50)
+		ball.translate(random_direction * delta)
+		
+	if (pressed):
+		var location = get_global_mouse_position() - leg.position
+		
+		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
+		
+		#angular_velocity = (leg.rotation - previous_angle) / delta
+		#averager.append((leg.rotation - previous_angle) / delta)
+		
+		angular_velocity = abs(((previous_coordinate.angle_to(location)) / delta))
+		
+		#averager.append((previous_coordinate.angle_to(location)) / delta)
+		
+		## number here is how many frames you want to average over
+		#if (averager.size() == 6):
+			#
+			## calculated average, this specifically is a lambda function
+			## .reduce runs a function on every element
+			#angular_velocity = averager.reduce(func(accum, number): return accum + number)/averager.size()
+			
+			
+			#if (angular_velocity > velocity_minimum):
+				#print("winning ", angular_velocity)
+			#else:
+				#print("LOSING ", angular_velocity)
+			
+			#averager = []
+			
+			
+		#if (angular_velocity > velocity_minimum):
+			#print("winning ", angular_velocity)
+		#else:
+			#print("LOSING ", angular_velocity)
+		
+		bar.size.x += angular_velocity * scaler
+		
+		# update
+		#previous_angle = leg.rotation
+		previous_coordinate = location
+		
+		
+	bar.size.x -= velocity_minimum * scaler
+	bar.size.x = clampf(bar.size.x, 0, max_size)
+	
+	# aesthetics
+	bar.color = Color.from_hsv((color_curve.sample(bar.size.x / float(max_size)) * 120)/360.0, 0.68, 0.83, 1.0)
+	
+	var percent = bar.size.x / float(max_size)
+	bar.position = initial_position + Vector2(randi_range(-5, 5), randi_range(-5, 5)) * smoothing_curve.sample(percent)
+	
+	# this is linear right not but can become cubic
+	leg.scale.y = leg_scale - (squish * smoothing_curve.sample(percent))
+	leg.scale.x = leg_scale + (squish * smoothing_curve.sample(percent))
+	
+	
+
+#contorlling minute hand
+func _input(event):
+	if (event.is_action("m1") and not failure):
+		if (not pressed):
+			pressed = true
+
+			#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
+			#previous_angle = leg.rotation
+			
+			previous_coordinate = get_global_mouse_position() - leg.position
+			
+		else:
+			pressed = false
+			
+			
+
+			
+			if ( (bar.size.x / float(max_size) > .98) and
+				((goalie.progress_ratio < intervals[0]) or (intervals[1] < goalie.progress_ratio)) ):
+				print("BIG WIN")
+			else:
+				random_direction = Vector2(0, 1674).rotated(randf_range(-PI/2, PI/2))
+				failure = true
+				get_tree().create_timer(1).timeout.connect(_on_timer_timeout)
+				
+			
+	#if event is InputEventMouseMotion and pressed:
+		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
+		#previous_angle = leg.rotation
+
+func _on_timer_timeout() -> void:
+	failure = false
+	ball.position = ball_initial_position
+	ball.rotation = 32.0 * PI / 180.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p2hcqi156w04"
-path="res://.godot/imported/GOALIE_STICKER (1).png-3d2970e60a2a3632bfcf310652915155.ctex"
+uid="uid://bgh0qxmh1sb4m"
+path="res://.godot/imported/PUFFERBALL_INFLATED_STICKER.png-4405fb22b58f5d6aed6dacb44ee0b6f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Fish/Soccer/Assets/GOALIE_STICKER (1).png"
-dest_files=["res://.godot/imported/GOALIE_STICKER (1).png-3d2970e60a2a3632bfcf310652915155.ctex"]
+source_file="res://Scenes/Fish/Soccer/Assets/PUFFERBALL_INFLATED_STICKER.png"
+dest_files=["res://.godot/imported/PUFFERBALL_INFLATED_STICKER.png-4405fb22b58f5d6aed6dacb44ee0b6f8.ctex"]
 
 [params]
 
