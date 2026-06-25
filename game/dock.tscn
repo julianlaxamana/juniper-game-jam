@@ -2,8 +2,21 @@
 
 [ext_resource type="Shader" uid="uid://biobl5ygfj58r" path="res://game/water.gdshader" id="2_gdnvl"]
 [ext_resource type="Shader" uid="uid://ckpyqx4tqwst" path="res://game/sky.gdshader" id="3_if17d"]
-[ext_resource type="Texture2D" uid="uid://cj7hytipv86cb" path="res://assets/fih.png" id="3_r2j6y"]
+[ext_resource type="ArrayMesh" uid="uid://dy8cgwgc6l6s4" path="res://assets/breh.obj" id="3_x40tj"]
+[ext_resource type="Texture2D" uid="uid://c0dkq3qnj1h5p" path="res://assets/85b31196-4d2a-4b04-828c-c95818ab81a0.jpg" id="4_5ckld"]
 [ext_resource type="AudioStream" uid="uid://b6k83e6dgflp4" path="res://assets/lake.mp3" id="4_r2j6y"]
+[ext_resource type="Texture2D" uid="uid://ccfvxrv4326vt" path="res://assets/FISHER_STICKER.png" id="5_x40tj"]
+[ext_resource type="Shader" uid="uid://dfjiso3sn18ob" path="res://game/rod.gdshader" id="7_5ckld"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1rka"]
+albedo_color = Color(4.9574674e-06, 0.84946847, 0.22955188, 1)
+albedo_texture = ExtResource("4_5ckld")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x40tj"]
+albedo_color = Color(0.37493291, 0.23757458, 1.92523e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ckld"]
+albedo_color = Color(0.37493291, 0.23757458, 1.92523e-07, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdnvl"]
 render_priority = 0
@@ -32,13 +45,15 @@ size = Vector2(5, 5)
 subdivide_width = 5
 subdivide_depth = 5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3bbx"]
+albedo_color = Color(0.37493291, 0.23757458, 1.92523e-07, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_rgm4q"]
+material = SubResource("StandardMaterial3D_v3bbx")
 size = Vector2(0.3, 0.6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ci1tc"]
 size = Vector3(5, 0.5, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_rgm4q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_if17d"]
 shader = ExtResource("3_if17d")
@@ -79,15 +94,38 @@ background_mode = 2
 sky = SubResource("Sky_ci1tc")
 ambient_light_source = 3
 
+[sub_resource type="Curve3D" id="Curve3D_a1rka"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 1.665, 0, -0.67744267, 3.1438546, -21.479553, 0, 2.5, 0, 0, 0, 0, -2.9141974, -4.201964, -26.697983),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3bbx"]
+render_priority = 0
+shader = ExtResource("7_5ckld")
+
 [node name="Dock" type="Node3D" unique_id=1810924153]
+
+[node name="Breh" type="MeshInstance3D" parent="." unique_id=421565476]
+transform = Transform3D(-29.935919, 0, -1.319901, 0, 55.537006, 0, 1.319901, 0, -29.935919, 4.4347425, -41.592617, -35.869286)
+mesh = ExtResource("3_x40tj")
+surface_material_override/0 = SubResource("StandardMaterial3D_a1rka")
+
+[node name="Breh2" type="MeshInstance3D" parent="." unique_id=72578346]
+transform = Transform3D(-25.084352, 0, 57.08905, 0, 51.244534, 0, -46.18107, 0, -31.009281, 4.4347425, -41.592617, -35.869286)
+mesh = ExtResource("3_x40tj")
+surface_material_override/0 = SubResource("StandardMaterial3D_a1rka")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=2084215699]
 transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, -2.4843993, -5.0570736, -19.684391)
 radius = 0.02
+material = SubResource("StandardMaterial3D_x40tj")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=827088633]
 transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 2.483869, -5.0570736, -19.684391)
 radius = 0.02
+material = SubResource("StandardMaterial3D_5ckld")
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=214351770]
 transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 0.010217667, -3.0037947, -22.478191)
@@ -104,10 +142,6 @@ gravity_scale = 0.0
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -2.532692, 0)
 shape = SubResource("BoxShape3D_ci1tc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1499258906]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 0.022319794, -2.5326958, 0.06012726)
-mesh = SubResource("BoxMesh_rgm4q")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2137278675]
 transform = Transform3D(1, 0, 0, 0, 0.9625482, 0.27111068, 0, -0.27111068, 0.9625482, 0, 12.74988, 0)
 light_energy = 2.0
@@ -121,11 +155,31 @@ transform = Transform3D(-0.04404804, 0, 0.9990294, 0, 1, 0, -0.9990294, 0, -0.04
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=2142880991]
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=489827920]
-transform = Transform3D(-0.031769577, 0, 0.49898967, 0, 0.5, 0, -0.49898967, 0, -0.031769577, 0, 2.156489, -19.793514)
-texture = ExtResource("3_r2j6y")
+transform = Transform3D(-0.09527361, 0, 0.090286605, 0, 0.245, 0, -0.22571653, 0, -0.038109437, 1.3294744, 2.0454888, -20.307411)
+texture = ExtResource("5_x40tj")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1005459493]
 stream = ExtResource("4_r2j6y")
 volume_db = 1.0
 autoplay = true
 parameters/looping = true
+
+[node name="Path3D" type="Path3D" parent="." unique_id=524809975]
+curve = SubResource("Curve3D_a1rka")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D" unique_id=264524099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4912996, 0, 0)
+polygon = PackedVector2Array(0, 0, 0.01, 0, 0.01, 0.01, 0, 0.01)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.58
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+smooth_faces = true
+material = SubResource("ShaderMaterial_v3bbx")

@@ -27,8 +27,8 @@ func _process(delta: float) -> void:
 		position = lerp(position, Vector2(0, -1000), 0.05)
 	
 func _on_fih_caught(fih: Node2D) -> void:
-	$Timer.start()
 	$Timer2.start()
+	$Timer.start()
 	var new_texture = load("res://assets/Blue_reel.png")
 	skibidi.emit(fih)
 	caught = true
@@ -36,10 +36,15 @@ func _on_fih_caught(fih: Node2D) -> void:
 	$BlueIdle.scale = Vector2(0.10, 0.20)
 	$BlueIdle.texture = new_texture
 	pass # Replace with function body.
-
+	
+func _on_fih_escape() -> void:
+	$Timer.start()
+	transition = true
+	pass # Replace with function body.
 
 func _on_timer_timeout() -> void:
-	catch.emit()
+	if caught:
+		catch.emit()
 	queue_free()	
 	pass # Replace with function body.
 

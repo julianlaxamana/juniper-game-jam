@@ -7,6 +7,7 @@ const FISH = preload("res://test/water.tscn")
 
 var catch = false
 var scene = null
+var fish = null
 
 var currBobber = null
 func _ready() -> void:
@@ -24,17 +25,28 @@ func _process(delta: float) -> void:
 		bobber_instance.apply_force(-300.0 * $"../CharacterBody3D".head.transform.basis.z)
 		bobber_instance.apply_force(Vector3(0.0, 250.0, 0.0))
 		currBobber = bobber_instance
+	elif Input.is_action_just_pressed("e"):
+		$Timer.start()
+		if fish != null:
+			fish._on_fih_escape()
+		currBobber.tickle = false
+		currBobber.submerged = false
+		catch = true
+		for i in range(10):
+			get_parent().get_child(i).visible = true
+		currBobber.visible = true
+		$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
 	
 	if currBobber != null && currBobber.visible:
-		$"../Path3D".curve.set_point_position(0, $"../CharacterBody3D".head.global_position)
+		$"../Path3D".curve.set_point_position(0, $"../CharacterBody3D".rod.global_position)
 		$"../Path3D".curve.set_point_position(1, currBobber.global_position)
 		$"../Path3D".visible = true
 	else:
 		$"../Path3D".visible = false
-	if Input.is_action_just_pressed("q") and currBobber != null and currBobber.tickle:
+	if Input.is_action_just_pressed("q") and currBobber != null and currBobber.tickle and fish == null:
 		$AnimationPlayer.play('dissolbe')
 		await $AnimationPlayer.animation_finished
-		var fish = FISH.instantiate()
+		fish = FISH.instantiate()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		$"../Node2D".add_child(fish)
 		fish.connect("catch", _on_catch)
@@ -42,7 +54,7 @@ func _process(delta: float) -> void:
 		$"../CharacterBody3D".bruh = false
 		$AnimationPlayer.play_backwards('dissolbe')
 		$"../WorldEnvironment".environment = load("res://test/2d.tres")
-		for i in range(9):
+		for i in range(10):
 			get_parent().get_child(i).visible = false
 		currBobber.visible = false
 		
@@ -51,7 +63,7 @@ func _process(delta: float) -> void:
 		currBobber.global_position = lerp(currBobber.global_position, $"../CharacterBody3D".global_position, 0.1)
 
 func skibidi(fih: Node2D):
-	for i in range(9):
+	for i in range(10):
 		get_parent().get_child(i).visible = true
 	currBobber.visible = true
 	currBobber.fih.texture = fih.sprite.texture
@@ -69,6 +81,7 @@ func skibidi(fih: Node2D):
 		scene.log = "ball"
 		
 	$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
+	
 func _on_catch() -> void:
 	currBobber.tickle = false
 	currBobber.submerged = false
@@ -88,6 +101,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 
 func _on_timer_timeout() -> void:
+	fish = null
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	catch = false
 	currBobber.queue_free()

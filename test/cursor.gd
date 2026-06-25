@@ -5,7 +5,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 func _process(delta: float) -> void:
-	if get_parent().caught:
+	if get_parent().caught || get_parent().transition:
 		$enclose3.default_color = lerp($enclose3.default_color, Color(0.0, 0.0, 0.0, 0.0), 0.1)
 		$FishHook.global_position = lerp($FishHook.global_position, Vector2(640, 0), 0.075)
 		$Line2D.points = [$Line2D.points[0], $FishHook/Node2D.global_position]

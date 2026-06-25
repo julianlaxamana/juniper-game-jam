@@ -7,6 +7,7 @@ const SENSITIVITY = 0.003
 var bruh = true
 @onready var head : Node3D= $Head
 @onready var camera : Camera3D = $Head/Camera3D
+@onready var rod : Node3D = $Head/Node3D
 
 
 func _ready():

@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://bc1872p5pqvv5"]
 
 [ext_resource type="Script" uid="uid://bsoh7jej23w7x" path="res://game/fisher.gd" id="1_ox0fy"]
+[ext_resource type="Texture2D" uid="uid://ccfvxrv4326vt" path="res://assets/FISHER_STICKER.png" id="2_saxe2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rgm4q"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6u35s"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1291809336]
 script = ExtResource("1_ox0fy")
@@ -12,11 +11,15 @@ script = ExtResource("1_ox0fy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=852949651]
 shape = SubResource("CapsuleShape3D_rgm4q")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1301144345]
-mesh = SubResource("CapsuleMesh_6u35s")
-
 [node name="Head" type="Node3D" parent="." unique_id=1721178082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3639953, 0)
 
+[node name="Sprite3D" type="Sprite3D" parent="Head" unique_id=379047421]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, -0.32265937, 0)
+texture = ExtResource("2_saxe2")
+
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1076176336]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02589655, -0.29670084)
+
+[node name="Node3D" type="Node3D" parent="Head" unique_id=1252579728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72789884, 0.27210307, 0)
