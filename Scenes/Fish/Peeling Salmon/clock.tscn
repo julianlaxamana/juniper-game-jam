@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d301g2qvnqlc1" path="res://Scenes/Fish/Peeling Salmon/Assets/hour_hand.png" id="4_02vs4"]
 [ext_resource type="Texture2D" uid="uid://cxba5vxgkoops" path="res://Scenes/Fish/Peeling Salmon/Assets/minute_hand.png" id="5_bv5ay"]
 [ext_resource type="Material" uid="uid://ecydmr6lgmjj" path="res://Scenes/Fish/Peeling Salmon/static.tres" id="6_02vs4"]
+[ext_resource type="Texture2D" uid="uid://dl7ktff17qw3d" path="res://Scenes/Fish/Peeling Salmon/Assets/BG/ASHES_CG.png" id="7_bv5ay"]
 
 [node name="Clock" type="Node2D" unique_id=737982760]
 script = ExtResource("1_kvxpr")
@@ -31,3 +32,24 @@ texture = ExtResource("4_02vs4")
 position = Vector2(640, 360)
 scale = Vector2(0.283, 0.283)
 texture = ExtResource("5_bv5ay")
+
+[node name="foreground" type="Sprite2D" parent="." unique_id=1823863596]
+visible = false
+position = Vector2(640, 360)
+scale = Vector2(0.6666667, 0.6666667)
+texture = ExtResource("7_bv5ay")
+
+[node name="Button" type="Button" parent="." unique_id=702642925]
+visible = false
+offset_left = 983.0
+offset_top = 599.0
+offset_right = 1246.0
+offset_bottom = 694.0
+text = "GO BACK"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1215739954]
+visible = false
+offset_left = 1075.0
+offset_top = 603.0
+offset_right = 1214.0
+offset_bottom = 693.0

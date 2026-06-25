@@ -3,6 +3,11 @@ extends Node2D
 @onready var hour = $hour
 @onready var minute = $minute
 @onready var watch = $Watch
+@onready var button = $Button
+@onready var foreground = $foreground
+
+var lost = false
+
 
 var hand_ratio: float = 5 + sqrt(2) - 1
 # real clock is too fast, 60
@@ -28,7 +33,17 @@ func _ready():
 	minute.rotation = randf_range(-PI/2, PI/2)
 	set_process(false)
 	pass # Replace with function body.
+	
+	button.button_up.connect(_on_button_button_up)
 
+func _on_button_button_up() -> void:
+	hour.rotation = randf_range(-PI/2, PI/2)
+	minute.rotation = randf_range(-PI/2, PI/2)
+	
+	foreground.visible = false
+	button.visible = false
+	lost = false
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,13 +70,11 @@ func _process(delta: float) -> void:
 		
 	else:
 		if (revolutions < intervals[0]):
-			#TODO
-			# replace this with something else
-			var temp = Label.new()
-			temp.text = "big lost"
-			temp.position = Vector2(640, 360) + Vector2(randi_range(-600, 600), randi_range(-320, 320))
-			add_child(temp)
-			print("OVER LEFT")
+			foreground.texture = Global.art_dictionary['background']['peeling_salmon']['ancestor']
+			button.visible = true
+			foreground.visible = true
+			lost = true
+			
 			
 		elif ((intervals[0] < revolutions) and (revolutions < intervals[1])):
 			#TODO
@@ -72,20 +85,17 @@ func _process(delta: float) -> void:
 			print("GOT")
 			add_child(temp)
 		elif (intervals[2] < revolutions):
-			#TODO
-			# replace this with something else
-			var temp = Label.new()
-			temp.text = "big lost"
-			temp.position = Vector2(640, 360) + Vector2(randi_range(-600, 600), randi_range(-320, 320))
-			print("OVER RIGHT")
-			add_child(temp)
+			foreground.texture = Global.art_dictionary['background']['peeling_salmon']['ashes']
+			button.visible = true
+			foreground.visible = true
+			lost = true
 		points = []
 		revolutions = 0
 		set_process(false)
 
 #contorlling minute hand
 func _input(event):
-	if event.is_action("m1"):
+	if (not lost and event.is_action("m1")):
 		if (not pressed):
 			pressed = true
 			set_process(true)
