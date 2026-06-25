@@ -10,7 +10,41 @@
 		{"speaker": "fih" , "text": "Please help me find her."},
 		],
 		"position": ["fisher", "fih"],
-		"fisher": "res://assets/Idle.png",
+		"fisher": "res://assets/Catch_sticker.png",
 		"fih": "res://assets/MINNOW_WORKER_NORMAL_STICKER.png"
+	},
+	"peeling": {
+		"dialogue": [
+		{"speaker": "fih" , "text": "My skin is peeling."},
+		{"speaker": "fisher" , "text": "That must be painful."},
+		{"speaker": "fih" , "text": "I am in pain."},
+		{"speaker": "fih" , "text": "Please."},
+		{"speaker": "fih" , "text": "Help."},
+		{"speaker": "fih" , "text": "Me."},
+		{"speaker": "fisher" , "text": "If only I had a clock that could rewind time."},
+		{"speaker": "fisher" , "text": "Then I'd be able to reverse all this pain."},
+		{"speaker": "fih" , "text": "Wait, do you mean this?"},
+		{"speaker": "fisher" , "text": "Wow, how convinient."},
+		{"speaker": "fih" , "text": "It's a magical clock that rewinds time, yet I cannot use it for I have fins."},
+		{"speaker": "fih" , "text": "Please use it to heal me."}
+		],
+		"position": ["fisher", "fih"],
+		"fisher": "res://assets/Catch_sticker.png",
+		"fih": "res://assets/PEELING_SALMON_STICKER.png"
+	},
+	"ball": {
+		"dialogue": [
+		{"speaker": "fih" , "text": "SUUUUUUIIII"},
+		{"speaker": "fisher" , "text": "..."},
+		{"speaker": "fih" , "text": "Yo, do you know the way to the world cup?"},
+		{"speaker": "fih" , "text": "My favorite player Mfishe is playing today."},
+		{"speaker": "fisher" , "text": "Who dat."},
+		{"speaker": "fih" , "text": "Mfishe, the number one fishball player in the world."},
+		{"speaker": "fih" , "text": "Anyway, you gotta get me to the world cup its Atlantic vs Red Sea and I gotta rep."},
+		{"speaker": "fih" , "text": "Please help a brotha out"}
+		],
+		"position": ["fisher", "fih"],
+		"fisher": "res://assets/Catch_sticker.png",
+		"fih": "res://assets/PUFFERBALL_FLAT_STICKER.png"
 	}
 }

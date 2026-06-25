@@ -58,6 +58,15 @@ func skibidi(fih: Node2D):
 	if fih.sprite.texture.resource_path == "res://assets/MINNOW_WORKER_NORMAL_STICKER.png":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
+		scene.log = "test"
+	elif fih.sprite.texture.resource_path == "res://assets/PEELING_SALMON_STICKER.png":
+		var test = preload("res://ui/dialogue.tscn")
+		scene = test.instantiate()
+		scene.log = "peeling"
+	elif fih.sprite.texture.resource_path == "res://assets/PUFFERBALL_FLAT_STICKER.png":
+		var test = preload("res://ui/dialogue.tscn")
+		scene = test.instantiate()
+		scene.log = "ball"
 		
 	$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
 func _on_catch() -> void:
