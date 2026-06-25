@@ -1,3 +1,275 @@
-[gd_scene format=3 uid="uid://n33mvjvqvhj1"]
+[gd_scene format=3 uid="uid://1d7e7wsn0h8j"]
 
-[node name="Gym" type="Node2D" unique_id=850437572]
+[ext_resource type="Texture2D" uid="uid://dgy4p2aqtbvo1" path="res://Scenes/Fish/Soccer/Assets/SOCCER.png" id="1_ai21p"]
+[ext_resource type="Texture2D" uid="uid://cdi3q42yjki4g" path="res://Scenes/Fish/Soccer/black_square.png" id="2_hai52"]
+[ext_resource type="Texture2D" uid="uid://pp8rm2u4du44" path="res://Scenes/Fish/Soccer/Assets/GOALIE_STICKER.png" id="3_ai21p"]
+[ext_resource type="Texture2D" uid="uid://bbrhgdjowi0m3" path="res://Scenes/Fish/Soccer/Assets/aaa.png" id="4_wrosr"]
+[ext_resource type="Texture2D" uid="uid://c6er7qy302s4t" path="res://Scenes/Fish/Soccer/Assets/PUFFERBALL_INFLATED_STICKER (1).png" id="5_42b1n"]
+[ext_resource type="Texture2D" uid="uid://bhmisj5pcpio" path="res://Scenes/Fish/Soccer/Assets/LEG_STICKER.png" id="5_hai52"]
+
+[sub_resource type="GDScript" id="GDScript_3gwi5"]
+script/source = "extends Node2D
+
+@onready var bar = $ColorRect
+@onready var leg = $Leg
+@onready var goalie = $Path2D/PathFollow2D
+@onready var ball = $ball
+var intervals = [.3333, .6666]
+
+# to keep the bar a certain size
+const max_size: int = 974
+var initial_position = null
+
+
+var pressed: bool = false
+var angular_velocity: float = 0.0
+var velocity_minimum: float = 14
+var scaler: float = 1.0/7.0
+#var previous_angle: float = 0.0
+var previous_coordinate: Vector2 = Vector2.ZERO
+
+var leg_scale = null
+
+var ball_initial_position
+
+@export var smoothing_curve : Curve
+@export var color_curve : Curve
+var squish = .1
+
+
+var failure = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	leg_scale = leg.scale.y
+	initial_position = bar.position
+	bar.size.x = 0
+	bar.color = Color.from_hsv(0.0, 0.68, 0.83, 1.0)
+	
+	
+	ball.position
+
+
+var averager = []
+
+
+
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if (failure):
+		bar.size.x /= 2
+	
+	if (pressed):
+		var location = get_global_mouse_position() - leg.position
+		
+		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
+		
+		#angular_velocity = (leg.rotation - previous_angle) / delta
+		#averager.append((leg.rotation - previous_angle) / delta)
+		
+		angular_velocity = abs(((previous_coordinate.angle_to(location)) / delta))
+		
+		#averager.append((previous_coordinate.angle_to(location)) / delta)
+		
+		## number here is how many frames you want to average over
+		#if (averager.size() == 6):
+			#
+			## calculated average, this specifically is a lambda function
+			## .reduce runs a function on every element
+			#angular_velocity = averager.reduce(func(accum, number): return accum + number)/averager.size()
+			
+			
+			#if (angular_velocity > velocity_minimum):
+				#print(\"winning \", angular_velocity)
+			#else:
+				#print(\"LOSING \", angular_velocity)
+			
+			#averager = []
+			
+			
+		#if (angular_velocity > velocity_minimum):
+			#print(\"winning \", angular_velocity)
+		#else:
+			#print(\"LOSING \", angular_velocity)
+		
+		bar.size.x += angular_velocity * scaler
+		
+		# update
+		#previous_angle = leg.rotation
+		previous_coordinate = location
+		
+		
+	bar.size.x -= velocity_minimum * scaler
+	bar.size.x = clampf(bar.size.x, 0, max_size)
+	
+	# aesthetics
+	bar.color = Color.from_hsv((color_curve.sample(bar.size.x / float(max_size)) * 120)/360.0, 0.68, 0.83, 1.0)
+	
+	var percent = bar.size.x / float(max_size)
+	bar.position = initial_position + Vector2(randi_range(-5, 5), randi_range(-5, 5)) * smoothing_curve.sample(percent)
+	
+	# this is linear right not but can become cubic
+	leg.scale.y = leg_scale - (squish * smoothing_curve.sample(percent))
+	leg.scale.x = leg_scale + (squish * smoothing_curve.sample(percent))
+	
+	
+
+#contorlling minute hand
+func _input(event):
+	if (event.is_action(\"m1\") and not failure):
+		if (not pressed):
+			pressed = true
+
+			#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
+			#previous_angle = leg.rotation
+			
+			previous_coordinate = get_global_mouse_position() - leg.position
+			
+		else:
+			pressed = false
+			
+			
+
+			
+			if ( (bar.size.x / float(max_size) > .98) and
+				((goalie.progress_ratio < intervals[0]) or (intervals[1] < goalie.progress_ratio)) ):
+				print(\"BIG WIN\")
+			else:
+				failure = true
+				get_tree().create_timer(3).timeout.connect(_on_timer_timeout)
+				
+			
+	#if event is InputEventMouseMotion and pressed:
+		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
+		#previous_angle = leg.rotation
+
+func _on_timer_timeout() -> void:
+	failure = false
+	ball.position = ball_initial_position
+"
+
+[sub_resource type="Curve" id="Curve_3gwi5"]
+_data = [Vector2(0, 0), 1.6932318, 0.2110405, 0, 0, Vector2(1, 1), 2.146931, 0.09517513, 0, 0]
+point_count = 2
+metadata/_snap_count = 2
+
+[sub_resource type="Curve" id="Curve_hai52"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.3211124, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_bktqm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 100, 470, 0, 0, 0, 0, 1180, 470)
+}
+point_count = 2
+
+[sub_resource type="GDScript" id="GDScript_b3pv2"]
+script/source = "extends PathFollow2D
+
+var go_right = true
+var speed_scaler: float = 1.3333332
+
+var initial_position = null
+
+var d = 10
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	initial_position = get_parent().position
+	pass # Replace with function body.
+	
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	get_parent().position = initial_position + Vector2(randi_range(-d, d), randi_range(-d, d))
+	if (go_right): 
+		progress_ratio += delta * speed_scaler
+		
+		if (progress_ratio == 1):
+			go_right = false
+	else:
+		progress_ratio -= delta * speed_scaler
+		
+		if (progress_ratio == 0):
+			go_right = true
+"
+
+[node name="SoccerGym" type="Node2D" unique_id=1576657110]
+script = SubResource("GDScript_3gwi5")
+smoothing_curve = SubResource("Curve_3gwi5")
+color_curve = SubResource("Curve_hai52")
+
+[node name="background" type="Sprite2D" parent="." unique_id=2032015973]
+position = Vector2(640, 360)
+scale = Vector2(0.66666657, 0.6666666)
+texture = ExtResource("1_ai21p")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=279971456]
+offset_left = 153.0
+offset_top = 58.0
+offset_right = 187.22
+offset_bottom = 138.0
+color = Color(0.83, 0.2656, 0.2656, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect" unique_id=176101985]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = -13.0
+offset_top = -13.057999
+offset_right = 987.0
+offset_bottom = 92.941925
+texture = ExtResource("2_hai52")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1653691701]
+position = Vector2(0, -35.78)
+curve = SubResource("Curve2D_bktqm")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=143235321]
+position = Vector2(100, 470)
+loop = false
+script = SubResource("GDScript_b3pv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=1641171072]
+scale = Vector2(0.18463255, 0.18463239)
+texture = ExtResource("3_ai21p")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Path2D/PathFollow2D/Sprite2D" unique_id=1793226982]
+position = Vector2(15, 5)
+scale = Vector2(11.84, 11.84)
+texture = ExtResource("4_wrosr")
+lifetime = 0.36
+speed_scale = 0.6
+randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 72.34
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 166.0
+initial_velocity_max = 166.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.3
+scale_amount_max = 1.2
+
+[node name="ball" type="Sprite2D" parent="." unique_id=166921455]
+position = Vector2(625, 531)
+scale = Vector2(0.15699999, 0.15699999)
+texture = ExtResource("5_42b1n")
+offset = Vector2(75, -100)
+
+[node name="Leg" type="Sprite2D" parent="." unique_id=2023722982]
+position = Vector2(640, 638)
+scale = Vector2(0.14300002, 0.14300002)
+texture = ExtResource("5_hai52")
