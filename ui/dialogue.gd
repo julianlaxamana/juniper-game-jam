@@ -5,9 +5,11 @@ var index = 0
 var names
 var dialogue
 
+var log = "ball"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	dialogue = load_dialogue("res://assets/dialogue/test.json")["test"]
+	dialogue = load_dialogue("res://assets/dialogue/test.json")[log]
 	names = dialogue["position"]
 	$leftSprite.texture = load(dialogue[dialogue["position"][0]])
 	$rightSprite.texture = load(dialogue[dialogue["position"][1]])
@@ -44,12 +46,12 @@ func _on_timer_timeout() -> void:
 	if $NinePatchRect/RichTextLabel.visible_characters < len($NinePatchRect/RichTextLabel.text):
 		if names.find(dialogue["dialogue"][index]["speaker"]) == 1:
 			$rightSprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
-			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.22, 0.22), 0.25)
+			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.4, 0.4), 0.25)
 			$leftSprite.modulate = Color(0.5, 0.5, 0.5, 1.0)
 			$leftSprite.scale = lerp($leftSprite.scale, Vector2(0.17, 0.17), 0.25)
 		else:
 			$leftSprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
-			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.17, 0.17), 0.25)
+			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.34, 0.34), 0.25)
 			$rightSprite.modulate = Color(0.5, 0.5, 0.5, 1.0)
 			$leftSprite.scale = lerp($leftSprite.scale, Vector2(0.22, 0.22), 0.25)
 		$NinePatchRect/RichTextLabel.visible_characters += 1
