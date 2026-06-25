@@ -10,10 +10,8 @@ var b = 0
 func _ready() -> void:
 	#catchTimer.wait_time = randf_range(5.0, 10.0)
 	catchTimer.wait_time = 1
-	print(catchTimer.wait_time)
 	
 func _process(delta: float) -> void:
-	print(catchTimer.time_left)
 	if submerged:
 		b += delta
 		position.y = -0.25 * sin(b) + og
@@ -21,6 +19,8 @@ func _process(delta: float) -> void:
 		camera.reparent(get_parent(), true)
 		b += delta
 		rotation.z = 0.15 * sin(7.5 * b)
+	else:
+		camera.reparent(self, true)
 		
 
 

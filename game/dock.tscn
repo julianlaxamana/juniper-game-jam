@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://biobl5ygfj58r" path="res://game/water.gdshader" id="2_gdnvl"]
 [ext_resource type="Shader" uid="uid://ckpyqx4tqwst" path="res://game/sky.gdshader" id="3_if17d"]
 [ext_resource type="Texture2D" uid="uid://cj7hytipv86cb" path="res://assets/fih.png" id="3_r2j6y"]
+[ext_resource type="AudioStream" uid="uid://b6k83e6dgflp4" path="res://assets/lake.mp3" id="4_r2j6y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdnvl"]
 render_priority = 0
@@ -117,6 +118,14 @@ environment = SubResource("Environment_rgm4q")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=343127362]
 transform = Transform3D(-0.04404804, 0, 0.9990294, 0, 1, 0, -0.9990294, 0, -0.04404804, 5.965626, 2.691527, -23.175392)
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=2142880991]
+
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=489827920]
 transform = Transform3D(-0.031769577, 0, 0.49898967, 0, 0.5, 0, -0.49898967, 0, -0.031769577, 0, 2.156489, -19.793514)
 texture = ExtResource("3_r2j6y")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1005459493]
+stream = ExtResource("4_r2j6y")
+volume_db = 1.0
+autoplay = true
+parameters/looping = true

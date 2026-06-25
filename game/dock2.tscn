@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://idq1f1kjm40m" path="res://game/water.gd" id="3_ac0r2"]
 [ext_resource type="Script" uid="uid://bek4epnr57bbw" path="res://game/test.gd" id="4_8v7ur"]
 [ext_resource type="PackedScene" uid="uid://bc1872p5pqvv5" path="res://game/fisher.tscn" id="4_bptbs"]
+[ext_resource type="AudioStream" uid="uid://b6k83e6dgflp4" path="res://assets/lake.mp3" id="6_ac0r2"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rgm4q"]
 size = Vector2(7, 12)
@@ -91,7 +92,7 @@ ambient_light_source = 3
 
 [sub_resource type="Animation" id="Animation_8v7ur"]
 resource_name = "RESET"
-length = 0.009999999999999998
+length = 0.00999999999999999
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -187,7 +188,7 @@ light_energy = 2.0
 environment = SubResource("Environment_rgm4q")
 
 [node name="CharacterBody3D" parent="." unique_id=1291809336 instance=ExtResource("4_bptbs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4353603, -0.032692075, -0.8715949)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4353603, 1.1179436, -0.8715949)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=401640017]
 
@@ -223,3 +224,15 @@ offset_right = 1282.0
 offset_bottom = 724.0
 mouse_filter = 2
 color = Color(0.31852037, 0.030019246, 0.7706801, 1)
+
+[node name="Timer" type="Timer" parent="Control" unique_id=1210971494]
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1814560830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
+stream = ExtResource("6_ac0r2")
+volume_db = 1.0
+autoplay = true
+parameters/looping = false
+
+[connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]

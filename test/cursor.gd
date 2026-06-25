@@ -57,14 +57,23 @@ func segments_intersect(a1: Vector2, a2: Vector2, b1: Vector2, b2: Vector2) -> b
 	
 
 
-
+var combo = 1
+var foo = false
 
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("fih"):
-		body.damage(10)
+		$"../AudioStreamPlayer2D".pitch_scale = combo
+		$"../AudioStreamPlayer2D".play()
+		combo += 0.1
+		combo = clamp(combo, 1.0, 1.5)
+		foo = true
+		body.damage(10 * combo)
 	pass # Replace with function body.
 
 
 func _on_timer_timeout() -> void:
 	$Area2D/CollisionPolygon2D.polygon = []
+	if !foo:
+		combo = 1
+	foo = false
 	pass # Replace with function body.

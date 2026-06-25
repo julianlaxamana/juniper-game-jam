@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ws57b2yl4skw"
-path="res://.godot/imported/MINNOW_WORKER_NORMAL_STICKER.png-e34427b8a1856295eff4c7c6480bf822.ctex"
+path="res://.godot/imported/MINNOW_WORKER_NORMAL_STICKER.png-9b928be93cd97ef7ed5d672fe4bb738e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MINNOW_WORKER_NORMAL_STICKER.png"
-dest_files=["res://.godot/imported/MINNOW_WORKER_NORMAL_STICKER.png-e34427b8a1856295eff4c7c6480bf822.ctex"]
+source_file="res://assets/MINNOW_WORKER_NORMAL_STICKER.png"
+dest_files=["res://.godot/imported/MINNOW_WORKER_NORMAL_STICKER.png-9b928be93cd97ef7ed5d672fe4bb738e.ctex"]
 
 [params]
 

@@ -3,9 +3,18 @@ extends Node2D
 var fish = null
 var caught = false
 var transition = false
+@onready var fih = preload("res://test/fih.tscn")
+signal catch
+
+var MAX_FISH = 4
 func _ready() -> void:
-	$fih.connect("caught", _on_fih_caught)
-	$fih2.connect("caught", _on_fih_caught)
+	var fish_count = randi_range(1, MAX_FISH)
+	for i in range(fish_count):
+		var new_fish = fih.instantiate()
+		new_fish.position = Vector2(randi_range(100, 1180), (randi_range(100, 680)))
+		add_child(new_fish)
+		new_fish.connect("caught", _on_fih_caught)
+		new_fish.add_to_group("fih")
 	
 func _process(delta: float) -> void:
 	$BlueIdle.scale = lerp($BlueIdle.scale, Vector2(0.15, 0.15), 0.5)
@@ -28,11 +37,11 @@ func _on_fih_caught(fih: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
+	catch.emit()
 	queue_free()	
 	pass # Replace with function body.
 
 
 func _on_timer_2_timeout() -> void:
-	print("hi")
 	transition = true
 	pass # Replace with function body.

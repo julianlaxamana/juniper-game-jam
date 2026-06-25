@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c85lefw867g03"]
 
-[ext_resource type="Script" uid="uid://dvm5wrgofe7ko" path="res://test/fish.gd" id="1_6aw2q"]
+[ext_resource type="Script" uid="uid://cndhxissykso1" path="res://test/fish.gd" id="1_6aw2q"]
 [ext_resource type="Texture2D" uid="uid://dkud6l4uh02q5" path="res://assets/fih 2.png" id="1_xx1sx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci1tc"]
