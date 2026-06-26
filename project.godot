@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="juniper-game-jam"
+config/name="Help!, Fih??!"
 run/main_scene="uid://dost47d8gwtew"
 config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
