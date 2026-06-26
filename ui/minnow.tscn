@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://t8riitrqmxbq"]
+
+[ext_resource type="Script" uid="uid://dnwyfor2s44ug" path="res://test/minnow.gd" id="1_yqnjr"]
+[ext_resource type="Texture2D" uid="uid://c1vvxeao1qcbx" path="res://assets/TEXTBOX.png" id="2_yqnjr"]
+[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="3_ovlc6"]
+[ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://assets/ARROW_BLUNDER_EDITION.png" id="4_yqnjr"]
+
+[node name="Encounter" type="Control" unique_id=641299931]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqnjr")
+
+[node name="rightSprite" type="Sprite2D" parent="." unique_id=640324083]
+position = Vector2(1033, 300)
+scale = Vector2(0.2, 0.2)
+
+[node name="leftSprite" type="Sprite2D" parent="." unique_id=1672078430]
+position = Vector2(325.098, 300)
+scale = Vector2(0.2, 0.2)
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=1595954341]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 376.0
+offset_right = 3037.0
+offset_bottom = 1126.0
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_yqnjr")
+region_rect = Rect2(293.96838, 300.22162, 1410.6503, 1432.1724)
+patch_margin_left = 180
+patch_margin_top = 180
+patch_margin_right = 180
+patch_margin_bottom = 180
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect2" unique_id=2049960458]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 33.333317
+offset_right = 902.0
+offset_bottom = 124.33334
+scale = Vector2(8, 8)
+theme_override_colors/font_outline_color = Color(0.33474368, 0.33474353, 0.33474356, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_ovlc6")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+bbcode_enabled = true
+text = "fih 2"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1886248636]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 466.0
+offset_right = 7234.0
+offset_bottom = 1941.0
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_yqnjr")
+region_rect = Rect2(293.96838, 300.22162, 1410.6503, 1432.1724)
+patch_margin_left = 180
+patch_margin_top = 180
+patch_margin_right = 180
+patch_margin_bottom = 180
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect" unique_id=271857415]
+layout_mode = 0
+offset_left = 152.065
+offset_top = 93.365
+offset_right = 2452.065
+offset_bottom = 593.365
+scale = Vector2(3, 3)
+theme_override_colors/font_outline_color = Color(0.5931336, 0.59313357, 0.59313357, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_ovlc6")
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 100
+theme_override_font_sizes/bold_italics_font_size = 100
+theme_override_font_sizes/italics_font_size = 100
+theme_override_font_sizes/mono_font_size = 100
+bbcode_enabled = true
+text = "do you know where my dad is???"
+visible_characters_behavior = 1
+
+[node name="GrassButtonsArrow" type="Sprite2D" parent="." unique_id=1372506093]
+position = Vector2(1221, 656)
+scale = Vector2(-0.037, -0.037)
+texture = ExtResource("4_yqnjr")
+
+[node name="Timer" type="Timer" parent="." unique_id=1022521599]
+wait_time = 0.02
+autostart = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

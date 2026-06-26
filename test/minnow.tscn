@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bolp4vy5o7ra6"]
+
+[ext_resource type="Script" uid="uid://dnwyfor2s44ug" path="res://test/minnow.gd" id="1_fh2lk"]
+[ext_resource type="Texture2D" uid="uid://cuoiyu1t3uyxu" path="res://assets/MINNOW_WORKER_NORMAL_STICKER_.png" id="2_fh2lk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qjf28"]
+friction = 0.0
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o28me"]
+size = Vector2(175, 87)
+
+[node name="fih" type="RigidBody2D" unique_id=137526851]
+physics_material_override = SubResource("PhysicsMaterial_qjf28")
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 0.1
+script = ExtResource("1_fh2lk")
+
+[node name="MinnowWorkerNormalSticker" type="Sprite2D" parent="." unique_id=1819051596]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fh2lk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2052428649]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_o28me")
+
+[node name="Timer" type="Timer" parent="." unique_id=1786849620]
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1135037451]
+visible = false
+offset_left = -103.0
+offset_top = -82.0
+offset_right = 106.0
+offset_bottom = -55.0
+value = 100.0
+show_percentage = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

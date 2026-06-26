@@ -4,11 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://c0dkq3qnj1h5p" path="res://assets/85b31196-4d2a-4b04-828c-c95818ab81a0.jpg" id="2_bg4wx"]
 [ext_resource type="Environment" uid="uid://dtvfjpwdx6ipx" path="res://test/new_environment.tres" id="3_4q62c"]
 [ext_resource type="Script" uid="uid://idq1f1kjm40m" path="res://game/water.gd" id="3_ac0r2"]
+[ext_resource type="Texture2D" uid="uid://cy5t5gy5wfql" path="res://assets/TUTORIAL.png" id="3_fngf0"]
 [ext_resource type="Script" uid="uid://bek4epnr57bbw" path="res://game/test.gd" id="4_8v7ur"]
 [ext_resource type="PackedScene" uid="uid://bc1872p5pqvv5" path="res://game/fisher.tscn" id="4_bptbs"]
 [ext_resource type="AudioStream" uid="uid://b6k83e6dgflp4" path="res://assets/lake.mp3" id="6_ac0r2"]
 [ext_resource type="Shader" uid="uid://dfjiso3sn18ob" path="res://game/rod.gdshader" id="7_4q62c"]
 [ext_resource type="ArrayMesh" uid="uid://dy8cgwgc6l6s4" path="res://assets/breh.obj" id="8_70rah"]
+[ext_resource type="AudioStream" uid="uid://bbxy55cmb6gwd" path="res://assets/FishThemeRev2.wav" id="10_ehm57"]
+[ext_resource type="PackedScene" uid="uid://bnj38vgxj827m" path="res://game/compendium.tscn" id="10_q6elb"]
+[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="11_4c5ll"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehm57"]
 albedo_color = Color(4.9574674e-06, 0.84946847, 0.22955188, 1)
@@ -17,9 +21,13 @@ albedo_texture = ExtResource("2_bg4wx")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg4wx"]
 albedo_color = Color(0.37493291, 0.23757458, 1.92523e-07, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rgm4q"]
+[sub_resource type="BoxMesh" id="BoxMesh_uo1k0"]
 material = SubResource("StandardMaterial3D_bg4wx")
-size = Vector2(7, 12)
+size = Vector3(6.375366, 0.2836914, 11.879639)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ehm57"]
+material = SubResource("StandardMaterial3D_bg4wx")
+size = Vector3(18.706104, 10.916992, 2.2801514)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5auy4"]
 size = Vector3(7, 0, 12)
@@ -70,6 +78,12 @@ size = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ci1tc"]
 size = Vector3(20, 5, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pgrle"]
+font = ExtResource("11_4c5ll")
+font_size = 30
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_8v7ur"]
 resource_name = "RESET"
@@ -133,12 +147,30 @@ gravity_scale = 0.0
 freeze = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" unique_id=215667978]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9940963, 0, 7.5578985)
-mesh = SubResource("PlaneMesh_rgm4q")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9073653, -0.3581543, 7.906165)
+mesh = SubResource("BoxMesh_uo1k0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2/MeshInstance3D" unique_id=1743261435]
+transform = Transform3D(0.99244106, -0.12272211, 0, 0.12272211, 0.99244106, 0, 0, 0, 1, -1.3297639, 9.970822, -37.284256)
+mesh = SubResource("BoxMesh_ehm57")
+
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D2/MeshInstance3D/MeshInstance3D" unique_id=1018708705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1404762)
+texture = ExtResource("3_fngf0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=1894211990]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.985465, 0, 7.099284)
 shape = SubResource("BoxShape3D_5auy4")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="RigidBody3D2/CollisionShape3D" unique_id=1302733306]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 5.509904, 0.8323302, -36.45994)
+radius = 0.02
+material = SubResource("StandardMaterial3D_bg4wx")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="RigidBody3D2/CollisionShape3D" unique_id=593389287]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, -6.863946, 0.8323302, -36.45994)
+radius = 0.02
+material = SubResource("StandardMaterial3D_bg4wx")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=352609884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9198704, -18.240063)
@@ -217,6 +249,53 @@ offset_bottom = 721.0
 mouse_filter = 2
 script = ExtResource("4_8v7ur")
 
+[node name="Control" type="Control" parent="Control" unique_id=2106481551]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/Control" unique_id=1472708011]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 323.0
+offset_right = 355.0
+offset_bottom = 367.0
+text = "Access Compendium"
+label_settings = SubResource("LabelSettings_pgrle")
+
+[node name="Label2" type="Label" parent="Control/Control" unique_id=1308862540]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 380.0
+offset_right = 355.0
+offset_bottom = 424.0
+text = "Cast Rod"
+label_settings = SubResource("LabelSettings_pgrle")
+
+[node name="Control2" type="Control" parent="Control" unique_id=666132565]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/Control2" unique_id=1926639171]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 323.0
+offset_right = 355.0
+offset_bottom = 367.0
+text = "Catch fih."
+label_settings = SubResource("LabelSettings_pgrle")
+
+[node name="Label2" type="Label" parent="Control/Control2" unique_id=1728222033]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 380.0
+offset_right = 355.0
+offset_bottom = 424.0
+text = "Pull in Rod"
+label_settings = SubResource("LabelSettings_pgrle")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=1068411225]
 root_node = NodePath("../ColorRect")
 libraries/ = SubResource("AnimationLibrary_4q62c")
@@ -240,10 +319,15 @@ layout_mode = 0
 offset_right = 1282.0
 offset_bottom = 724.0
 mouse_filter = 2
-color = Color(0.31852037, 0.030019246, 0.7706801, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="Control" unique_id=1210971494]
 one_shot = true
+
+[node name="Compendium" parent="Control" unique_id=1767288917 instance=ExtResource("10_q6elb")]
+visible = false
+layout_mode = 1
+offset_bottom = -6.1035156e-05
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1814560830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
@@ -252,11 +336,24 @@ volume_db = 1.0
 autoplay = true
 parameters/looping = false
 
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=1942355003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
+stream = ExtResource("10_ehm57")
+attenuation_model = 3
+volume_db = 1.0
+autoplay = true
+max_distance = 4096.0
+panning_strength = 0.0
+
 [node name="RigidBody3D3" type="RigidBody3D" parent="." unique_id=1624742278]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0576959, 5.18198, -15.749691)
 freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3" unique_id=335862251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6311526, 0.86248875)
+shape = SubResource("BoxShape3D_dwvqn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3/CollisionShape3D" unique_id=336796252]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6311526, 0.86248875)
 shape = SubResource("BoxShape3D_dwvqn")
 
@@ -284,3 +381,5 @@ freeze = true
 shape = SubResource("BoxShape3D_dwvqn")
 
 [connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="Control" method="_on_audio_stream_player_3d_finished"]
+[connection signal="finished" from="AudioStreamPlayer3D2" to="Control" method="_on_audio_stream_player_3d_2_finished"]

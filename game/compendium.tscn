@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://bnj38vgxj827m"]
+
+[ext_resource type="Script" uid="uid://c7eburg40w27p" path="res://game/compendium.gd" id="1_fttgk"]
+[ext_resource type="Texture2D" uid="uid://c1vvxeao1qcbx" path="res://assets/TEXTBOX.png" id="1_i3k86"]
+[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="2_in6vg"]
+[ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://assets/ARROW_BLUNDER_EDITION.png" id="2_jrd3g"]
+[ext_resource type="Texture2D" uid="uid://nxfxhceuqsxk" path="res://assets/PEELING_SALMON_STICKER.png" id="3_hh0hj"]
+
+[sub_resource type="Theme" id="Theme_hh0hj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fttgk"]
+content_margin_left = 5.0
+content_margin_top = 45.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+bg_color = Color(0.6962372, 0.6647938, 0.06736756, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 9
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrd3g"]
+content_margin_left = 164.0
+bg_color = Color(0.7708511, 0.7326078, 0.074592374, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+anti_aliasing_size = 1.715
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nifsm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jrd3g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wn0vd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hh0hj"]
+bg_color = Color(0.7566494, 0.77438486, 0.09699384, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nifsm"]
+bg_color = Color(0.84301126, 0.8627574, 0.13504574, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Animation" id="Animation_fttgk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jrd3g"]
+resource_name = "test"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.6245052, 0.48296815),
+"update": 0,
+"values": [Vector2(1500, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nifsm"]
+_data = {
+&"RESET": SubResource("Animation_fttgk"),
+&"test": SubResource("Animation_jrd3g")
+}
+
+[node name="Compendium" type="Control" unique_id=1767288917]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0009765625
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fttgk")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1683887816]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 50.0
+offset_right = 2700.0
+offset_bottom = 1850.0
+scale = Vector2(0.355, 0.355)
+texture = ExtResource("1_i3k86")
+region_rect = Rect2(298.44226, 293.7753, 1403.5562, 1436.972)
+patch_margin_left = 180
+patch_margin_top = 180
+patch_margin_right = 180
+patch_margin_bottom = 180
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1058122556]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 89.0
+offset_right = 1058.0
+offset_bottom = 184.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("2_in6vg")
+theme_override_font_sizes/normal_font_size = 58
+text = "COMPENDIUM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PeelingSalmonSticker" type="Sprite2D" parent="." unique_id=562126713]
+position = Vector2(799, 335)
+scale = Vector2(0.21868747, 0.21868747)
+texture = ExtResource("3_hh0hj")
+
+[node name="ItemList" type="ItemList" parent="." unique_id=1339814210]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 189.0
+offset_right = 506.0
+offset_bottom = 532.0
+theme = SubResource("Theme_hh0hj")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/guide_color = Color(0.34901962, 0.3372549, 0.019607844, 0)
+theme_override_constants/h_separation = 53
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_in6vg")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/panel = SubResource("StyleBoxFlat_fttgk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jrd3g")
+theme_override_styles/hovered = SubResource("StyleBoxFlat_jrd3g")
+theme_override_styles/hovered_selected = SubResource("StyleBoxFlat_jrd3g")
+theme_override_styles/hovered_selected_focus = SubResource("StyleBoxFlat_jrd3g")
+theme_override_styles/selected = SubResource("StyleBoxFlat_jrd3g")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_nifsm")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_jrd3g")
+theme_override_styles/cursor = SubResource("StyleBoxEmpty_wn0vd")
+
+[node name="Label3" type="Label" parent="." unique_id=1709001309]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 192.0
+offset_right = 1005.0
+offset_bottom = 236.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_in6vg")
+theme_override_font_sizes/font_size = 30
+text = "BIGGEST FIH: 16 lbs."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1128888871]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 432.0
+offset_right = 1026.0
+offset_bottom = 476.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_in6vg")
+theme_override_font_sizes/font_size = 30
+text = "BIGGEST FIH: 16 lbs."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1258408105]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 561.0
+offset_right = 534.0
+offset_bottom = 605.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_in6vg")
+theme_override_font_sizes/font_size = 30
+text = "PROGRESS:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1164349429]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 560.0
+offset_right = 1018.0
+offset_bottom = 608.0
+theme_override_fonts/font = ExtResource("2_in6vg")
+theme_override_styles/background = SubResource("StyleBoxFlat_hh0hj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nifsm")
+value = 13.88
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1801749366]
+libraries/ = SubResource("AnimationLibrary_nifsm")
+
+[node name="Control" type="Control" parent="." unique_id=276959142]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ArrowBlunderEdition" type="Sprite2D" parent="Control" unique_id=313798701]
+position = Vector2(18.515, 13.165)
+rotation = 0.70685834
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_jrd3g")
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

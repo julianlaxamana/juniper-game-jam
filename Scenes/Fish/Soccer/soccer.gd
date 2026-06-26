@@ -53,7 +53,7 @@ var random_direction
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	print(delta)
 	if (win):
 		ball.translate(Vector2(0, -1 * speed) * delta)
 		ball.rotate(delta * 50)

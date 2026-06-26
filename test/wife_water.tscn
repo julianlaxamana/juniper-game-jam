@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://c85d38uter7ah"]
+
+[ext_resource type="Script" uid="uid://dr0aarvg3sup" path="res://test/minnow_water.gd" id="1_w6oxy"]
+[ext_resource type="Texture2D" uid="uid://c6m4fmb7n538r" path="res://assets/Underwater.png" id="2_6huwv"]
+[ext_resource type="Script" uid="uid://cmb1jdyfpdsp" path="res://test/cursor.gd" id="3_h8qom"]
+[ext_resource type="Texture2D" uid="uid://dqaxft405ujmt" path="res://assets/FISH HOOK.png" id="4_lpejd"]
+[ext_resource type="Texture2D" uid="uid://ekrn0gul6utm" path="res://assets/Blue_idle.png" id="5_sq3ui"]
+[ext_resource type="AudioStream" uid="uid://bdms2oy06mwbk" path="res://assets/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3" id="6_n8fqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwvqn"]
+size = Vector2(73, 757.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5auy4"]
+size = Vector2(1323, 20)
+
+[sub_resource type="Curve" id="Curve_qjf28"]
+_data = [Vector2(0, 1), 0.0, -2.8714101, 0, 0, Vector2(1, 0.22471917), 0.05480951, -2.8714101, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[node name="Fish" type="Node2D" unique_id=355174588]
+script = ExtResource("1_w6oxy")
+
+[node name="Water" type="Sprite2D" parent="." unique_id=703332840]
+position = Vector2(639.9444, 359.75003)
+scale = Vector2(0.6667245, 0.66712964)
+texture = ExtResource("2_6huwv")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=8417957]
+freeze = true
+linear_damp = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=715203237]
+position = Vector2(1303, 354)
+shape = SubResource("RectangleShape2D_dwvqn")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=685706715]
+freeze = true
+linear_damp = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1357442510]
+position = Vector2(-26, 346)
+shape = SubResource("RectangleShape2D_dwvqn")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="." unique_id=1020019594]
+freeze = true
+linear_damp = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3" unique_id=867729902]
+position = Vector2(642, -1)
+shape = SubResource("RectangleShape2D_5auy4")
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="." unique_id=2142606745]
+freeze = true
+linear_damp = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4" unique_id=1001795857]
+position = Vector2(645, 722)
+shape = SubResource("RectangleShape2D_5auy4")
+
+[node name="Cursor" type="Node2D" parent="." unique_id=413601368]
+script = ExtResource("3_h8qom")
+
+[node name="Area2D" type="Area2D" parent="Cursor" unique_id=26554345]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cursor/Area2D" unique_id=1662092975]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Timer" type="Timer" parent="Cursor/Area2D" unique_id=960129803]
+wait_time = 0.1
+one_shot = true
+
+[node name="FishHook" type="Sprite2D" parent="Cursor" unique_id=566435158]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_lpejd")
+
+[node name="Node2D" type="Node2D" parent="Cursor/FishHook" unique_id=1662586676]
+position = Vector2(9.545, -338.905)
+
+[node name="Line2D" type="Line2D" parent="Cursor" unique_id=1421866472]
+points = PackedVector2Array(640, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="enclose2" type="Line2D" parent="Cursor" unique_id=157313908]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+self_modulate = Color(0, 0, 0, 1)
+top_level = true
+width_curve = SubResource("Curve_qjf28")
+default_color = Color(0, 0, 0, 1)
+
+[node name="enclose" type="Line2D" parent="Cursor" unique_id=1939263992]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+top_level = true
+width = 5.0
+width_curve = SubResource("Curve_qjf28")
+
+[node name="enclose3" type="Line2D" parent="Cursor" unique_id=779355282]
+modulate = Color(0.9568556, 0.8981518, 0.49062872, 1)
+show_behind_parent = true
+top_level = true
+closed = true
+width = 5.0
+default_color = Color(0, 0, 0, 0)
+
+[node name="BlueIdle" type="Sprite2D" parent="." unique_id=1446155533]
+position = Vector2(188, 152)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_sq3ui")
+
+[node name="Timer" type="Timer" parent="." unique_id=2017968560]
+wait_time = 1.5
+
+[node name="Timer2" type="Timer" parent="." unique_id=127890901]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2112745919]
+stream = ExtResource("6_n8fqn")
+volume_db = -4.035
+max_polyphony = 10
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=826427352]
+current = true
+
+[connection signal="area_shape_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_2d_area_shape_entered"]
+[connection signal="body_shape_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_2d_body_shape_entered"]
+[connection signal="timeout" from="Cursor/Area2D/Timer" to="Cursor" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

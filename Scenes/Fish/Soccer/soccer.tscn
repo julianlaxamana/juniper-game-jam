@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://1d7e7wsn0h8j"]
+[gd_scene format=3 uid="uid://n33mvjvqvhj1"]
 
 [ext_resource type="Texture2D" uid="uid://dgy4p2aqtbvo1" path="res://Scenes/Fish/Soccer/Assets/SOCCER.png" id="1_ai21p"]
 [ext_resource type="Script" uid="uid://jh11vet3vvli" path="res://Scenes/Fish/Soccer/soccer.gd" id="1_hai52"]

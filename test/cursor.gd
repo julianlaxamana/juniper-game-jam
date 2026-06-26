@@ -64,7 +64,7 @@ var combo = 1
 var foo = false
 
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if body.is_in_group("fih"):
+	if body.is_in_group("fih") and !foo:
 		$"../AudioStreamPlayer2D".pitch_scale = combo
 		$enclose3.default_color = Color(3 * combo, 3 * combo, 3 * combo, 1.0)
 		$"../AudioStreamPlayer2D".play()

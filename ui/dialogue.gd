@@ -4,6 +4,8 @@ var a = 0
 var index = 0
 var names
 var dialogue
+signal minigame
+
 
 var log = "ball"
 
@@ -37,12 +39,13 @@ func _process(delta: float) -> void:
 		$NinePatchRect2/RichTextLabel.text = dialogue["dialogue"][index]["speaker"]
 		$GrassButtonsArrow.visible = false
 	elif Input.is_action_just_released("m1") and $GrassButtonsArrow.visible:
+		minigame.emit()
 		queue_free()
 	elif  Input.is_action_just_released("m1"):
 		$NinePatchRect/RichTextLabel.visible_characters = 1000
 		
 	a += delta
-	$GrassButtonsArrow.position.x = 1221.0 + 2.5 * sin(a * 5)
+	$GrassButtonsArrow.position.x = 1197.19 + 2.5 * sin(a * 5)
 	pass
 
 

@@ -9,13 +9,19 @@ var catch = false
 var scene = null
 var fish = null
 
+
 var currBobber = null
 func _ready() -> void:
+	$Compendium.toggle()
+	$Compendium.toggle()
+
 	area.body_entered.connect(_on_area_3d_body_entered)
 	area.body_exited.connect(_on_area_3d_body_exited)
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("e") && currBobber == null:
+		$Control.visible = false
+		$Control2.visible = true
 		var bobber_instance = BOBBER.instantiate()
 		$"../Water/Area3D".body_entered.connect(bobber_instance._on_area_3d_body_entered)
 		bobber_instance.basis = $"../CharacterBody3D".head.transform.basis
@@ -26,6 +32,8 @@ func _process(delta: float) -> void:
 		bobber_instance.apply_force(Vector3(0.0, 250.0, 0.0))
 		currBobber = bobber_instance
 	elif Input.is_action_just_pressed("e"):
+		$Control.visible = true
+		$Control2.visible = false
 		$Timer.start()
 		if fish != null:
 			fish._on_fih_escape()
@@ -36,6 +44,12 @@ func _process(delta: float) -> void:
 			get_parent().get_child(i).visible = true
 		currBobber.visible = true
 		$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
+		
+	if Input.is_action_just_pressed("r"):
+		$"../CharacterBody3D".bruh = !$"../CharacterBody3D".bruh
+		$Control.visible = $Compendium.on
+		$Compendium.visible = true
+		$Compendium.toggle()
 	
 	if currBobber != null && currBobber.visible:
 		$"../Path3D".curve.set_point_position(0, $"../CharacterBody3D".rod.global_position)
@@ -59,18 +73,56 @@ func _process(delta: float) -> void:
 		currBobber.visible = false
 		
 		
-	if catch:
+	if catch && currBobber != null:
 		currBobber.global_position = lerp(currBobber.global_position, $"../CharacterBody3D".global_position, 0.1)
-
+func minnow_load():
+	$Control2.visible = true
+	$Control.visible = false
+	$AnimationPlayer.play('dissolbe')
+	await $AnimationPlayer.animation_finished
+	var minnow = load("res://test/wife_water.tscn")
+	fish = minnow.instantiate()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$"../Node2D".add_child(fish)
+	fish.connect("catch", _on_catch)
+	fish.connect("skibidi", skibidi)
+	$"../CharacterBody3D".bruh = false
+	$AnimationPlayer.play_backwards('dissolbe')
+	$"../WorldEnvironment".environment = load("res://test/2d.tres")
+	$"../AudioStreamPlayer3D2".stop()
+	$"../AudioStreamPlayer3D2".stream = load("res://assets/Looking for my Fish Wife.wav")
+	$"../AudioStreamPlayer3D2".play(0)
+	for i in range(10):
+		get_parent().get_child(i).visible = false
+	
+func control():
+	$Control.visible = true
+	$Control2.visible = false
+	$"../AudioStreamPlayer3D2".stop()
+	$"../AudioStreamPlayer3D2".stream = load("res://assets/FishThemeRev2.wav")
+	$"../AudioStreamPlayer3D2".play(0)
 func skibidi(fih: Node2D):
+	$Control2.visible = false
 	for i in range(10):
 		get_parent().get_child(i).visible = true
-	currBobber.visible = true
-	currBobber.fih.texture = fih.sprite.texture
+	if currBobber != null:
+		currBobber.visible = true
+		currBobber.fih.texture = fih.sprite.texture
 	if fih.sprite.texture.resource_path == "res://assets/MINNOW_WORKER_NORMAL_STICKER.png":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
+		scene.connect("minigame", minnow_load)
 		scene.log = "test"
+	elif fih.sprite.texture.resource_path == "res://assets/MINNOW_WORKER_WIFE_STICKER.png":
+		var test = preload("res://ui/dialogue.tscn")
+		scene = test.instantiate()
+		scene.connect("minigame", control)
+		scene.log = "wife"
+	elif fih.sprite.texture.resource_path == "res://assets/MINNOW_WORKER_NORMAL_STICKER_.png":
+		var test = preload("res://ui/dialogue.tscn")
+		scene = test.instantiate()
+		scene.connect("minigame", control)
+		scene.log = "not wife"
 	elif fih.sprite.texture.resource_path == "res://assets/PEELING_SALMON_STICKER.png":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
@@ -83,8 +135,9 @@ func skibidi(fih: Node2D):
 	$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
 	
 func _on_catch() -> void:
-	currBobber.tickle = false
-	currBobber.submerged = false
+	if currBobber != null:
+		currBobber.tickle = false
+		currBobber.submerged = false
 	catch = true
 	$Timer.start()
 	
@@ -104,9 +157,20 @@ func _on_timer_timeout() -> void:
 	fish = null
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	catch = false
-	currBobber.queue_free()
+	if currBobber != null:
+		currBobber.queue_free()
 	$"../CharacterBody3D".camera.current = true
 	$"../CharacterBody3D".bruh = true
 	if scene != null:
 		add_child(scene)
+	pass # Replace with function body.
+
+
+func _on_audio_stream_player_3d_2_finished() -> void:
+	$"../AudioStreamPlayer3D2".play(0)
+	pass # Replace with function body.
+
+
+func _on_audio_stream_player_3d_finished() -> void:
+	$"../AudioStreamPlayer3D".play(0)
 	pass # Replace with function body.
