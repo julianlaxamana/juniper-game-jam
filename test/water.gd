@@ -4,14 +4,22 @@ var fish = null
 var caught = false
 var transition = false
 @onready var fih = preload("res://test/fih.tscn")
+@onready var story = preload("res://test/story_fih.tscn")
 signal catch
 signal skibidi
 
 var MAX_FISH = 4
 func _ready() -> void:
 	var fish_count = randi_range(1, MAX_FISH)
+	var special = randi_range(0,1)
 	for i in range(fish_count):
 		var new_fish = fih.instantiate()
+		new_fish.position = Vector2(randi_range(100, 1180), (randi_range(100, 680)))
+		add_child(new_fish)
+		new_fish.connect("caught", _on_fih_caught)
+		new_fish.add_to_group("fih")
+	if special:
+		var new_fish = story.instantiate()
 		new_fish.position = Vector2(randi_range(100, 1180), (randi_range(100, 680)))
 		add_child(new_fish)
 		new_fish.connect("caught", _on_fih_caught)
