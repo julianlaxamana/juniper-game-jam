@@ -26,7 +26,7 @@ var speed = 1674
 
 @export var smoothing_curve : Curve
 @export var color_curve : Curve
-var squish = .1
+var squish = .05
 
 
 var failure = false
@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 		ball.translate(random_direction * delta)
 		
 	if (pressed and (not win) and (not failure)):
-		var location = get_global_mouse_position() - leg.position
+		var location = get_global_mouse_position() - ball.position
 		
 		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
 		
@@ -75,6 +75,7 @@ func _process(delta: float) -> void:
 		#averager.append((leg.rotation - previous_angle) / delta)
 		
 		angular_velocity = abs(((previous_coordinate.angle_to(location)) / delta))
+		print(angular_velocity)
 		
 		#averager.append((previous_coordinate.angle_to(location)) / delta)
 		
@@ -123,11 +124,11 @@ func _process(delta: float) -> void:
 
 #contorlling minute hand
 func _input(event) -> void:
-	if (event.is_action("m1") and not failure):
+	if (event.is_action("m1") and (not failure) and (not win)):
 		if (not pressed):
 			pressed = true
 			
-			previous_coordinate = get_global_mouse_position() - leg.position
+			previous_coordinate = get_global_mouse_position() - ball.position
 			
 		else:
 			pressed = false
@@ -153,6 +154,7 @@ func _input(event) -> void:
 func _on_timer_timeout_win() -> void:
 	foreground.visible = true
 	$Path2D/PathFollow2D.visible = false
+	
 
 func _on_timer_timeout() -> void:
 	failure = false

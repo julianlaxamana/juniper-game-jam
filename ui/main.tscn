@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dost47d8gwtew"]
 
-[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="1_fblgx"]
+[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://Assets/CherryBombOne-Regular.ttf" id="1_fblgx"]
 [ext_resource type="Script" uid="uid://be0ho637bh08t" path="res://ui/main.gd" id="1_loxbi"]
 [ext_resource type="PackedScene" uid="uid://c6fv1xbnpnkir" path="res://game/dock.tscn" id="2_vcrq8"]
 

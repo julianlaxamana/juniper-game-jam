@@ -23,7 +23,9 @@ const sound_dictionary = {
 		"goalie_noises": preload("uid://domx4xdpapir"),
 		
 		"rod_reeling": preload("uid://domx4xdpapir"),
-		"caught_fish": preload("uid://domx4xdpapir")
+		"caught_fish": preload("uid://domx4xdpapir"),
+		
+		"explosion": preload("uid://dwhjp6piyj1xb")
 		
 	}
 }
@@ -36,3 +38,5 @@ const art_dictionary = {
 		}
 	}
 }
+
+const visual_novel_scene = preload("uid://bhbbqp2bl8i8l")
