@@ -69,8 +69,18 @@
 	},
 	"ball_win": {
 		"dialogue": [
-		{"speaker": "fih" , "text": "SUUUUUUIIII"},
-		{"speaker": "fisher" , "text": "..."},
+		{"speaker": "fih" , "text": "BALL_WIN"},
+		{"speaker": "fisher" , "text": "BALL_WIN"},
+		],
+		"position": ["fisher", "fih"],
+		"fisher": "res://assets/Catch_sticker.png",
+		"fih": "res://assets/PUFFERBALL_FLAT_STICKER.png"
+	},
+	
+	"clock_win":{
+		"dialogue": [
+		{"speaker": "fih" , "text": "CLOCK_WIN"},
+		{"speaker": "fisher" , "text": "CLOCK_WIN"},
 		],
 		"position": ["fisher", "fih"],
 		"fisher": "res://assets/Catch_sticker.png",

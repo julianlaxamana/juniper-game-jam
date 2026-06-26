@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csy1ghsjjv1k"
-path="res://.godot/imported/PC___Computer_-_Deltarune_-_Objects_-_Realistic_Explosion.png-897ec355d9121235de49de042d1a0f63.ctex"
+uid="uid://tlayftcd283u"
+path="res://.godot/imported/WHIRLPOOL_CG.png-39016da6d0083efaf627fcf6d14e27e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Ending/Assets/PC___Computer_-_Deltarune_-_Objects_-_Realistic_Explosion.png"
-dest_files=["res://.godot/imported/PC___Computer_-_Deltarune_-_Objects_-_Realistic_Explosion.png-897ec355d9121235de49de042d1a0f63.ctex"]
+source_file="res://Scenes/Ending/Assets/WHIRLPOOL_CG.png"
+dest_files=["res://.godot/imported/WHIRLPOOL_CG.png-39016da6d0083efaf627fcf6d14e27e4.ctex"]
 
 [params]
 

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://1vwy86l27ou8"]
+
+[ext_resource type="Script" uid="uid://uklf71kxwrii" path="res://Scenes/Ending/ending.gd" id="1_dv4ay"]
+[ext_resource type="Texture2D" uid="uid://tlayftcd283u" path="res://Scenes/Ending/Assets/WHIRLPOOL_CG.png" id="2_cgrmh"]
+[ext_resource type="Texture2D" uid="uid://domx4xdpapir" path="res://icon.svg" id="2_d0j8h"]
+
+[sub_resource type="Curve" id="Curve_dv4ay"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.8573025, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_dv4ay"]
+resource_name = "explosion"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d0j8h"]
+_data = {
+&"explosion": SubResource("Animation_dv4ay")
+}
+
+[node name="Ending" type="Node2D" unique_id=2145921057]
+script = ExtResource("1_dv4ay")
+smoothing_curve = SubResource("Curve_dv4ay")
+
+[node name="background" type="Sprite2D" parent="." unique_id=278689476]
+position = Vector2(640, 360)
+scale = Vector2(0.6666667, 0.6666667)
+texture = ExtResource("2_cgrmh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1618217106]
+
+[node name="man" type="Sprite2D" parent="." unique_id=1593486368]
+position = Vector2(640, 360)
+scale = Vector2(0.6328125, 3.2265625)
+texture = ExtResource("2_d0j8h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="man" unique_id=2087805610]
+libraries/ = SubResource("AnimationLibrary_d0j8h")

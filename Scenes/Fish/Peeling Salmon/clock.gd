@@ -5,10 +5,11 @@ extends Node2D
 @onready var watch = $Watch
 @onready var button = $Button
 @onready var foreground = $foreground
+@onready var dialogue = $Encounter
 
 var lost = false
 
-
+var win = false
 var hand_ratio: float = 5 + sqrt(2) - 1
 # real clock is too fast, 60
 # this could also easily be written to be controlling the minute hand
@@ -77,13 +78,9 @@ func _process(delta: float) -> void:
 			
 			
 		elif ((intervals[0] < revolutions) and (revolutions < intervals[1])):
-			#TODO
-			# replace this with something else
-			var temp = Label.new()
-			temp.text = "big win"
-			temp.position = Vector2(640, 360) + Vector2(randi_range(-600, 600), randi_range(-320, 320))
-			print("GOT")
-			add_child(temp)
+			win = true
+			get_tree().create_timer(.1).timeout.connect(_on_win_timer_timeout)
+
 		elif (intervals[2] < revolutions):
 			foreground.texture = Global.art_dictionary['background']['peeling_salmon']['ashes']
 			button.visible = true
@@ -93,9 +90,14 @@ func _process(delta: float) -> void:
 		revolutions = 0
 		set_process(false)
 
+
+func _on_win_timer_timeout() -> void:
+	dialogue.visible = true
+	dialogue.initialize_scene("clock_win")
+
 #contorlling minute hand
 func _input(event):
-	if (not lost and event.is_action("m1")):
+	if (not lost and event.is_action("m1") and (not win)):
 		if (not pressed):
 			pressed = true
 			set_process(true)
@@ -120,3 +122,6 @@ func _input(event):
 	
 	#if event.is_action_pressed("r"):
 		#noise.material.set_shader_parameter("alpha_value", 1 )
+
+
+#dialogue.load_dialogue("res://assets/dialogue/test.json")["ball_win"]

@@ -11,16 +11,22 @@ var log = "ball"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	dialogue = load_dialogue("res://assets/dialogue/test.json")[log]
+	initialize_scene(log)
+	
+func initialize_scene(scene: String) -> void:
+	dialogue = load_dialogue("res://assets/dialogue/test.json")[scene]
 	names = dialogue["position"]
 	$leftSprite.texture = load(dialogue[dialogue["position"][0]])
 	$rightSprite.texture = load(dialogue[dialogue["position"][1]])
 	$NinePatchRect/RichTextLabel.text = dialogue["dialogue"][index]["text"]
 	$NinePatchRect2/RichTextLabel.text = dialogue["dialogue"][index]["speaker"]
 	$NinePatchRect/RichTextLabel.visible_characters = 0
+<<<<<<< HEAD
 	$AudioStreamPlayer2D.pitch_scale = dialogue["dialogue"][index]["pitch"]
 	$AudioStreamPlayer2D.play(randf_range(0, 5))
 	pass # Replace with function body.
+=======
+>>>>>>> 26af66caabf535bb6bfc4c8a675099480973bc8e
 	
 func load_dialogue(file_path: String) -> Dictionary:
 	if FileAccess.file_exists(file_path):
