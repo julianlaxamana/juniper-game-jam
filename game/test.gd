@@ -121,26 +121,26 @@ func skibidi(fih: Node2D):
 	if currBobber != null:
 		currBobber.visible = true
 		currBobber.fih.texture = fih.sprite.texture
-	if fih.sprite.texture.resource_path == "res://assets/MINNOW_WORKER_NORMAL_STICKER.png":
+	if  ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://ws57b2yl4skw":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.connect("minigame", minnow_load)
 		scene.log = "test"
-	elif fih.sprite.texture.resource_path == "res://assets/MINNOW_WORKER_WIFE_STICKER.png":
+	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://3jt3wv4w5lt4":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.connect("minigame", control)
 		scene.log = "wife"
-	elif fih.sprite.texture.resource_path == "res://assets/MINNOW_WORKER_NORMAL_STICKER_.png":
+	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://cuoiyu1t3uyxu":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.connect("minigame", control)
 		scene.log = "not wife"
-	elif fih.sprite.texture.resource_path == "res://assets/PEELING_SALMON_STICKER.png":
+	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://nxfxhceuqsxk":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.log = "peeling"
-	elif fih.sprite.texture.resource_path == "res://assets/PUFFERBALL_FLAT_STICKER.png":
+	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://cbejyade11ep8":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.log = "ball"

@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dk5ct2cjws0f5" path="res://Scenes/Fish/Soccer/Assets/IMG_4373.png" id="7_8u3qr"]
 [ext_resource type="Script" uid="uid://cku8ulii81ygd" path="res://Scenes/Fish/Soccer/sprite_2d.gd" id="8_0e4nj"]
 [ext_resource type="Texture2D" uid="uid://26hrk3x67wdj" path="res://Scenes/Fish/Soccer/Assets/stadium.jpg" id="8_jvwiq"]
-[ext_resource type="PackedScene" uid="uid://bhbbqp2bl8i8l" path="res://ui/dialogue.tscn" id="9_y4bs2"]
 [ext_resource type="Texture2D" uid="uid://dqjldxefnbg8g" path="res://Scenes/Fish/Soccer/Assets/KICK_THAT_FIH_SOCCER.png" id="10_hwjpe"]
+[ext_resource type="Script" uid="uid://dw7lrgcey2w2f" path="res://Scenes/Fish/Soccer/kick_that_fih_soccer.gd" id="12_wgrfq"]
 
 [sub_resource type="Curve" id="Curve_3gwi5"]
 _data = [Vector2(0, 0), 1.6932318, 0.2110405, 0, 0, Vector2(1, 1), 2.146931, 0.09517513, 0, 0]
@@ -60,6 +60,43 @@ func _process(delta):
 		if (progress_ratio == 0):
 			go_right = true
 "
+
+[sub_resource type="Animation" id="Animation_2hgtb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.17998923, 0.17998925)]
+}
+
+[sub_resource type="Animation" id="Animation_judet"]
+resource_name = "breh"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 2.5666666, 2.7666667),
+"transitions": PackedFloat32Array(1, 2.0000002, 1.3195174, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.475, 0.475), Vector2(0.26, 0.26), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j1av2"]
+_data = {
+&"RESET": SubResource("Animation_2hgtb"),
+&"breh": SubResource("Animation_judet")
+}
 
 [node name="Soccer" type="Node2D" unique_id=1576657110]
 script = ExtResource("1_hai52")
@@ -155,12 +192,13 @@ texture = ExtResource("5_hai52")
 position = Vector2(640, 212)
 scale = Vector2(0.17998923, 0.17998925)
 texture = ExtResource("10_hwjpe")
+script = ExtResource("12_wgrfq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KickThatFihSoccer" unique_id=798788249]
+libraries/ = SubResource("AnimationLibrary_j1av2")
 
 [node name="Foreground" type="Sprite2D" parent="." unique_id=592955014]
 visible = false
 position = Vector2(640, 360)
 scale = Vector2(0.6666667, 0.6666667)
 texture = ExtResource("8_jvwiq")
-
-[node name="Encounter" parent="." unique_id=641299931 instance=ExtResource("9_y4bs2")]
-visible = false

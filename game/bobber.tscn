@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://qclxkjg1qfhd" path="res://game/bobber.gd" id="1_s1dgs"]
 [ext_resource type="Shader" uid="uid://c54x250v4elqg" path="res://game/bobber.gdshader" id="2_7gnix"]
-[ext_resource type="Texture2D" uid="uid://dqaxft405ujmt" path="res://assets/FISH HOOK.png" id="3_awfqx"]
-[ext_resource type="AudioStream" uid="uid://br255cg7lfeb2" path="res://assets/water01_c.wav" id="4_awfqx"]
+[ext_resource type="Texture2D" uid="uid://dqaxft405ujmt" path="res://Assets/FISH HOOK.png" id="3_awfqx"]
+[ext_resource type="AudioStream" uid="uid://br255cg7lfeb2" path="res://Assets/water01_c.wav" id="4_awfqx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dwvqn"]
 radius = 0.25

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcr7yemafy6pt"]
 
-[ext_resource type="Texture2D" uid="uid://3jt3wv4w5lt4" path="res://assets/MINNOW_WORKER_WIFE_STICKER.png" id="2_hvhtb"]
+[ext_resource type="Texture2D" uid="uid://3jt3wv4w5lt4" path="res://Assets/MINNOW_WORKER_WIFE_STICKER.png" id="2_hvhtb"]
 [ext_resource type="Script" uid="uid://dnwyfor2s44ug" path="res://test/minnow.gd" id="3_c0hdg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qjf28"]

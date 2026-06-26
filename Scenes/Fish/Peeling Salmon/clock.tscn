@@ -59,4 +59,3 @@ offset_right = 1080.0
 offset_bottom = 574.0
 
 [node name="Encounter" parent="." unique_id=641299931 instance=ExtResource("8_pmakw")]
-visible = false

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bc1872p5pqvv5"]
 
 [ext_resource type="Script" uid="uid://bsoh7jej23w7x" path="res://game/fisher.gd" id="1_ox0fy"]
-[ext_resource type="Texture2D" uid="uid://ccfvxrv4326vt" path="res://assets/FISHER_STICKER.png" id="2_saxe2"]
+[ext_resource type="Texture2D" uid="uid://ccfvxrv4326vt" path="res://Assets/FISHER_STICKER.png" id="2_saxe2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rgm4q"]
 

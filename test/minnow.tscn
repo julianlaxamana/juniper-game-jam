@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bolp4vy5o7ra6"]
 
 [ext_resource type="Script" uid="uid://dnwyfor2s44ug" path="res://test/minnow.gd" id="1_fh2lk"]
-[ext_resource type="Texture2D" uid="uid://cuoiyu1t3uyxu" path="res://assets/MINNOW_WORKER_NORMAL_STICKER_.png" id="2_fh2lk"]
+[ext_resource type="Texture2D" uid="uid://cuoiyu1t3uyxu" path="res://Assets/MINNOW_WORKER_NORMAL_STICKER_.png" id="2_fh2lk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qjf28"]
 friction = 0.0
