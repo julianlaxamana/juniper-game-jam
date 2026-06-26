@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b6k83e6dgflp4"
-path="res://.godot/imported/lake.mp3-a7b0ed2996613c35fd8daf0be0863b2a.mp3str"
+path="res://.godot/imported/lake.mp3-bffdaa029b609acbd2c7888a845b72f2.mp3str"
 
 [deps]
 
-source_file="res://Assets/lake.mp3"
-dest_files=["res://.godot/imported/lake.mp3-a7b0ed2996613c35fd8daf0be0863b2a.mp3str"]
+source_file="res://assets/lake.mp3"
+dest_files=["res://.godot/imported/lake.mp3-bffdaa029b609acbd2c7888a845b72f2.mp3str"]
 
 [params]
 

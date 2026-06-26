@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bbxy55cmb6gwd"
-path="res://.godot/imported/FishThemeRev2.wav-6d093542ccfcfae1f457ecf029ea575d.sample"
+path="res://.godot/imported/FishThemeRev2.wav-65ca3a32029ecb3820630205be234c76.sample"
 
 [deps]
 
-source_file="res://Assets/FishThemeRev2.wav"
-dest_files=["res://.godot/imported/FishThemeRev2.wav-6d093542ccfcfae1f457ecf029ea575d.sample"]
+source_file="res://assets/FishThemeRev2.wav"
+dest_files=["res://.godot/imported/FishThemeRev2.wav-65ca3a32029ecb3820630205be234c76.sample"]
 
 [params]
 

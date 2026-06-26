@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://codawapapjp6m"
-path="res://.godot/imported/DEFAULT_FIH.png-a8178ffdbb7683ad5e118f1132c139af.ctex"
+path="res://.godot/imported/DEFAULT_FIH.png-421f5467be6ecd7b1c636ae33ee28c96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DEFAULT_FIH.png"
-dest_files=["res://.godot/imported/DEFAULT_FIH.png-a8178ffdbb7683ad5e118f1132c139af.ctex"]
+source_file="res://assets/DEFAULT_FIH.png"
+dest_files=["res://.godot/imported/DEFAULT_FIH.png-421f5467be6ecd7b1c636ae33ee28c96.ctex"]
 
 [params]
 

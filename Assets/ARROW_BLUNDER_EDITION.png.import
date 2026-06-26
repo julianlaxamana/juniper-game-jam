@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mswsxlkacojg"
-path="res://.godot/imported/ARROW_BLUNDER_EDITION.png-cbde19c8374dc85b3eb37df5b0ab1678.ctex"
+path="res://.godot/imported/ARROW_BLUNDER_EDITION.png-3c9c5d7df888c04541dfa64d89795eb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ARROW_BLUNDER_EDITION.png"
-dest_files=["res://.godot/imported/ARROW_BLUNDER_EDITION.png-cbde19c8374dc85b3eb37df5b0ab1678.ctex"]
+source_file="res://assets/ARROW_BLUNDER_EDITION.png"
+dest_files=["res://.godot/imported/ARROW_BLUNDER_EDITION.png-3c9c5d7df888c04541dfa64d89795eb8.ctex"]
 
 [params]
 

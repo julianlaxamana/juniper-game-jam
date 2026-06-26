@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwnwewsbfkr3u"
-path="res://.godot/imported/DROY.png-ea85eae5b09433084ac29eb6df4dd664.ctex"
+path="res://.godot/imported/DROY.png-a548c7c08358d364c92b16cf502e4bae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DROY.png"
-dest_files=["res://.godot/imported/DROY.png-ea85eae5b09433084ac29eb6df4dd664.ctex"]
+source_file="res://assets/DROY.png"
+dest_files=["res://.godot/imported/DROY.png-a548c7c08358d364c92b16cf502e4bae.ctex"]
 
 [params]
 
