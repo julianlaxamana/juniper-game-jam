@@ -5,15 +5,15 @@ signal caught
 @onready var sprite = $MinnowWorkerNormalSticker
 
 var fishes = [
-"res://assets/99.png", 
-"res://assets/BRICK.png", 
-"res://assets/BOBA.png", 
-"res://assets/DROY.png", 
-"res://assets/DEFAULT_FIH.png", 
-"res://assets/MAN.png", 
-"res://assets/MENO.png", 
-"res://assets/MEOWMRFIH.png", 
-"res://assets/The_Gooch_STICKER.png", 
+"res://Assets/99.png", 
+"res://Assets/BRICK.png", 
+"res://Assets/BOBA.png", 
+"res://Assets/DROY.png", 
+"res://Assets/DEFAULT_FIH.png", 
+"res://Assets/MAN.png", 
+"res://Assets/MENO.png", 
+"res://Assets/MEOWMRFIH.png", 
+"res://Assets/The_Gooch_STICKER.png", 
 ]
 
 func _ready() -> void:
