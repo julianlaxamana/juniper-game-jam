@@ -162,7 +162,7 @@ position = Vector2(640, 360)
 scale = Vector2(0.6666667, 0.6666667)
 texture = ExtResource("2_cgrmh")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1618217106]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1618217106 groups=["sfx_players"]]
 stream = ExtResource("3_xc8g7")
 volume_db = -19.968
 

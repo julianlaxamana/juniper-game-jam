@@ -50,7 +50,7 @@ _data = {
 [node name="Clock" type="Node2D" unique_id=737982760]
 script = ExtResource("1_kvxpr")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1558852383 groups=["audio_players"]]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1558852383 groups=["music_players"]]
 stream = ExtResource("2_oybj4")
 volume_db = -4.988
 autoplay = true

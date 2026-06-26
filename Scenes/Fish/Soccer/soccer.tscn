@@ -107,9 +107,11 @@ color_curve = SubResource("Curve_hai52")
 
 [node name="ball block" type="AudioStreamPlayer" parent="." unique_id=23633192 groups=["sfx_players"]]
 stream = ExtResource("2_judet")
+volume_db = -1.045
 
 [node name="ball punt" type="AudioStreamPlayer" parent="." unique_id=1819717568 groups=["sfx_players"]]
 stream = ExtResource("3_j1av2")
+volume_db = -1.045
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1434068603 groups=["music_players"]]
 stream = ExtResource("2_wgrfq")

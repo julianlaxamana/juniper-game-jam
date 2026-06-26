@@ -381,14 +381,14 @@ horizontal_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Label" unique_id=1606373982]
 libraries/ = SubResource("AnimationLibrary_0oe8t")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1814560830 groups=["audio_players"]]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1814560830 groups=["sfx_players"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
 stream = ExtResource("6_ac0r2")
 volume_db = 1.0
 autoplay = true
 parameters/looping = false
 
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=1942355003 groups=["audio_players"]]
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=1942355003 groups=["music_players"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
 stream = ExtResource("10_ehm57")
 attenuation_model = 3
@@ -397,7 +397,7 @@ autoplay = true
 max_distance = 4096.0
 panning_strength = 0.0
 
-[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="." unique_id=1730323980 groups=["audio_players"]]
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="." unique_id=1730323980 groups=["sfx_players"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
 stream = ExtResource("14_sr6vn")
 attenuation_model = 3
@@ -405,7 +405,7 @@ max_distance = 4096.0
 max_polyphony = 10
 panning_strength = 0.0
 
-[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="." unique_id=1784184062 groups=["audio_players"]]
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="." unique_id=1784184062 groups=["sfx_players"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
 stream = ExtResource("14_sr6vn")
 attenuation_model = 3
