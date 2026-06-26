@@ -56,7 +56,7 @@ func _process(delta):
 			go_right = true
 "
 
-[node name="SoccerGym" type="Node2D" unique_id=1576657110]
+[node name="Soccer" type="Node2D" unique_id=1576657110]
 script = ExtResource("1_hai52")
 smoothing_curve = SubResource("Curve_3gwi5")
 color_curve = SubResource("Curve_hai52")

@@ -27,6 +27,7 @@ var speed = 1674
 @export var smoothing_curve : Curve
 @export var color_curve : Curve
 var squish = .1
+var squish = .05
 
 
 var failure = false
@@ -68,6 +69,7 @@ func _process(delta: float) -> void:
 		
 	if (pressed and (not win) and (not failure)):
 		var location = get_global_mouse_position() - leg.position
+		var location = get_global_mouse_position() - ball.position
 		
 		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
 		
@@ -124,35 +126,22 @@ func _process(delta: float) -> void:
 #contorlling minute hand
 func _input(event) -> void:
 	if (event.is_action("m1") and not failure):
+	if (event.is_action("m1") and (not failure) and (not win)):
 		if (not pressed):
 			pressed = true
 			
 			previous_coordinate = get_global_mouse_position() - leg.position
+			previous_coordinate = get_global_mouse_position() - ball.position
 			
 		else:
 			pressed = false
 			
 			
-			
-			if ( (bar.size.x / float(max_size) > .98) and
-				((goalie.progress_ratio < intervals[0]) or (intervals[1] < goalie.progress_ratio)) ):
-				
-				get_tree().create_timer(2.5).timeout.connect(_on_timer_timeout_win)
-				win = true
-				
-			else:
-				random_direction = Vector2(0, speed).rotated(randf_range(-PI/2, PI/2))
-				failure = true
-				get_tree().create_timer(1).timeout.connect(_on_timer_timeout)
-				
-			
-	#if event is InputEventMouseMotion and pressed:
-		#leg.rotation = (get_global_mouse_position() - leg.position).angle() - PI/2
-		#previous_angle = leg.rotation
 
 func _on_timer_timeout_win() -> void:
 	foreground.visible = true
 	$Path2D/PathFollow2D.visible = false
+	
 
 func _on_timer_timeout() -> void:
 	failure = false

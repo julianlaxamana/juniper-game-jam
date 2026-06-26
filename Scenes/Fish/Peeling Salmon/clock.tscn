@@ -40,7 +40,6 @@ scale = Vector2(0.6666667, 0.6666667)
 texture = ExtResource("7_bv5ay")
 
 [node name="Button" type="Button" parent="." unique_id=702642925]
-visible = false
 offset_left = 983.0
 offset_top = 599.0
 offset_right = 1246.0
@@ -48,8 +47,7 @@ offset_bottom = 694.0
 text = "GO BACK"
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1215739954]
-visible = false
-offset_left = 1075.0
-offset_top = 603.0
-offset_right = 1214.0
-offset_bottom = 693.0
+offset_left = 941.0
+offset_top = 484.0
+offset_right = 1080.0
+offset_bottom = 574.0

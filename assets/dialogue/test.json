@@ -46,5 +46,15 @@
 		"position": ["fisher", "fih"],
 		"fisher": "res://assets/Catch_sticker.png",
 		"fih": "res://assets/PUFFERBALL_FLAT_STICKER.png"
+	},
+	
+	"ball_win": {
+		"dialogue": [
+		{"speaker": "fih" , "text": "SUUUUUUIIII"},
+		{"speaker": "fisher" , "text": "..."},
+		],
+		"position": ["fisher", "fih"],
+		"fisher": "res://assets/Catch_sticker.png",
+		"fih": "res://assets/PUFFERBALL_FLAT_STICKER.png"
 	}
 }
