@@ -121,6 +121,7 @@ func skibidi(fih: Node2D):
 	if currBobber != null:
 		currBobber.visible = true
 		currBobber.fih.texture = fih.sprite.texture
+	print(ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)))
 	if  ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://ws57b2yl4skw":
 		print(ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)))
 		var test = preload("res://ui/dialogue.tscn")
