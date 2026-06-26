@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://oj6r7lvkyo08"]
 
 [ext_resource type="Script" uid="uid://cndhxissykso1" path="res://test/fish.gd" id="1_osudu"]
-[ext_resource type="Texture2D" uid="uid://ws57b2yl4skw" path="res://assets/MINNOW_WORKER_NORMAL_STICKER.png" id="2_jbydc"]
+[ext_resource type="Texture2D" uid="uid://ws57b2yl4skw" path="res://Assets/MINNOW_WORKER_NORMAL_STICKER.png" id="2_jbydc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qjf28"]
 friction = 0.0

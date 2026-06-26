@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c85d38uter7ah"]
 
 [ext_resource type="Script" uid="uid://dr0aarvg3sup" path="res://test/minnow_water.gd" id="1_w6oxy"]
-[ext_resource type="Texture2D" uid="uid://c6m4fmb7n538r" path="res://assets/Underwater.png" id="2_6huwv"]
+[ext_resource type="Texture2D" uid="uid://c6m4fmb7n538r" path="res://Assets/Underwater.png" id="2_6huwv"]
 [ext_resource type="Script" uid="uid://cmb1jdyfpdsp" path="res://test/cursor.gd" id="3_h8qom"]
-[ext_resource type="Texture2D" uid="uid://dqaxft405ujmt" path="res://assets/FISH HOOK.png" id="4_lpejd"]
-[ext_resource type="Texture2D" uid="uid://ekrn0gul6utm" path="res://assets/Blue_idle.png" id="5_sq3ui"]
-[ext_resource type="AudioStream" uid="uid://bdms2oy06mwbk" path="res://assets/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3" id="6_n8fqn"]
+[ext_resource type="Texture2D" uid="uid://dqaxft405ujmt" path="res://Assets/FISH HOOK.png" id="4_lpejd"]
+[ext_resource type="Texture2D" uid="uid://ekrn0gul6utm" path="res://Assets/Blue_idle.png" id="5_sq3ui"]
+[ext_resource type="AudioStream" uid="uid://bdms2oy06mwbk" path="res://Assets/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3" id="6_n8fqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwvqn"]
 size = Vector2(73, 757.5)

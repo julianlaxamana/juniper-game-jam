@@ -2,10 +2,10 @@
 
 [ext_resource type="Shader" uid="uid://biobl5ygfj58r" path="res://game/water.gdshader" id="2_gdnvl"]
 [ext_resource type="Shader" uid="uid://ckpyqx4tqwst" path="res://game/sky.gdshader" id="3_if17d"]
-[ext_resource type="ArrayMesh" uid="uid://dy8cgwgc6l6s4" path="res://assets/breh.obj" id="3_x40tj"]
-[ext_resource type="Texture2D" uid="uid://c0dkq3qnj1h5p" path="res://assets/85b31196-4d2a-4b04-828c-c95818ab81a0.jpg" id="4_5ckld"]
-[ext_resource type="AudioStream" uid="uid://b6k83e6dgflp4" path="res://assets/lake.mp3" id="4_r2j6y"]
-[ext_resource type="Texture2D" uid="uid://ccfvxrv4326vt" path="res://assets/FISHER_STICKER.png" id="5_x40tj"]
+[ext_resource type="ArrayMesh" uid="uid://dy8cgwgc6l6s4" path="res://Assets/breh.obj" id="3_x40tj"]
+[ext_resource type="Texture2D" uid="uid://c0dkq3qnj1h5p" path="res://Assets/85b31196-4d2a-4b04-828c-c95818ab81a0.jpg" id="4_5ckld"]
+[ext_resource type="AudioStream" uid="uid://b6k83e6dgflp4" path="res://Assets/lake.mp3" id="4_r2j6y"]
+[ext_resource type="Texture2D" uid="uid://ccfvxrv4326vt" path="res://Assets/FISHER_STICKER.png" id="5_x40tj"]
 [ext_resource type="Shader" uid="uid://dfjiso3sn18ob" path="res://game/rod.gdshader" id="7_5ckld"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1rka"]

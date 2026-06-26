@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://t8riitrqmxbq"]
 
 [ext_resource type="Script" uid="uid://dnwyfor2s44ug" path="res://test/minnow.gd" id="1_yqnjr"]
-[ext_resource type="Texture2D" uid="uid://c1vvxeao1qcbx" path="res://assets/TEXTBOX.png" id="2_yqnjr"]
-[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="3_ovlc6"]
-[ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://assets/ARROW_BLUNDER_EDITION.png" id="4_yqnjr"]
+[ext_resource type="Texture2D" uid="uid://c1vvxeao1qcbx" path="res://Assets/TEXTBOX.png" id="2_yqnjr"]
+[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://Assets/CherryBombOne-Regular.ttf" id="3_ovlc6"]
+[ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://Assets/ARROW_BLUNDER_EDITION.png" id="4_yqnjr"]
 
 [node name="Encounter" type="Control" unique_id=641299931]
 layout_mode = 3
