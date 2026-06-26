@@ -115,7 +115,7 @@ wait_time = 1.5
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2112745919]
 stream = ExtResource("6_q22b3")
-volume_db = -4.035
+volume_db = -14.851
 max_polyphony = 10
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=826427352]
