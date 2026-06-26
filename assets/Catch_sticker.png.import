@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2x3nla778e34"
-path="res://.godot/imported/Catch_sticker.png-b9c9bfd6e4e837c892b65ec9e8abe141.ctex"
+path="res://.godot/imported/Catch_sticker.png-8805a122617517d67fd004b919bf6178.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Catch_sticker.png"
-dest_files=["res://.godot/imported/Catch_sticker.png-b9c9bfd6e4e837c892b65ec9e8abe141.ctex"]
+source_file="res://assets/Catch_sticker.png"
+dest_files=["res://.godot/imported/Catch_sticker.png-8805a122617517d67fd004b919bf6178.ctex"]
 
 [params]
 

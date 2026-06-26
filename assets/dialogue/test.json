@@ -46,5 +46,25 @@
 		"position": ["fisher", "fih"],
 		"fisher": "res://assets/Catch_sticker.png",
 		"fih": "res://assets/PUFFERBALL_FLAT_STICKER.png"
+	},
+	"wife": {
+		"dialogue": [
+		{"speaker": "fih" , "text": "Thank you for reuniting me with my wife."},
+		{"speaker": "fisher" , "text": "No problem."},
+		],
+		"position": ["fisher", "fih"],
+		"fisher": "res://assets/Catch_sticker.png",
+		"fih": "res://assets/MINNOW_WORKER_NORMAL_STICKER.png"
+	},
+	"not wife": {
+		"dialogue": [
+		{"speaker": "fih" , "text": "This..."},
+		{"speaker": "fih" , "text": "This is not my wife."},
+		{"speaker": "fisher" , "text": "Don't worry, there are plenty of fish in the sea."},
+		{"speaker": "fih" , "text": "Too bad this is a lake."},
+		],
+		"position": ["fisher", "fih"],
+		"fisher": "res://assets/Catch_sticker.png",
+		"fih": "res://assets/MINNOW_WORKER_PANIC_STICKER.png"
 	}
 }
