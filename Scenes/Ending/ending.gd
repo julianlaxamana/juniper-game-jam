@@ -86,16 +86,14 @@ func _process(delta: float) -> void:
 		
 		angular_velocity = abs(police.get_angle_to(get_global_mouse_position())/ delta) 
 		
-		print(ccw)
+
 		if ccw:
 			if (police.get_angle_to(get_global_mouse_position()) > .2):
-				print("switch 1")
 				ccw = false
 				for f in fish:
 					f.scale *= Vector2(-1, 1)
 		else:
 			if (police.get_angle_to(get_global_mouse_position()) < -.2):
-				print("switch 2")
 				ccw = true
 				for f in fish:
 					f.scale *= Vector2(-1, 1)
