@@ -21,12 +21,10 @@ func initialize_scene(scene: String) -> void:
 	$NinePatchRect/RichTextLabel.text = dialogue["dialogue"][index]["text"]
 	$NinePatchRect2/RichTextLabel.text = dialogue["dialogue"][index]["speaker"]
 	$NinePatchRect/RichTextLabel.visible_characters = 0
-<<<<<<< HEAD
+
 	$AudioStreamPlayer2D.pitch_scale = dialogue["dialogue"][index]["pitch"]
 	$AudioStreamPlayer2D.play(randf_range(0, 5))
 	pass # Replace with function body.
-=======
->>>>>>> 26af66caabf535bb6bfc4c8a675099480973bc8e
 	
 func load_dialogue(file_path: String) -> Dictionary:
 	if FileAccess.file_exists(file_path):
