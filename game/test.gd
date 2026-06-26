@@ -122,16 +122,19 @@ func skibidi(fih: Node2D):
 		currBobber.visible = true
 		currBobber.fih.texture = fih.sprite.texture
 	if  ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://ws57b2yl4skw":
+		print(ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)))
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.connect("minigame", minnow_load)
 		scene.log = "test"
 	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://3jt3wv4w5lt4":
+		print(ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)))
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.connect("minigame", control)
 		scene.log = "wife"
 	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://cuoiyu1t3uyxu":
+		print(ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)))
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.connect("minigame", control)
