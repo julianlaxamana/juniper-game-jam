@@ -1,6 +1,9 @@
 extends Node
 
 
+var sfx_volume = 0
+var music_volume = 0
+
 const sound_dictionary = {
 	"BGM": {
 		"reeling_em_in": preload("uid://domx4xdpapir"),

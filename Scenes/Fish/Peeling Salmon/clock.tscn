@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hsugnat80la2" path="res://Scenes/Fish/Peeling Salmon/clock.gd" id="1_kvxpr"]
 [ext_resource type="Texture2D" uid="uid://b5o8plbifmnba" path="res://Scenes/Fish/Peeling Salmon/Assets/outlined_watch.png" id="2_1fkv7"]
+[ext_resource type="AudioStream" uid="uid://c55gxn4e4q3vf" path="res://Scenes/Fish/Peeling Salmon/Assets/Fish/A Salmon in Time.wav" id="2_oybj4"]
 [ext_resource type="Texture2D" uid="uid://d301g2qvnqlc1" path="res://Scenes/Fish/Peeling Salmon/Assets/hour_hand.png" id="4_02vs4"]
 [ext_resource type="Texture2D" uid="uid://cxba5vxgkoops" path="res://Scenes/Fish/Peeling Salmon/Assets/minute_hand.png" id="5_bv5ay"]
 [ext_resource type="Material" uid="uid://ecydmr6lgmjj" path="res://Scenes/Fish/Peeling Salmon/static.tres" id="6_02vs4"]
@@ -11,6 +12,10 @@
 
 [node name="Clock" type="Node2D" unique_id=737982760]
 script = ExtResource("1_kvxpr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1558852383 groups=["audio_players"]]
+stream = ExtResource("2_oybj4")
+autoplay = true
 
 [node name="text" type="Sprite2D" parent="." unique_id=76198132]
 position = Vector2(640, 79.99999)

@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dhd45tdf80ar1"]
+
+[ext_resource type="Shader" uid="uid://dpq68a2ggfbge" path="res://Scenes/Ending/Assets/transparent.gdshader" id="1_j5sqt"]
+
+[resource]
+shader = ExtResource("1_j5sqt")
+shader_parameter/alpha_value = 0.0

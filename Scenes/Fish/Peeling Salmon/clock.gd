@@ -36,6 +36,11 @@ func _ready():
 	pass # Replace with function body.
 	
 	button.button_up.connect(_on_button_button_up)
+	
+	$AudioStreamPlayer.finished.connect(_on_song_end)
+
+func _on_song_end() -> void:
+	$AudioStreamPlayer.play()
 
 func _on_button_button_up() -> void:
 	hour.rotation = randf_range(-PI/2, PI/2)

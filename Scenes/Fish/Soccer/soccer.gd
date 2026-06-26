@@ -44,6 +44,11 @@ func _ready():
 	
 	
 	ball_initial_position = ball.position
+	
+	$AudioStreamPlayer.finished.connect(_on_song_end)
+
+func _on_song_end() -> void:
+	$AudioStreamPlayer.play()
 
 
 var averager = []

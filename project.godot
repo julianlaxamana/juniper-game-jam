@@ -35,6 +35,10 @@ window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=2
 
+[global_group]
+
+audio_players=""
+
 [input]
 
 w={
