@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d4jjs6ntudiuq"
-path="res://.godot/imported/Looking for my Fish Wife.wav-f97c7a1d146f52dfe7c4315853d9cbc6.sample"
+path="res://.godot/imported/Looking for my Fish Wife.wav-13054ea966d55d91b234fcb6084e8c67.sample"
 
 [deps]
 
-source_file="res://assets/Looking for my Fish Wife.wav"
-dest_files=["res://.godot/imported/Looking for my Fish Wife.wav-f97c7a1d146f52dfe7c4315853d9cbc6.sample"]
+source_file="res://Assets/Looking for my Fish Wife.wav"
+dest_files=["res://.godot/imported/Looking for my Fish Wife.wav-13054ea966d55d91b234fcb6084e8c67.sample"]
 
 [params]
 

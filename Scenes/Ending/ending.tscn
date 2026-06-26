@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://uklf71kxwrii" path="res://Scenes/Ending/ending.gd" id="1_dv4ay"]
 [ext_resource type="Texture2D" uid="uid://tlayftcd283u" path="res://Scenes/Ending/Assets/WHIRLPOOL_CG.png" id="2_cgrmh"]
-[ext_resource type="Texture2D" uid="uid://domx4xdpapir" path="res://icon.svg" id="2_d0j8h"]
+[ext_resource type="AudioStream" uid="uid://dwhjp6piyj1xb" path="res://Scenes/Ending/Assets/deltarune-explosion.mp3" id="3_xc8g7"]
 [ext_resource type="Texture2D" uid="uid://bx5g0drcfbw0p" path="res://Scenes/Ending/Assets/PC___Computer_-_Deltarune_-_Objects_-_Rawaawdadaddwdawdawadwealistic_Explosion.png" id="4_cgrmh"]
+[ext_resource type="Texture2D" uid="uid://bfmpeqtquvbux" path="res://Scenes/Ending/Assets/DANIEL_WENG_SPIN.png" id="4_xc8g7"]
 [ext_resource type="Texture2D" uid="uid://bgh0qxmh1sb4m" path="res://Scenes/Fish/Soccer/Assets/PUFFERBALL_INFLATED_STICKER.png" id="5_7vfn0"]
 [ext_resource type="Texture2D" uid="uid://g7yyl55kgtq" path="res://Scenes/Fish/Peeling Salmon/Assets/Fish/WELL_SALMON_STICKER.png" id="6_3pgju"]
 [ext_resource type="Texture2D" uid="uid://3jt3wv4w5lt4" path="res://Assets/MINNOW_WORKER_WIFE_STICKER.png" id="7_3pgju"]
 [ext_resource type="Texture2D" uid="uid://ws57b2yl4skw" path="res://Assets/MINNOW_WORKER_NORMAL_STICKER.png" id="7_qk1fr"]
+[ext_resource type="Material" uid="uid://dhd45tdf80ar1" path="res://Scenes/Ending/Assets/transparent.tres" id="7_xc8g7"]
+[ext_resource type="Texture2D" uid="uid://o8qgbh3qgeal" path="res://Scenes/Ending/Assets/GOOD_ENDING_CG.png" id="11_cf2k0"]
 
 [sub_resource type="Curve" id="Curve_dv4ay"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.8573025, 0.0, 0, 0]
@@ -145,7 +148,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ypu0b")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"explosion",
 "speed": 10.0
 }]
@@ -160,11 +163,13 @@ scale = Vector2(0.6666667, 0.6666667)
 texture = ExtResource("2_cgrmh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1618217106]
+stream = ExtResource("3_xc8g7")
+volume_db = -19.968
 
 [node name="man" type="Sprite2D" parent="." unique_id=1593486368]
 position = Vector2(640, 360)
-scale = Vector2(0.6328125, 3.2265625)
-texture = ExtResource("2_d0j8h")
+scale = Vector2(0.11111111, 0.11111111)
+texture = ExtResource("4_xc8g7")
 
 [node name="explode" type="AnimatedSprite2D" parent="." unique_id=1544349723]
 texture_filter = 1
@@ -172,9 +177,11 @@ position = Vector2(641.99994, 457)
 scale = Vector2(9.497359, 9.49736)
 sprite_frames = SubResource("SpriteFrames_b3pv2")
 animation = &"explosion"
-frame_progress = 0.7888269
+frame = 18
+frame_progress = 1.0
 
 [node name="PufferballInflatedSticker" type="Sprite2D" parent="." unique_id=341944656]
+material = ExtResource("7_xc8g7")
 position = Vector2(640, 360)
 rotation = 2.3687043
 scale = Vector2(0.256, 0.256)
@@ -182,6 +189,7 @@ texture = ExtResource("5_7vfn0")
 offset = Vector2(0, -1500)
 
 [node name="WellSalmonSticker" type="Sprite2D" parent="." unique_id=157654994]
+material = ExtResource("7_xc8g7")
 position = Vector2(640, 360)
 rotation = -1.5921106
 scale = Vector2(0.20062503, 0.20062503)
@@ -189,6 +197,7 @@ texture = ExtResource("6_3pgju")
 offset = Vector2(0, -1420)
 
 [node name="MinnowWorkerWifeSticker" type="Sprite2D" parent="." unique_id=692720902]
+material = ExtResource("7_xc8g7")
 position = Vector2(640, 360)
 rotation = 0.58656794
 scale = Vector2(0.432, 0.432)
@@ -196,8 +205,22 @@ texture = ExtResource("7_3pgju")
 offset = Vector2(0, -800)
 
 [node name="MinnowWorkerNormalSticker" type="Sprite2D" parent="MinnowWorkerWifeSticker" unique_id=1886035350]
+use_parent_material = true
 position = Vector2(31.834068, -246.67578)
 rotation = -0.17872863
 scale = Vector2(1.0104166, 1.0104166)
 texture = ExtResource("7_qk1fr")
 offset = Vector2(0, -782.83)
+
+[node name="foreground" type="Sprite2D" parent="." unique_id=1149007742]
+visible = false
+position = Vector2(640, 360)
+scale = Vector2(0.6666666, 0.6666667)
+texture = ExtResource("11_cf2k0")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=2135795822]
+visible = false
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 680.0
+offset_bottom = 400.0

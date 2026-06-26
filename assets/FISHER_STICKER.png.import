@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccfvxrv4326vt"
-path.s3tc="res://.godot/imported/FISHER_STICKER.png-2d7bfd05a4880d7b5c81e499da934fd0.s3tc.ctex"
+path.s3tc="res://.godot/imported/FISHER_STICKER.png-6b4544a80d4e3f1c21aec2dd4e518b0d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/FISHER_STICKER.png"
-dest_files=["res://.godot/imported/FISHER_STICKER.png-2d7bfd05a4880d7b5c81e499da934fd0.s3tc.ctex"]
+source_file="res://Assets/FISHER_STICKER.png"
+dest_files=["res://.godot/imported/FISHER_STICKER.png-6b4544a80d4e3f1c21aec2dd4e518b0d.s3tc.ctex"]
 
 [params]
 
