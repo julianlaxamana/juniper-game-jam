@@ -365,8 +365,6 @@ one_shot = true
 [node name="Compendium" parent="Control" unique_id=1767288917 instance=ExtResource("10_q6elb")]
 visible = false
 layout_mode = 1
-offset_left = 0.0
-offset_right = 0.0009765625
 offset_bottom = -6.1035156e-05
 
 [node name="Label" type="Label" parent="Control" unique_id=1548597034]

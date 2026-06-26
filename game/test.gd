@@ -98,6 +98,15 @@ func minnow_load():
 	$"../AudioStreamPlayer3D2".play(0)
 	for i in range(10):
 		get_parent().get_child(i).visible = false
+func ball():
+	$AnimationPlayer.play('dissolbe')
+	await $AnimationPlayer.animation_finished
+	var ball = load("res://Scenes/Fish/Soccer/soccer.tscn")
+	var ballin = ball.instantiate()
+	$"../Node2D".add_child(ballin)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$AnimationPlayer.play_backwards('dissolbe')
+	$"../AudioStreamPlayer3D2".stop()
 	
 func control():
 	$Control.visible = true
@@ -147,6 +156,7 @@ func skibidi(fih: Node2D):
 	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://cbejyade11ep8":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
+		scene.connect("minigame", ball)
 		scene.log = "ball"
 		
 	$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
