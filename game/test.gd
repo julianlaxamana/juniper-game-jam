@@ -31,7 +31,9 @@ func _process(delta: float) -> void:
 		bobber_instance.apply_force(-300.0 * $"../CharacterBody3D".head.transform.basis.z)
 		bobber_instance.apply_force(Vector3(0.0, 250.0, 0.0))
 		currBobber = bobber_instance
-	elif Input.is_action_just_pressed("e"):
+		$"../AudioStreamPlayer3D4".stream = load("res://assets/audiopapkin-fishing-reel-302355.wav")
+		$"../AudioStreamPlayer3D4".play()
+	elif Input.is_action_just_pressed("e") and $Timer.is_stopped():
 		$Control.visible = true
 		$Control2.visible = false
 		$Timer.start()
@@ -44,6 +46,8 @@ func _process(delta: float) -> void:
 			get_parent().get_child(i).visible = true
 		currBobber.visible = true
 		$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
+		$"../AudioStreamPlayer3D4".stream = load("res://assets/reel-back.wav")
+		$"../AudioStreamPlayer3D4".play()
 		
 	if Input.is_action_just_pressed("r"):
 		$"../CharacterBody3D".bruh = !$"../CharacterBody3D".bruh
@@ -103,6 +107,15 @@ func control():
 	$"../AudioStreamPlayer3D2".play(0)
 func skibidi(fih: Node2D):
 	$Control2.visible = false
+	for item in $Compendium.items:
+		if fih.sprite.texture.resource_path == item["sprite"] && !item["caught"]:
+			item["caught"] = true
+			$"../AudioStreamPlayer3D3".play()
+			$Label.visible = true
+			$Label/AnimationPlayer.play("yipee")
+			
+			
+	$Compendium.update_items()
 	for i in range(10):
 		get_parent().get_child(i).visible = true
 	if currBobber != null:
@@ -140,6 +153,8 @@ func _on_catch() -> void:
 		currBobber.submerged = false
 	catch = true
 	$Timer.start()
+	$"../AudioStreamPlayer3D4".stream = load("res://assets/reel-back.wav")
+	$"../AudioStreamPlayer3D4".play()
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:

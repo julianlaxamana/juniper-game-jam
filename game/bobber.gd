@@ -9,7 +9,7 @@ var b = 0
 @onready var catchTimer = $Timer
 @onready var fih = $Sprite3D2
 func _ready() -> void:
-	catchTimer.wait_time = randf_range(5.0, 10.0)
+	catchTimer.wait_time = randf_range(2.0, 7.0)
 	#catchTimer.wait_time = 1
 	
 func _process(delta: float) -> void:
@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == self && not submerged:
+		$AudioStreamPlayer3D.play()
 		catchTimer.start()
 		linear_damp = 2.5
 		gravity_scale = 0.0

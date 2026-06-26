@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1vvxeao1qcbx" path="res://assets/TEXTBOX.png" id="2_tqx3j"]
 [ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="4_jmpb1"]
 [ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://assets/ARROW_BLUNDER_EDITION.png" id="4_uo1k0"]
+[ext_resource type="AudioStream" uid="uid://s8jd38nemf5c" path="res://assets/talking.wav" id="5_tqx3j"]
 
 [node name="Encounter" type="Control" unique_id=641299931]
 layout_mode = 3
@@ -95,8 +96,14 @@ scale = Vector2(-0.045, -0.045)
 texture = ExtResource("4_uo1k0")
 
 [node name="Timer" type="Timer" parent="." unique_id=1022521599]
-wait_time = 0.02
+wait_time = 0.030000000000000002
 autostart = true
 ignore_time_scale = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=671248139]
+position = Vector2(59.85105, 481.87204)
+scale = Vector2(0.51, 0.51)
+stream = ExtResource("5_tqx3j")
+pitch_scale = 0.77
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

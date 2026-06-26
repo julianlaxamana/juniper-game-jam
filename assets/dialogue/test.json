@@ -1,13 +1,13 @@
 {
 	"test": {
 		"dialogue": [
-		{"speaker": "fih" , "text": "Good afternoon, Angler."},
-		{"speaker": "fisher" , "text": "what."},
-		{"speaker": "fih" , "text": "I hope you are having a good day."},
-		{"speaker": "fih" , "text": "My wife is gone."},
-		{"speaker": "fisher" , "text": "Oh. I'm sorry for your loss."},
-		{"speaker": "fih" , "text": "My apologies for the confusion, I meant she's missing."},
-		{"speaker": "fih" , "text": "Please help me find her."},
+		{"speaker": "fih" , "text": "Good afternoon, Angler.", "pitch": 1.5},
+		{"speaker": "fisher" , "text": "what.", "pitch": 0.75},
+		{"speaker": "fih" , "text": "I hope you are having a good day.", "pitch": 1.5},
+		{"speaker": "fih" , "text": "My wife is gone.", "pitch": 1.5},
+		{"speaker": "fisher" , "text": "Oh. I'm sorry for your loss.", "pitch": 0.75},
+		{"speaker": "fih" , "text": "My apologies for the confusion, I meant she's missing.", "pitch": 1.5},
+		{"speaker": "fih" , "text": "Please help me find her.", "pitch": 1.5},
 		],
 		"position": ["fisher", "fih"],
 		"fisher": "res://assets/Catch_sticker.png",
@@ -15,18 +15,18 @@
 	},
 	"peeling": {
 		"dialogue": [
-		{"speaker": "fih" , "text": "My skin is peeling."},
-		{"speaker": "fisher" , "text": "That must be painful."},
-		{"speaker": "fih" , "text": "I am in pain."},
-		{"speaker": "fih" , "text": "Please."},
-		{"speaker": "fih" , "text": "Help."},
-		{"speaker": "fih" , "text": "Me."},
-		{"speaker": "fisher" , "text": "If only I had a clock that could rewind time."},
-		{"speaker": "fisher" , "text": "Then I'd be able to reverse all this pain."},
-		{"speaker": "fih" , "text": "Wait, do you mean this?"},
-		{"speaker": "fisher" , "text": "Wow, how convinient."},
-		{"speaker": "fih" , "text": "It's a magical clock that rewinds time, yet I cannot use it for I have fins."},
-		{"speaker": "fih" , "text": "Please use it to heal me."}
+		{"speaker": "fih" , "text": "My skin is peeling.", "pitch": 0.3},
+		{"speaker": "fisher" , "text": "That must be painful.", "pitch": 0.75},
+		{"speaker": "fih" , "text": "I am in pain.", "pitch": 0.3},
+		{"speaker": "fih" , "text": "Please.", "pitch": 0.3},
+		{"speaker": "fih" , "text": "Help.", "pitch": 0.3},
+		{"speaker": "fih" , "text": "Me.", "pitch": 0.3},
+		{"speaker": "fisher" , "text": "If only I had a clock that could rewind time.", "pitch": 0.75},
+		{"speaker": "fisher" , "text": "Then I'd be able to reverse all this pain.", "pitch": 0.75},
+		{"speaker": "fih" , "text": "Wait, do you mean this?", "pitch": 0.3},
+		{"speaker": "fisher" , "text": "Wow, how convinient.", "pitch": 0.75},
+		{"speaker": "fih" , "text": "It's a magical clock that rewinds time, yet I cannot use it for I have fins.", "pitch": 0.3},
+		{"speaker": "fih" , "text": "Please use it to heal me.", "pitch": 0.3}
 		],
 		"position": ["fisher", "fih"],
 		"fisher": "res://assets/Catch_sticker.png",
@@ -34,14 +34,14 @@
 	},
 	"ball": {
 		"dialogue": [
-		{"speaker": "fih" , "text": "SUUUUUUIIII"},
-		{"speaker": "fisher" , "text": "..."},
-		{"speaker": "fih" , "text": "Yo, do you know the way to the world cup?"},
-		{"speaker": "fih" , "text": "My favorite player Mfishe is playing today."},
-		{"speaker": "fisher" , "text": "Who dat."},
-		{"speaker": "fih" , "text": "Mfishe, the number one fishball player in the world."},
-		{"speaker": "fih" , "text": "Anyway, you gotta get me to the world cup its Atlantic vs Red Sea and I gotta rep."},
-		{"speaker": "fih" , "text": "Please help a brotha out"}
+		{"speaker": "fih" , "text": "SUUUUUUIIII", "pitch": 0.5},
+		{"speaker": "fisher" , "text": "...", "pitch": 0.75},
+		{"speaker": "fih" , "text": "Yo, do you know the way to the world cup?", "pitch": 0.5},
+		{"speaker": "fih" , "text": "My favorite player Mfishe is playing today.", "pitch": 0.5},
+		{"speaker": "fisher" , "text": "Who dat.", "pitch": 0.75},
+		{"speaker": "fih" , "text": "Mfishe, the number one fishball player in the world.", "pitch": 0.5},
+		{"speaker": "fih" , "text": "Anyway, you gotta get me to the world cup its Atlantic vs Red Sea and I gotta rep.", "pitch": 0.5},
+		{"speaker": "fih" , "text": "Please help a brotha out", "pitch": 0.5}
 		],
 		"position": ["fisher", "fih"],
 		"fisher": "res://assets/Catch_sticker.png",
@@ -49,8 +49,8 @@
 	},
 	"wife": {
 		"dialogue": [
-		{"speaker": "fih" , "text": "Thank you for reuniting me with my wife."},
-		{"speaker": "fisher" , "text": "No problem."},
+		{"speaker": "fih" , "text": "Thank you for reuniting me with my wife.", "pitch": 1.5},
+		{"speaker": "fisher" , "text": "No problem.", "pitch": 0.75},
 		],
 		"position": ["fisher", "fih"],
 		"fisher": "res://assets/Catch_sticker.png",
@@ -58,10 +58,10 @@
 	},
 	"not wife": {
 		"dialogue": [
-		{"speaker": "fih" , "text": "This..."},
-		{"speaker": "fih" , "text": "This is not my wife."},
-		{"speaker": "fisher" , "text": "Don't worry, there are plenty of fish in the sea."},
-		{"speaker": "fih" , "text": "Too bad this is a lake."},
+		{"speaker": "fih" , "text": "This...", "pitch": 1.5},
+		{"speaker": "fih" , "text": "This is not my wife.", "pitch": 1.5},
+		{"speaker": "fisher" , "text": "Don't worry, there are plenty of fish in the sea.", "pitch": 0.75},
+		{"speaker": "fih" , "text": "Too bad this is a lake.", "pitch": 1.5},
 		],
 		"position": ["fisher", "fih"],
 		"fisher": "res://assets/Catch_sticker.png",
