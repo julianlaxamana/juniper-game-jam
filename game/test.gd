@@ -62,9 +62,9 @@ func _process(delta: float) -> void:
 	else:
 		$"../Path3D".visible = false
 	if Input.is_action_just_pressed("q") and currBobber != null and currBobber.tickle and fish == null:
+		fish = FISH.instantiate()
 		$AnimationPlayer.play('dissolbe')
 		await $AnimationPlayer.animation_finished
-		fish = FISH.instantiate()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		$"../Node2D".add_child(fish)
 		fish.connect("catch", _on_catch)
