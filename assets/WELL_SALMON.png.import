@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbbqtspdvaj3h"
-path="res://.godot/imported/WELL_SALMON.png-8b8046850876b2cc3592564435ff19d4.ctex"
+path="res://.godot/imported/WELL_SALMON.png-02b3348cec8fcb7f2864bc7e672a9ecb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WELL_SALMON.png"
-dest_files=["res://.godot/imported/WELL_SALMON.png-8b8046850876b2cc3592564435ff19d4.ctex"]
+source_file="res://Assets/WELL_SALMON.png"
+dest_files=["res://.godot/imported/WELL_SALMON.png-02b3348cec8fcb7f2864bc7e672a9ecb.ctex"]
 
 [params]
 

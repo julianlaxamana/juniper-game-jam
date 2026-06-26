@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxp8vfm0oabtf"
-path="res://.godot/imported/MEOWMRFIH.png-498744eb94527e5f23798852da85d02a.ctex"
+path="res://.godot/imported/MEOWMRFIH.png-a8f7c6b755fd6a615ca1b8cc67ed5c54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MEOWMRFIH.png"
-dest_files=["res://.godot/imported/MEOWMRFIH.png-498744eb94527e5f23798852da85d02a.ctex"]
+source_file="res://Assets/MEOWMRFIH.png"
+dest_files=["res://.godot/imported/MEOWMRFIH.png-a8f7c6b755fd6a615ca1b8cc67ed5c54.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c2nvgbetekuxy"
-path="res://.godot/imported/reel-back.wav-467a9973586b3a904db65fccd8dd13b1.sample"
+path="res://.godot/imported/reel-back.wav-bca435947b3231bf7edc6bb4334758df.sample"
 
 [deps]
 
-source_file="res://assets/reel-back.wav"
-dest_files=["res://.godot/imported/reel-back.wav-467a9973586b3a904db65fccd8dd13b1.sample"]
+source_file="res://Assets/reel-back.wav"
+dest_files=["res://.godot/imported/reel-back.wav-bca435947b3231bf7edc6bb4334758df.sample"]
 
 [params]
 

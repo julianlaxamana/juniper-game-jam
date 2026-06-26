@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c2oj38dcbkk46"
-path="res://.godot/imported/universfield-level-up-191997.mp3-bb126576af8dc62f98bd1dccedc38cd6.mp3str"
+path="res://.godot/imported/universfield-level-up-191997.mp3-f99f801644b9ad634536bc3c4a912e63.mp3str"
 
 [deps]
 
-source_file="res://assets/universfield-level-up-191997.mp3"
-dest_files=["res://.godot/imported/universfield-level-up-191997.mp3-bb126576af8dc62f98bd1dccedc38cd6.mp3str"]
+source_file="res://Assets/universfield-level-up-191997.mp3"
+dest_files=["res://.godot/imported/universfield-level-up-191997.mp3-f99f801644b9ad634536bc3c4a912e63.mp3str"]
 
 [params]
 

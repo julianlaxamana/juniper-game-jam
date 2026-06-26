@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgfj0s1w5ceji"
-path="res://.godot/imported/MENO.png-89a0a8cbcdfbfa73b4b3389f1447a105.ctex"
+path="res://.godot/imported/MENO.png-5653090b55b8d569acfda84b7c455aa9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MENO.png"
-dest_files=["res://.godot/imported/MENO.png-89a0a8cbcdfbfa73b4b3389f1447a105.ctex"]
+source_file="res://Assets/MENO.png"
+dest_files=["res://.godot/imported/MENO.png-5653090b55b8d569acfda84b7c455aa9.ctex"]
 
 [params]
 

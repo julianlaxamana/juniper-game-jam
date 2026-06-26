@@ -3,12 +3,13 @@ extends Node2D
 @onready var police = $man
 @onready var explosion_sound = $man/AnimationPlayer
 @onready var explode = $explode
-
+@onready var man = $man
 
 var velocity_minimum: float = 5
 var timer_minimum: float = 3
 var scaler: float = 1.0/7.0
 var angular_velocity: float = 0.0
+
 
 var win = false
 var pressed = false
@@ -35,8 +36,26 @@ func _ready():
 		$MinnowWorkerWifeSticker,
 	]
 
+
 var averager = []
 var count = 0
+
+@onready var foreground = $foreground
+func _delete_daniel() -> void:
+	man.visible = false
+	
+func _show_ending() -> void:
+	foreground.visible = true
+	get_tree().create_timer(3).timeout.connect(_show_button)
+	
+func _show_button() -> void:
+	$TextureButton.visible = true
+	
+
+	
+func _on_button_press() -> void:
+	#TODO hookup signal changer
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -46,6 +65,11 @@ func _process(delta: float) -> void:
 		$AudioStreamPlayer.volume_db = $AudioStreamPlayer.volume_db + Global.sfx_volume
 		$AudioStreamPlayer.play()
 		sound = true
+		
+		man.texture = preload("res://Scenes/Ending/Assets/DANIEL_WENG_DIES.png")
+		
+		get_tree().create_timer(.4).timeout.connect(_delete_daniel)
+		get_tree().create_timer(1.4).timeout.connect(_show_ending)
 		
 		pass
 		#ball.translate(Vector2(0, -1 * speed) * delta)

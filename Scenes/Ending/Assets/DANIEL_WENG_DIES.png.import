@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojpnncni2oaq"
-path="res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"
+uid="uid://bq2v4eol8gr1d"
+path="res://.godot/imported/DANIEL_WENG_DIES.png-7a5b2a5859b549cf9ebff5fa4a65cb8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rod.webp"
-dest_files=["res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"]
+source_file="res://Scenes/Ending/Assets/DANIEL_WENG_DIES.png"
+dest_files=["res://.godot/imported/DANIEL_WENG_DIES.png-7a5b2a5859b549cf9ebff5fa4a65cb8d.ctex"]
 
 [params]
 

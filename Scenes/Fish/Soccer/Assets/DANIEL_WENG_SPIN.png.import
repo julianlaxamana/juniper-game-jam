@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojpnncni2oaq"
-path="res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"
+uid="uid://dx4o5c5i7ymtd"
+path="res://.godot/imported/DANIEL_WENG_SPIN.png-73c3e2994fe0c375d0ffdc48494abdb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rod.webp"
-dest_files=["res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"]
+source_file="res://Scenes/Fish/Soccer/Assets/DANIEL_WENG_SPIN.png"
+dest_files=["res://.godot/imported/DANIEL_WENG_SPIN.png-73c3e2994fe0c375d0ffdc48494abdb7.ctex"]
 
 [params]
 

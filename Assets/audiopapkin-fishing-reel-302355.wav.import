@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cvygfo65uqwv1"
-path="res://.godot/imported/audiopapkin-fishing-reel-302355.wav-5bfcf641ff73cd8d150c5661ea73a608.sample"
+path="res://.godot/imported/audiopapkin-fishing-reel-302355.wav-cb02615ccf450b0648c2b82075e22821.sample"
 
 [deps]
 
-source_file="res://assets/audiopapkin-fishing-reel-302355.wav"
-dest_files=["res://.godot/imported/audiopapkin-fishing-reel-302355.wav-5bfcf641ff73cd8d150c5661ea73a608.sample"]
+source_file="res://Assets/audiopapkin-fishing-reel-302355.wav"
+dest_files=["res://.godot/imported/audiopapkin-fishing-reel-302355.wav-cb02615ccf450b0648c2b82075e22821.sample"]
 
 [params]
 

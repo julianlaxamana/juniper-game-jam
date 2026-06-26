@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://br255cg7lfeb2"
-path="res://.godot/imported/water01_c.wav-c5f165209adcaf2ac344d2ada6233371.sample"
+path="res://.godot/imported/water01_c.wav-ff84f395b2c3e3cfed3d4d26b8b5142f.sample"
 
 [deps]
 
-source_file="res://assets/water01_c.wav"
-dest_files=["res://.godot/imported/water01_c.wav-c5f165209adcaf2ac344d2ada6233371.sample"]
+source_file="res://Assets/water01_c.wav"
+dest_files=["res://.godot/imported/water01_c.wav-ff84f395b2c3e3cfed3d4d26b8b5142f.sample"]
 
 [params]
 
