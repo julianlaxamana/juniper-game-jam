@@ -1,20 +1,20 @@
 extends Control
 
 var items = [
-	{"fish_name": "Peeling Salmon", "caught": false, "biggest": "N/A", "sprite": "res://assets/PEELING_SALMON_STICKER.png"},
-	{"fish_name": "Minnow-mal Wage Worker", "caught": false, "biggest": "N/A", "sprite": "res://assets/MINNOW_WORKER_NORMAL_STICKER.png"},
-	{"fish_name": "Minnow-mal Wage Worker's Wife", "caught": false, "biggest": "N/A", "sprite": "res://assets/MINNOW_WORKER_WIFE_STICKER.png"},
-	{"fish_name": "Pufferball", "caught": false, "biggest": "N/A", "sprite": "res://assets/PUFFERBALL_FLAT_STICKER.png"},
+	{"fish_name": "Peeling Salmon", "caught": false, "biggest": "N/A", "sprite": "res://Assets/PEELING_SALMON_STICKER.png"},
+	{"fish_name": "Minnow-mal Wage Worker", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MINNOW_WORKER_NORMAL_STICKER.png"},
+	{"fish_name": "Minnow-mal Wage Worker's Wife", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MINNOW_WORKER_WIFE_STICKER.png"},
+	{"fish_name": "Pufferball", "caught": false, "biggest": "N/A", "sprite": "res://Assets/PUFFERBALL_FLAT_STICKER.png"},
 	{"fish_name": "Goalie Flounder", "caught": false, "biggest": "N/A", "sprite": "res://Scenes/Fish/Soccer/Assets/GOALIE_STICKER.png"},
-	{"fish_name": "99 Fihs in The Forest", "caught": false, "biggest": "N/A", "sprite": "res://assets/99.png"},
-	{"fish_name": "brick", "caught": false, "biggest": "N/A", "sprite": "res://assets/BRICK.png"},
-	{"fish_name": "Bobafish", "caught": false, "biggest": "N/A", "sprite": "res://assets/BOBA.png"},
-	{"fish_name": "droy", "caught": false, "biggest": "N/A", "sprite": "res://assets/DROY.png"},
-	{"fish_name": "default_fih", "caught": false, "biggest": "N/A", "sprite": "res://assets/DEFAULT_FIH.png"},
-	{"fish_name": "Manfih", "caught": false, "biggest": "N/A", "sprite": "res://assets/MAN.png"},
-	{"fish_name": "Meno", "caught": false, "biggest": "N/A", "sprite": "res://assets/MENO.png"},
-	{"fish_name": "MeowMrFih", "caught": false, "biggest": "N/A", "sprite": "res://assets/MEOWMRFIH.png"},
-	{"fish_name": "The Gooch", "caught": false, "biggest": "N/A", "sprite": "res://assets/The_Gooch_STICKER.png"}
+	{"fish_name": "99 Fihs in The Forest", "caught": false, "biggest": "N/A", "sprite": "res://Assets/99.png"},
+	{"fish_name": "brick", "caught": false, "biggest": "N/A", "sprite": "res://Assets/BRICK.png"},
+	{"fish_name": "Bobafish", "caught": false, "biggest": "N/A", "sprite": "res://Assets/BOBA.png"},
+	{"fish_name": "droy", "caught": false, "biggest": "N/A", "sprite": "res://Assets/DROY.png"},
+	{"fish_name": "default_fih", "caught": false, "biggest": "N/A", "sprite": "res://Assets/DEFAULT_FIH.png"},
+	{"fish_name": "Manfih", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MAN.png"},
+	{"fish_name": "Meno", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MENO.png"},
+	{"fish_name": "MeowMrFih", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MEOWMRFIH.png"},
+	{"fish_name": "The Gooch", "caught": false, "biggest": "N/A", "sprite": "res://Assets/The_Gooch_STICKER.png"}
 ]
 
 #"res://assets/99.png", 
