@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgiblunwy5qxw"
-path="res://.godot/imported/MINNOW_WORKER_PANIC.png-cfc117909e621b262c80a98848a5cc6e.ctex"
+path="res://.godot/imported/MINNOW_WORKER_PANIC.png-d18cd1cb16173eca6bd5e535076b756b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MINNOW_WORKER_PANIC.png"
-dest_files=["res://.godot/imported/MINNOW_WORKER_PANIC.png-cfc117909e621b262c80a98848a5cc6e.ctex"]
+source_file="res://assets/MINNOW_WORKER_PANIC.png"
+dest_files=["res://.godot/imported/MINNOW_WORKER_PANIC.png-d18cd1cb16173eca6bd5e535076b756b.ctex"]
 
 [params]
 

@@ -21,6 +21,10 @@ func initialize_scene(scene: String) -> void:
 	$NinePatchRect/RichTextLabel.text = dialogue["dialogue"][index]["text"]
 	$NinePatchRect2/RichTextLabel.text = dialogue["dialogue"][index]["speaker"]
 	$NinePatchRect/RichTextLabel.visible_characters = 0
+
+	$AudioStreamPlayer2D.pitch_scale = dialogue["dialogue"][index]["pitch"]
+	$AudioStreamPlayer2D.play(randf_range(0, 5))
+	pass # Replace with function body.
 	
 func load_dialogue(file_path: String) -> Dictionary:
 	if FileAccess.file_exists(file_path):
@@ -36,15 +40,19 @@ func load_dialogue(file_path: String) -> Dictionary:
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("m1") and $GrassButtonsArrow.visible && index < len(dialogue["dialogue"]) - 1:
 		index += 1
+		$AudioStreamPlayer2D.play(randf_range(0, 5))
 		$NinePatchRect/RichTextLabel.visible_characters = 0
 		$NinePatchRect/RichTextLabel.text = dialogue["dialogue"][index]["text"]
 		$NinePatchRect2/RichTextLabel.text = dialogue["dialogue"][index]["speaker"]
+		$AudioStreamPlayer2D.pitch_scale = dialogue["dialogue"][index]["pitch"]
 		$GrassButtonsArrow.visible = false
 	elif Input.is_action_just_released("m1") and $GrassButtonsArrow.visible:
 		minigame.emit()
 		queue_free()
 	elif  Input.is_action_just_released("m1"):
+		$AudioStreamPlayer2D.stop()
 		$NinePatchRect/RichTextLabel.visible_characters = 1000
+		$AudioStreamPlayer2D.pitch_scale = dialogue["dialogue"][index]["pitch"]
 		
 	a += delta
 	$GrassButtonsArrow.position.x = 1197.19 + 2.5 * sin(a * 5)
@@ -55,17 +63,18 @@ func _on_timer_timeout() -> void:
 	if $NinePatchRect/RichTextLabel.visible_characters < len($NinePatchRect/RichTextLabel.text):
 		if names.find(dialogue["dialogue"][index]["speaker"]) == 1:
 			$rightSprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
-			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.4, 0.4), 0.25)
+			$rightSprite.scale = lerp($rightSprite.scale, Vector2(randf_range(0.35, 0.44), randf_range(0.35, 0.44)), 0.25)
 			$leftSprite.modulate = Color(0.5, 0.5, 0.5, 1.0)
 			$leftSprite.scale = lerp($leftSprite.scale, Vector2(0.17, 0.17), 0.25)
 		else:
 			$leftSprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 			$rightSprite.scale = lerp($rightSprite.scale, Vector2(0.34, 0.34), 0.25)
 			$rightSprite.modulate = Color(0.5, 0.5, 0.5, 1.0)
-			$leftSprite.scale = lerp($leftSprite.scale, Vector2(0.22, 0.22), 0.25)
+			$leftSprite.scale = lerp($leftSprite.scale, Vector2(randf_range(0.20, 0.25), randf_range(0.20, 0.25)), 0.25)
 		$NinePatchRect/RichTextLabel.visible_characters += 1
 		$GrassButtonsArrow.visible = false
 	else:
+		$AudioStreamPlayer2D.stop()
 		$GrassButtonsArrow.visible = true
 		
 	pass # Replace with function body.

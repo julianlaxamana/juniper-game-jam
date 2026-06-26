@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bbxy55cmb6gwd" path="res://assets/FishThemeRev2.wav" id="10_ehm57"]
 [ext_resource type="PackedScene" uid="uid://bnj38vgxj827m" path="res://game/compendium.tscn" id="10_q6elb"]
 [ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://assets/CherryBombOne-Regular.ttf" id="11_4c5ll"]
+[ext_resource type="AudioStream" uid="uid://c2oj38dcbkk46" path="res://assets/universfield-level-up-191997.mp3" id="14_sr6vn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehm57"]
 albedo_color = Color(4.9574674e-06, 0.84946847, 0.22955188, 1)
@@ -121,6 +122,43 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_8v7ur"),
 &"dissolbe": SubResource("Animation_ac0r2")
+}
+
+[sub_resource type="Animation" id="Animation_sr6vn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(518, 323)]
+}
+
+[sub_resource type="Animation" id="Animation_gr1x1"]
+resource_name = "yipee"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 2.5666666, 2.9833333),
+"transitions": PackedFloat32Array(2, 1, 1, 2.0000005),
+"update": 0,
+"values": [Vector2(518, 750), Vector2(518, 323), Vector2(518, 323), Vector2(518, 750)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0oe8t"]
+_data = {
+&"RESET": SubResource("Animation_sr6vn"),
+&"yipee": SubResource("Animation_gr1x1")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dwvqn"]
@@ -329,6 +367,20 @@ visible = false
 layout_mode = 1
 offset_bottom = -6.1035156e-05
 
+[node name="Label" type="Label" parent="Control" unique_id=1548597034]
+visible = false
+layout_mode = 0
+offset_left = 518.0
+offset_top = 323.0
+offset_right = 786.0
+offset_bottom = 367.0005
+text = "new fih!"
+label_settings = SubResource("LabelSettings_pgrle")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Label" unique_id=1606373982]
+libraries/ = SubResource("AnimationLibrary_0oe8t")
+
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1814560830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
 stream = ExtResource("6_ac0r2")
@@ -343,6 +395,24 @@ attenuation_model = 3
 volume_db = 1.0
 autoplay = true
 max_distance = 4096.0
+panning_strength = 0.0
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="." unique_id=1730323980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
+stream = ExtResource("14_sr6vn")
+attenuation_model = 3
+volume_db = 1.0
+max_distance = 4096.0
+max_polyphony = 10
+panning_strength = 0.0
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="." unique_id=1784184062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
+stream = ExtResource("14_sr6vn")
+attenuation_model = 3
+volume_db = 1.0
+max_distance = 4096.0
+max_polyphony = 10
 panning_strength = 0.0
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="." unique_id=1624742278]

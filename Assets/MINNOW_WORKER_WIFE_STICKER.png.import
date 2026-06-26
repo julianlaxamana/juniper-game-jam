@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3jt3wv4w5lt4"
-path="res://.godot/imported/MINNOW_WORKER_WIFE_STICKER.png-797b5d4f6f47aeba3cdf6dd1cce03f09.ctex"
+path="res://.godot/imported/MINNOW_WORKER_WIFE_STICKER.png-d8d5c17c8d50f9af6110b4d088bb9db6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MINNOW_WORKER_WIFE_STICKER.png"
-dest_files=["res://.godot/imported/MINNOW_WORKER_WIFE_STICKER.png-797b5d4f6f47aeba3cdf6dd1cce03f09.ctex"]
+source_file="res://assets/MINNOW_WORKER_WIFE_STICKER.png"
+dest_files=["res://.godot/imported/MINNOW_WORKER_WIFE_STICKER.png-d8d5c17c8d50f9af6110b4d088bb9db6.ctex"]
 
 [params]
 

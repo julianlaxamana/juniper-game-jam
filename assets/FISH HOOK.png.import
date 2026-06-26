@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqaxft405ujmt"
-path.s3tc="res://.godot/imported/FISH HOOK.png-eb94f29e8c5f2b3328aa5f74f69e0419.s3tc.ctex"
+path.s3tc="res://.godot/imported/FISH HOOK.png-b8c21fe73b13a25c0e0ec81794da8678.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/FISH HOOK.png"
-dest_files=["res://.godot/imported/FISH HOOK.png-eb94f29e8c5f2b3328aa5f74f69e0419.s3tc.ctex"]
+source_file="res://assets/FISH HOOK.png"
+dest_files=["res://.godot/imported/FISH HOOK.png-b8c21fe73b13a25c0e0ec81794da8678.s3tc.ctex"]
 
 [params]
 
