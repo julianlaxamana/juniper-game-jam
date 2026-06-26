@@ -65,7 +65,6 @@ func _process(delta: float) -> void:
 		# visual feedback shader code
 		if (revolutions < intervals[0]):
 			#print(clampf(    (revolutions - intervals[0]) / (PI / 2.0), 0, 1    ))
-			print(  -1 * (revolutions - intervals[0]) / (PI / 2.0))
 			watch.material.set_shader_parameter("alpha_value", clampf(    -1 * (revolutions - intervals[0]) / (2 * PI * 3), 0, 1    ))
 			watch.material.set_shader_parameter("seed_delta", watch.material.get_shader_parameter("seed_delta") + delta)
 			
