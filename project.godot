@@ -23,7 +23,6 @@ Global="*uid://cas2qcuoa1l0y"
 
 [debug]
 
-settings/stdout/print_fps=true
 gdscript/warnings/untyped_declaration=1
 
 [display]
@@ -37,7 +36,8 @@ window/vsync/vsync_mode=2
 
 [global_group]
 
-audio_players=""
+sfx_players=""
+music_players=""
 
 [input]
 
