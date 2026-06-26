@@ -2,9 +2,10 @@ extends Node2D
 
 @onready var police = $man
 @onready var explosion_sound = $man/AnimationPlayer
+@onready var explode = $explode
 
 
-var velocity_minimum: float = 14
+var velocity_minimum: float = 5
 var timer_minimum: float = 3
 var scaler: float = 1.0/7.0
 var angular_velocity: float = 0.0
@@ -18,6 +19,7 @@ var squish = .05
 var police_scale = null
 
 var timer: float = 0.0
+var time_to_get: float = .75
 
 
 
@@ -46,15 +48,16 @@ func _process(delta: float) -> void:
 		
 		
 		angular_velocity = abs(police.get_angle_to(get_global_mouse_position())/ delta) 
-		police.rotation = (get_global_mouse_position()-police.position).angle()
-		#averager.append((previous_coordinate.angle_to(location)) / delta)
 		
-		## number here is how many frames you want to average over
-		#if (averager.size() == 6):
-			#
-			## calculated average, this specifically is a lambda function
-			## .reduce runs a function on every element
-			#angular_velocity = averager.reduce(func(accum, number): return accum + number)/averager.size()
+		#averager.append(abs(police.get_angle_to(get_global_mouse_position())/ delta))
+		police.rotation = (get_global_mouse_position()-police.position).angle()
+		
+		
+		#var location = get_global_mouse_position() - (ball.get_child(0).global_position)
+		#angular_velocity = abs(((previous_coordinate.angle_to(location)) / delta))
+		
+		
+	
 			
 			
 			#if (angular_velocity > velocity_minimum):
@@ -62,11 +65,10 @@ func _process(delta: float) -> void:
 			#else:
 				#print("LOSING ", angular_velocity)
 			
-			#averager = []
 			
-		if (angular_velocity > velocity_minimum):
+		if (angular_velocity > 0):
 			timer += delta
-			print(timer)
+			print(timer, " timer")
 		else:
 			timer = 0
 		

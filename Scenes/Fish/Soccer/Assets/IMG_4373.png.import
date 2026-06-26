@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojpnncni2oaq"
-path="res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"
+uid="uid://dk5ct2cjws0f5"
+path="res://.godot/imported/IMG_4373.png-3d762e9ed255b79865e959194f072edd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rod.webp"
-dest_files=["res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"]
+source_file="res://Scenes/Fish/Soccer/Assets/IMG_4373.png"
+dest_files=["res://.godot/imported/IMG_4373.png-3d762e9ed255b79865e959194f072edd.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojpnncni2oaq"
-path="res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"
+uid="uid://dqjldxefnbg8g"
+path="res://.godot/imported/KICK_THAT_FIH_SOCCER.png-49e090cd97e45ac36a54455eafb40461.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rod.webp"
-dest_files=["res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"]
+source_file="res://Scenes/Fish/Soccer/Assets/KICK_THAT_FIH_SOCCER.png"
+dest_files=["res://.godot/imported/KICK_THAT_FIH_SOCCER.png-49e090cd97e45ac36a54455eafb40461.ctex"]
 
 [params]
 

@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bbrhgdjowi0m3" path="res://Scenes/Fish/Soccer/Assets/aaa.png" id="4_wrosr"]
 [ext_resource type="Texture2D" uid="uid://bhmisj5pcpio" path="res://Scenes/Fish/Soccer/Assets/LEG_STICKER.png" id="5_hai52"]
 [ext_resource type="Texture2D" uid="uid://bgh0qxmh1sb4m" path="res://Scenes/Fish/Soccer/Assets/PUFFERBALL_INFLATED_STICKER.png" id="6_42b1n"]
+[ext_resource type="Texture2D" uid="uid://dk5ct2cjws0f5" path="res://Scenes/Fish/Soccer/Assets/IMG_4373.png" id="7_8u3qr"]
+[ext_resource type="Script" uid="uid://cku8ulii81ygd" path="res://Scenes/Fish/Soccer/sprite_2d.gd" id="8_0e4nj"]
 [ext_resource type="Texture2D" uid="uid://26hrk3x67wdj" path="res://Scenes/Fish/Soccer/Assets/stadium.jpg" id="8_jvwiq"]
+[ext_resource type="PackedScene" uid="uid://bhbbqp2bl8i8l" path="res://ui/dialogue.tscn" id="9_y4bs2"]
+[ext_resource type="Texture2D" uid="uid://dqjldxefnbg8g" path="res://Scenes/Fish/Soccer/Assets/KICK_THAT_FIH_SOCCER.png" id="10_hwjpe"]
 
 [sub_resource type="Curve" id="Curve_3gwi5"]
 _data = [Vector2(0, 0), 1.6932318, 0.2110405, 0, 0, Vector2(1, 1), 2.146931, 0.09517513, 0, 0]
@@ -129,13 +133,28 @@ scale = Vector2(0.15699999, 0.15699999)
 texture = ExtResource("6_42b1n")
 offset = Vector2(75, -100)
 
+[node name="Sprite2D" type="Sprite2D" parent="ball" unique_id=519869040]
+position = Vector2(28.368214, -122.87619)
+rotation = 2.1874163
+scale = Vector2(1.069586, -1.069586)
+texture = ExtResource("7_8u3qr")
+script = ExtResource("8_0e4nj")
+
 [node name="Leg" type="Sprite2D" parent="." unique_id=2023722982]
 position = Vector2(640, 638)
 scale = Vector2(0.14300002, 0.14300002)
 texture = ExtResource("5_hai52")
+
+[node name="KickThatFihSoccer" type="Sprite2D" parent="." unique_id=1602463619]
+position = Vector2(640, 212)
+scale = Vector2(0.17998923, 0.17998925)
+texture = ExtResource("10_hwjpe")
 
 [node name="Foreground" type="Sprite2D" parent="." unique_id=592955014]
 visible = false
 position = Vector2(640, 360)
 scale = Vector2(0.6666667, 0.6666667)
 texture = ExtResource("8_jvwiq")
+
+[node name="Encounter" parent="." unique_id=641299931 instance=ExtResource("9_y4bs2")]
+visible = false

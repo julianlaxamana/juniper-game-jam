@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojpnncni2oaq"
-path="res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"
+uid="uid://bx5g0drcfbw0p"
+path="res://.godot/imported/PC___Computer_-_Deltarune_-_Objects_-_Rawaawdadaddwdawdawadwealistic_Explosion.png-31914a9ce6878e00f6b97cb9f415f307.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rod.webp"
-dest_files=["res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"]
+source_file="res://Scenes/Ending/Assets/PC___Computer_-_Deltarune_-_Objects_-_Rawaawdadaddwdawdawadwealistic_Explosion.png"
+dest_files=["res://.godot/imported/PC___Computer_-_Deltarune_-_Objects_-_Rawaawdadaddwdawdawadwealistic_Explosion.png-31914a9ce6878e00f6b97cb9f415f307.ctex"]
 
 [params]
 

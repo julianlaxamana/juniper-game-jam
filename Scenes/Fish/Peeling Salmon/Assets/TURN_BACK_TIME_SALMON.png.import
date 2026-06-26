@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojpnncni2oaq"
-path="res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"
+uid="uid://ct0py0isq78kh"
+path="res://.godot/imported/TURN_BACK_TIME_SALMON.png-ad8aee15763e1aff4a06c21c2dcd1cad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rod.webp"
-dest_files=["res://.godot/imported/rod.webp-e65106ca78ed2bd0c6ff18b103fcc2cb.ctex"]
+source_file="res://Scenes/Fish/Peeling Salmon/Assets/TURN_BACK_TIME_SALMON.png"
+dest_files=["res://.godot/imported/TURN_BACK_TIME_SALMON.png-ad8aee15763e1aff4a06c21c2dcd1cad.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bdms2oy06mwbk"
-path="res://.godot/imported/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3-cb208e4dcaeab986c3308462afbaedb5.mp3str"
+path="res://.godot/imported/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3-9f15e30aff236d990a81c16205260a59.mp3str"
 
 [deps]
 
-source_file="res://assets/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3"
-dest_files=["res://.godot/imported/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3-cb208e4dcaeab986c3308462afbaedb5.mp3str"]
+source_file="res://Assets/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3"
+dest_files=["res://.godot/imported/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3-9f15e30aff236d990a81c16205260a59.mp3str"]
 
 [params]
 
