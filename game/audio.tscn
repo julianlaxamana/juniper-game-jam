@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dtyidy5g1gua8" path="res://game/audio.gd" id="1_p76cq"]
 [ext_resource type="Texture2D" uid="uid://c1vvxeao1qcbx" path="res://Assets/TEXTBOX.png" id="2_54o2j"]
 [ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://Assets/CherryBombOne-Regular.ttf" id="3_rilkr"]
-[ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://Assets/ARROW_BLUNDER_EDITION.png" id="5_31x12"]
 
 [sub_resource type="Animation" id="Animation_fttgk"]
 length = 0.001
@@ -120,18 +119,5 @@ scale = Vector2(1.725, 1.725)
 min_value = -24.0
 max_value = 5.0
 step = 0.01
-
-[node name="Control" type="Control" parent="." unique_id=276959142]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-
-[node name="ArrowBlunderEdition" type="Sprite2D" parent="Control" unique_id=313798701]
-position = Vector2(18.515, 13.165)
-rotation = 0.70685834
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("5_31x12")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

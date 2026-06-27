@@ -7,9 +7,13 @@ var music_value = 0
 var on = false
 func toggle():
 	on = !on
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$Control.visible = false
-	$AnimationPlayer.play_backwards("test")
+	if on:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		$AnimationPlayer.play("test")
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		$AnimationPlayer.play_backwards("test")
+
 
 func _process(delta: float) -> void:
 	pass
@@ -23,8 +27,6 @@ func _ready():
 	
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if on:
-		$Control.visible = true
 	pass # Replace with function body.
 
 
