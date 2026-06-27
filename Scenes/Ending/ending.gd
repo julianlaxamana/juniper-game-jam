@@ -36,7 +36,6 @@ func _ready():
 		$WellSalmonSticker,
 		$MinnowWorkerWifeSticker,
 	]
-	
 
 
 var averager = []
@@ -45,10 +44,12 @@ var count = 0
 @onready var foreground = $foreground
 func _delete_daniel() -> void:
 	man.visible = false
+
 	
 func _show_ending() -> void:
 	foreground.visible = true
 	get_tree().create_timer(3).timeout.connect(_show_button)
+	$AudioStreamPlayer2.play()
 	
 func _show_button() -> void:
 	$TextureButton.visible = true
@@ -64,7 +65,7 @@ func _process(delta: float) -> void:
 	
 	if (win and (sound == false)):
 		explode.play("explosion")
-		$AudioStreamPlayer.volume_db = $AudioStreamPlayer.volume_db + Global.sfx_volume
+		$AudioStreamPlayer.volume_db
 		$AudioStreamPlayer.play()
 		sound = true
 		
