@@ -36,7 +36,8 @@ func _ready() -> void:
 	
 	
 	if (file == "res://Assets/Fodder/TINY.png"):
-		$MinnowWorkerNormalSticker.scale = Vector2(1, 1)
+		$MinnowWorkerNormalSticker.scale = Vector2(0.2, 0.2)
+		$MinnowWorkerNormalSticker.texture_filter = 1
 		# legit will not be visible if it's not
 
 func _process(delta: float) -> void:
