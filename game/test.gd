@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		currBobber = bobber_instance
 		$"../AudioStreamPlayer3D4".stream = load("res://assets/audiopapkin-fishing-reel-302355.wav")
 		$"../AudioStreamPlayer3D4".play()
-	elif Input.is_action_just_pressed("m2") and $Timer.is_stopped():
+	elif Input.is_action_just_pressed("m2") and $Timer.is_stopped() and currBobber != null:
 		bruh = true
 		$Control.visible = true
 		$Control2.visible = false

@@ -27,7 +27,6 @@ var fishes = [
 "res://Assets/Fodder/PROPELLER.png",
 "res://Assets/The_Gooch_STICKER.png", 
 "res://Assets/Fodder/TINY.png"
-
 ]
 
 func _ready() -> void:
