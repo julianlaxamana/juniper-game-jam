@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkhjwuetbanwi"]
 
-[ext_resource type="Script" uid="uid://c7eburg40w27p" path="res://game/compendium.gd" id="1_0n7go"]
+[ext_resource type="Script" uid="uid://dtyidy5g1gua8" path="res://game/audio.gd" id="1_p76cq"]
 [ext_resource type="Texture2D" uid="uid://c1vvxeao1qcbx" path="res://Assets/TEXTBOX.png" id="2_54o2j"]
 [ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://Assets/CherryBombOne-Regular.ttf" id="3_rilkr"]
 [ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://Assets/ARROW_BLUNDER_EDITION.png" id="5_31x12"]
@@ -42,7 +42,7 @@ _data = {
 &"test": SubResource("Animation_jrd3g")
 }
 
-[node name="Compendium" type="Control" unique_id=1767288917]
+[node name="Audio" type="Control" unique_id=1767288917]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,7 +50,7 @@ anchor_bottom = 1.0
 offset_right = 0.0009765625
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0n7go")
+script = ExtResource("1_p76cq")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1683887816]
 layout_mode = 0
