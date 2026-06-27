@@ -20,20 +20,21 @@
 albedo_color = Color(4.9574674e-06, 0.84946847, 0.22955188, 1)
 albedo_texture = ExtResource("2_bg4wx")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg4wx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sr6vn"]
 albedo_color = Color(0.37493291, 0.23757458, 1.92523e-07, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uo1k0"]
-material = SubResource("StandardMaterial3D_bg4wx")
+material = SubResource("StandardMaterial3D_sr6vn")
 size = Vector3(6.375366, 0.2836914, 11.879639)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ehm57"]
-material = SubResource("StandardMaterial3D_bg4wx")
+material = SubResource("StandardMaterial3D_sr6vn")
 size = Vector3(18.706104, 10.916992, 2.2801514)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5auy4"]
 size = Vector3(7, 0, 12)
 
+<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_0oe8t"]
 length = 0.001
 tracks/0/type = "value"
@@ -70,6 +71,10 @@ _data = {
 &"RESET": SubResource("Animation_0oe8t"),
 &"new_animation": SubResource("Animation_bjd6m")
 }
+=======
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg4wx"]
+albedo_color = Color(0.37493291, 0.23757458, 1.92523e-07, 1)
+>>>>>>> 4c2aab26bbe921a7758e8342fe5768a33698fdae
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgrle"]
 size = Vector3(12.148285, 4.6641846, 6.539093)
