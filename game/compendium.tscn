@@ -187,20 +187,6 @@ text = "BIGGEST FIH: 16 lbs."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="." unique_id=1128888871]
-layout_mode = 0
-offset_left = 575.0
-offset_top = 432.0
-offset_right = 1026.0
-offset_bottom = 476.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("2_in6vg")
-theme_override_font_sizes/font_size = 30
-text = "BIGGEST FIH: 16 lbs."
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Label2" type="Label" parent="." unique_id=1258408105]
 layout_mode = 0
 offset_left = 255.0

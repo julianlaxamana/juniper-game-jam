@@ -88,11 +88,23 @@
 	
 	"ending_start":{
 		"dialogue": [
-		{"speaker": "daniel weng" , "text": "Are you kicking fish??!", "pitch": .5},
-		{"speaker": "fih" , "text": "This is not my wife.", "pitch": 1.5},
+		{"speaker": "daniel" , "text": "Are you kicking fish?", "pitch": 0.6},
+		{"speaker": "fisher" , "text": "yes....", "pitch": 0.75},
+		{"speaker": "daniel" , "text": "I am going to arrest you now.", "pitch": 0.6},
 		],
-		"position": ["fisher", "daniel weng"],
+		"position": ["fisher", "daniel"],
 		"fisher": "res://assets/Catch_sticker.png",
-		"daniel weng": "/Assets/DANIEL_WENG_ANGRY.png"
+		"daniel": "res://Assets/DANIEL_WENG_ANGRY.png"
+	},
+	"happy_salmon":{
+		"dialogue": [
+		{"speaker": "fih" , "text": "Wow, thank you for turning back time.", "pitch": 0.55},
+		{"speaker": "fih" , "text": "I feel much better now.", "pitch": 0.55},
+		{"speaker": "fisher" , "text": "That's good.", "pitch": 0.75},
+		{"speaker": "fih" , "text": "Find me at your local grocery store for $10 a pound.", "pitch": 0.55},
+		],
+		"position": ["fisher", "fih"],
+		"fisher": "res://assets/Catch_sticker.png",
+		"fih": "res://Assets/WELL_SALMON.png"
 	}
 }

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cy5t5gy5wfql" path="res://Assets/TUTORIAL.png" id="3_fngf0"]
 [ext_resource type="Script" uid="uid://bek4epnr57bbw" path="res://game/test.gd" id="4_8v7ur"]
 [ext_resource type="PackedScene" uid="uid://bc1872p5pqvv5" path="res://game/fisher.tscn" id="4_bptbs"]
+[ext_resource type="Texture2D" uid="uid://ikntcmspejxj" path="res://Assets/DANIEL_WENG_ANGRY.png" id="4_gr1x1"]
 [ext_resource type="AudioStream" uid="uid://b6k83e6dgflp4" path="res://Assets/lake.mp3" id="6_ac0r2"]
 [ext_resource type="Shader" uid="uid://dfjiso3sn18ob" path="res://game/rod.gdshader" id="7_4q62c"]
 [ext_resource type="ArrayMesh" uid="uid://dy8cgwgc6l6s4" path="res://Assets/breh.obj" id="8_70rah"]
@@ -33,8 +34,47 @@ size = Vector3(18.706104, 10.916992, 2.2801514)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5auy4"]
 size = Vector3(7, 0, 12)
 
+<<<<<<< HEAD
+[sub_resource type="Animation" id="Animation_0oe8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.7732105, 78.14464)]
+}
+
+[sub_resource type="Animation" id="Animation_bjd6m"]
+resource_name = "new_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 0.24148414),
+"update": 0,
+"values": [Vector3(2.25, 1.773, 78.145), Vector3(2.25, 1.773, 15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qcc7i"]
+_data = {
+&"RESET": SubResource("Animation_0oe8t"),
+&"new_animation": SubResource("Animation_bjd6m")
+}
+=======
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg4wx"]
 albedo_color = Color(0.37493291, 0.23757458, 1.92523e-07, 1)
+>>>>>>> 4c2aab26bbe921a7758e8342fe5768a33698fdae
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgrle"]
 size = Vector3(12.148285, 4.6641846, 6.539093)
@@ -170,7 +210,7 @@ size = Vector3(9.925, 14.105469, 4.825)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bg4wx"]
 size = Vector3(8.396973, 24.586426, 23.2677)
 
-[node name="Dock" type="Node3D" unique_id=1810924153]
+[node name="Dock2" type="Node3D" unique_id=1810924153]
 
 [node name="Breh" type="MeshInstance3D" parent="." unique_id=1666116321]
 transform = Transform3D(29.965, 0, 0, 0, 55.537, 0, 0, 0, 29.965, -1.5554776, -38.46393, -19.75951)
@@ -212,6 +252,13 @@ material = SubResource("StandardMaterial3D_bg4wx")
 transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, -6.863946, 0.8323302, -36.45994)
 radius = 0.02
 material = SubResource("StandardMaterial3D_bg4wx")
+
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D2" unique_id=513938263]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.7732105, 78.14464)
+texture = ExtResource("4_gr1x1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody3D2/Sprite3D" unique_id=834876389]
+libraries/ = SubResource("AnimationLibrary_qcc7i")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=352609884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9198704, -18.240063)
@@ -275,7 +322,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9625482, 0.27111068, 0, -0.27111068, 0.962
 light_energy = 2.0
 
 [node name="CharacterBody3D" parent="." unique_id=1291809336 instance=ExtResource("4_bptbs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.237787, 0.9012281, -0.8715949)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4160476, 0.9012281, 0.8657751)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=623507848]
 environment = ExtResource("3_4q62c")
@@ -451,6 +498,7 @@ freeze = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4" unique_id=1849230723]
 shape = SubResource("BoxShape3D_dwvqn")
 
+[connection signal="animation_finished" from="RigidBody3D2/Sprite3D/AnimationPlayer" to="Control" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer3D" to="Control" method="_on_audio_stream_player_3d_finished"]
 [connection signal="finished" from="AudioStreamPlayer3D2" to="Control" method="_on_audio_stream_player_3d_2_finished"]
