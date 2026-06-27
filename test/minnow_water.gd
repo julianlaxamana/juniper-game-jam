@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 func _on_fih_caught(fih: Node2D) -> void:
 	$Timer2.start()
 	$Timer.start()
-	var new_texture = load("res://assets/Blue_reel.png")
+	var new_texture = load("res://Assets/Blue_reel.png")
 	skibidi.emit(fih)
 	caught = true
 	fish = fih

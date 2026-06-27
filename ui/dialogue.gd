@@ -16,7 +16,7 @@ func _ready() -> void:
 	initialize_scene(log)
 	
 func initialize_scene(scene: String) -> void:
-	dialogue = load_dialogue("res://assets/dialogue/test.json")[scene]
+	dialogue = load_dialogue("res://Assets/dialogue/test.json")[scene]
 	names = dialogue["position"]
 	$leftSprite.texture = load(dialogue[dialogue["position"][0]])
 	$rightSprite.texture = load(dialogue[dialogue["position"][1]])
