@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c7eburg40w27p" path="res://game/compendium.gd" id="1_fttgk"]
 [ext_resource type="Texture2D" uid="uid://c1vvxeao1qcbx" path="res://Assets/TEXTBOX.png" id="1_i3k86"]
 [ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://Assets/CherryBombOne-Regular.ttf" id="2_in6vg"]
-[ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://Assets/ARROW_BLUNDER_EDITION.png" id="2_jrd3g"]
 [ext_resource type="Texture2D" uid="uid://nxfxhceuqsxk" path="res://Assets/PEELING_SALMON_STICKER.png" id="3_hh0hj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jrd3g"]
@@ -214,19 +213,6 @@ value = 13.88
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1801749366]
 libraries/ = SubResource("AnimationLibrary_nifsm")
-
-[node name="Control" type="Control" parent="." unique_id=276959142]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-
-[node name="ArrowBlunderEdition" type="Sprite2D" parent="Control" unique_id=313798701]
-position = Vector2(18.515, 13.165)
-rotation = 0.70685834
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("2_jrd3g")
 
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

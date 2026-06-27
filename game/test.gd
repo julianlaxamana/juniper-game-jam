@@ -10,6 +10,7 @@ var scene = null
 var fish = null
 
 var look = false
+var bruh = true
 
 var currBobber = null
 func _ready() -> void:
@@ -20,9 +21,12 @@ func _ready() -> void:
 	area.body_exited.connect(_on_area_3d_body_exited)
 	
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("e") && currBobber == null:
+	if Input.is_action_just_pressed("m1") && currBobber == null && scene == null && bruh:
+		bruh = false
+		$"../CharacterBody3D".bruh = false
 		$Control.visible = false
 		$Control2.visible = true
+		$Control2/Img4373.visible = false
 		var bobber_instance = BOBBER.instantiate()
 		$"../Water/Area3D".body_entered.connect(bobber_instance._on_area_3d_body_entered)
 		bobber_instance.basis = $"../CharacterBody3D".head.transform.basis
@@ -34,7 +38,8 @@ func _process(delta: float) -> void:
 		currBobber = bobber_instance
 		$"../AudioStreamPlayer3D4".stream = load("res://assets/audiopapkin-fishing-reel-302355.wav")
 		$"../AudioStreamPlayer3D4".play()
-	elif Input.is_action_just_pressed("e") and $Timer.is_stopped():
+	elif Input.is_action_just_pressed("m2") and $Timer.is_stopped():
+		bruh = true
 		$Control.visible = true
 		$Control2.visible = false
 		$Timer.start()
@@ -56,11 +61,31 @@ func _process(delta: float) -> void:
 		$"../CharacterBody3D".head.global_rotation.y = lerp($"../CharacterBody3D".global_rotation.y, -2 * PI, 0.5)
 		$"../CharacterBody3D".position = Vector3(2.5, 0.9, -10)
 		
-	if Input.is_action_just_pressed("r"):
-		$"../CharacterBody3D".bruh = !$"../CharacterBody3D".bruh
+	if Input.is_action_just_pressed("tab") and bruh:
+		$"../CharacterBody3D".bruh =false
+		bruh = false
 		$Control.visible = $Compendium.on
 		$Compendium.visible = true
 		$Compendium.toggle()
+	elif Input.is_action_just_pressed("tab") and $Compendium.on:
+		$"../CharacterBody3D".bruh =true
+		bruh = true
+		$Control.visible = $Compendium.on
+		$Compendium.visible = true
+		$Compendium.toggle()
+	
+	if Input.is_action_just_pressed("escape") and bruh:
+		$"../CharacterBody3D".bruh =false
+		bruh = false
+		$Control.visible = $Audio.on
+		$Audio.visible = true
+		$Audio.toggle()
+	elif Input.is_action_just_pressed("escape") and $Audio.on:
+		$"../CharacterBody3D".bruh =true
+		bruh = true
+		$Control.visible = $Audio.on
+		$Audio.visible = true
+		$Audio.toggle()
 	
 	if currBobber != null && currBobber.visible:
 		$"../Path3D".curve.set_point_position(0, $"../CharacterBody3D".rod.global_position)
@@ -68,7 +93,7 @@ func _process(delta: float) -> void:
 		$"../Path3D".visible = true
 	else:
 		$"../Path3D".visible = false
-	if Input.is_action_just_pressed("q") and currBobber != null and currBobber.tickle and fish == null:
+	if Input.is_action_just_pressed("m1") and currBobber != null and currBobber.tickle and fish == null:
 		fish = FISH.instantiate()
 		$AnimationPlayer.play('dissolbe')
 		await $AnimationPlayer.animation_finished
@@ -77,6 +102,8 @@ func _process(delta: float) -> void:
 		fish.connect("catch", _on_catch)
 		fish.connect("skibidi", skibidi)
 		$"../CharacterBody3D".bruh = false
+		$Control2/Img4373.visible = true
+		bruh = false
 		$AnimationPlayer.play_backwards('dissolbe')
 		$"../WorldEnvironment".environment = load("res://test/2d.tres")
 		for i in range(10):
@@ -88,6 +115,7 @@ func _process(delta: float) -> void:
 		currBobber.global_position = lerp(currBobber.global_position, $"../CharacterBody3D".global_position, 0.1)
 func minnow_load():
 	$Control2.visible = true
+	$Control2/Img4373.visible = true
 	$Control.visible = false
 	$AnimationPlayer.play('dissolbe')
 	await $AnimationPlayer.animation_finished
@@ -98,6 +126,7 @@ func minnow_load():
 	fish.connect("catch", _on_catch)
 	fish.connect("skibidi", skibidi)
 	$"../CharacterBody3D".bruh = false
+	bruh = false
 	$AnimationPlayer.play_backwards('dissolbe')
 	$"../WorldEnvironment".environment = load("res://test/2d.tres")
 	$"../AudioStreamPlayer3D2".stop()
@@ -123,6 +152,7 @@ func ball_done():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	ballin.queue_free()
 	ballin = null
+	bruh = true
 	$AnimationPlayer.play_backwards('dissolbe')
 	$"../CharacterBody3D".bruh = false
 	$"../AudioStreamPlayer3D2".play()
@@ -131,6 +161,8 @@ func ball_done():
 func control():
 	$Control.visible = true
 	$Control2.visible = false
+	bruh = true
+	$"../CharacterBody3D".bruh = true
 	$"../AudioStreamPlayer3D2".stop()
 	$"../AudioStreamPlayer3D2".stream = load("res://assets/FishThemeRev2.wav")
 	$"../AudioStreamPlayer3D2".play(0)
@@ -157,28 +189,38 @@ func skibidi(fih: Node2D):
 		scene = test.instantiate()
 		scene.connect("minigame", minnow_load)
 		scene.log = "test"
+		bruh = false
+		$"../CharacterBody3D".bruh = false
 	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://3jt3wv4w5lt4":
 		print(ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)))
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.connect("minigame", control)
 		scene.log = "wife"
+		bruh = false
+		$"../CharacterBody3D".bruh = false
 	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://cuoiyu1t3uyxu":
 		print(ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)))
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
-		scene.connect("minigame", control)
+		scene.connect("minigame", minnow_load)
 		scene.log = "not wife"
+		bruh = false
+		$"../CharacterBody3D".bruh = false
 	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://nxfxhceuqsxk":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.connect("minigame", peeling)
 		scene.log = "peeling"
+		bruh = false
+		$"../CharacterBody3D".bruh = false
 	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://cbejyade11ep8":
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
 		scene.connect("minigame", ball)
 		scene.log = "ball"
+		bruh = false
+		$"../CharacterBody3D".bruh = false
 		
 	$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
 func peeling():
@@ -199,7 +241,6 @@ func peel_done():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var test = preload("res://ui/dialogue.tscn")
 	scene = test.instantiate()
-	scene.connect("minigame", weng)
 	scene.log = "happy_salmon"
 	add_child(scene)
 	$AnimationPlayer.play_backwards('dissolbe')
@@ -237,6 +278,7 @@ func _on_timer_timeout() -> void:
 	$"../CharacterBody3D".bruh = true
 	if scene != null:
 		add_child(scene)
+		$"../CharacterBody3D".bruh = false
 	pass # Replace with function body.
 
 
@@ -251,13 +293,13 @@ func _on_audio_stream_player_3d_finished() -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	print("hi")
 	look = false
 	$AnimationPlayer.play('dissolbe')
 	await $AnimationPlayer.animation_finished
 	var test = preload("res://ui/dialogue.tscn")
 	scene = test.instantiate()
 	scene.connect("spin", weng)
+	scene.connect("prison", weng2)
 	scene.log = "ending_start"
 	add_child(scene)
 	$AnimationPlayer.play_backwards('dissolbe')
@@ -270,6 +312,21 @@ func weng():
 	var test = preload("res://Scenes/Ending/ending.tscn")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	scene = test.instantiate()
+	scene.connect("done", a)
 	add_child(scene)
 	$AnimationPlayer.play_backwards('dissolbe')
-	print("hi")
+	
+func weng2():
+	$AnimationPlayer.play('dissolbe')
+	await $AnimationPlayer.animation_finished
+	var test = preload("res://Scenes/Ending/prison.tscn")
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	scene = test.instantiate()
+	scene.connect("done", a)
+	add_child(scene)
+	$AnimationPlayer.play_backwards('dissolbe')
+
+func a():
+	bruh = true
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$"../CharacterBody3D".bruh = true

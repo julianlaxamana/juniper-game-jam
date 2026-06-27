@@ -38,11 +38,10 @@ var on = false
 func toggle():
 	on = !on
 	if on:
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$AnimationPlayer.play("test")
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		$Control.visible = false
 		$AnimationPlayer.play_backwards("test")
 
 func update_items():
@@ -51,7 +50,6 @@ func update_items():
 			$ItemList.set_item_text(items.find(item), item["fish_name"])
 func _process(delta: float) -> void:
 	var a = 0
-	$Control.global_position = get_global_mouse_position()
 	for item in items:
 		if item["caught"]:
 			a += 1

@@ -14,7 +14,11 @@
 [ext_resource type="AudioStream" uid="uid://bbxy55cmb6gwd" path="res://Assets/FishThemeRev2.wav" id="10_ehm57"]
 [ext_resource type="PackedScene" uid="uid://bnj38vgxj827m" path="res://game/compendium.tscn" id="10_q6elb"]
 [ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://Assets/CherryBombOne-Regular.ttf" id="11_4c5ll"]
+[ext_resource type="Texture2D" uid="uid://c1cvu00qs2ksi" path="res://Assets/Mouse_Left_Key_Light.png" id="12_0oe8t"]
+[ext_resource type="Texture2D" uid="uid://floelablj4r5" path="res://Assets/Mouse_Right_Key_Light.png" id="13_bjd6m"]
+[ext_resource type="Texture2D" uid="uid://dk5ct2cjws0f5" path="res://Scenes/Fish/Soccer/Assets/IMG_4373.png" id="14_qcc7i"]
 [ext_resource type="AudioStream" uid="uid://c2oj38dcbkk46" path="res://Assets/universfield-level-up-191997.mp3" id="14_sr6vn"]
+[ext_resource type="PackedScene" uid="uid://bkhjwuetbanwi" path="res://game/audio.tscn" id="16_8fgbe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehm57"]
 albedo_color = Color(4.9574674e-06, 0.84946847, 0.22955188, 1)
@@ -358,6 +362,20 @@ offset_bottom = 424.0
 text = "Cast Rod"
 label_settings = SubResource("LabelSettings_pgrle")
 
+[node name="MouseLeftKeyLight" type="Sprite2D" parent="Control/Control" unique_id=1263602359]
+position = Vector2(35.295, 406.755)
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("12_0oe8t")
+
+[node name="Label3" type="Label" parent="Control/Control" unique_id=1881512365]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 325.0
+offset_right = 76.0
+offset_bottom = 369.0
+text = "TAB"
+label_settings = SubResource("LabelSettings_pgrle")
+
 [node name="Control2" type="Control" parent="Control" unique_id=666132565]
 visible = false
 anchors_preset = 0
@@ -381,6 +399,22 @@ offset_right = 355.0
 offset_bottom = 424.0
 text = "Pull in Rod"
 label_settings = SubResource("LabelSettings_pgrle")
+
+[node name="MouseRightKeyLight" type="Sprite2D" parent="Control/Control2" unique_id=1650855567]
+position = Vector2(40.8, 410.005)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("13_bjd6m")
+
+[node name="MouseLeftKeyLight" type="Sprite2D" parent="Control/Control2" unique_id=1167077589]
+position = Vector2(41.17, 342.94)
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("12_0oe8t")
+
+[node name="Img4373" type="Sprite2D" parent="Control/Control2" unique_id=2111541131]
+position = Vector2(41.434, 343.861)
+rotation = -0.53232545
+scale = Vector2(-0.04228161, -0.04228161)
+texture = ExtResource("14_qcc7i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=1068411225]
 root_node = NodePath("../ColorRect")
@@ -428,6 +462,10 @@ horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Label" unique_id=1606373982]
 libraries/ = SubResource("AnimationLibrary_0oe8t")
+
+[node name="Audio" parent="Control" unique_id=936465143 instance=ExtResource("16_8fgbe")]
+visible = false
+layout_mode = 1
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1814560830 groups=["sfx_players"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.954681)
