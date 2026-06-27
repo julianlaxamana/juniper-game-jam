@@ -8,9 +8,9 @@ var transition = false
 signal catch
 signal skibidi
 
-var MAX_FISH = 4
+var MAX_FISH = 2
 func _ready() -> void:
-	var fish_count = randi_range(1, MAX_FISH)
+	var fish_count = randi_range(6, MAX_FISH)
 	for i in range(fish_count):
 		var new_fish = fih.instantiate()
 		new_fish.position = Vector2(randi_range(100, 1180), (randi_range(100, 680)))
