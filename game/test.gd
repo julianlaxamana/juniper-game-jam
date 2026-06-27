@@ -168,6 +168,7 @@ func control():
 	$"../AudioStreamPlayer3D2".play(0)
 func skibidi(fih: Node2D):
 	$Control2.visible = false
+	bruh = true
 	for item in $Compendium.items:
 		if fih.sprite.texture.resource_path == item["sprite"] && !item["caught"]:
 			item["caught"] = true
