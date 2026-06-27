@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://26hrk3x67wdj" path="res://Scenes/Fish/Soccer/Assets/stadium.jpg" id="8_jvwiq"]
 [ext_resource type="Texture2D" uid="uid://dqjldxefnbg8g" path="res://Scenes/Fish/Soccer/Assets/KICK_THAT_FIH_SOCCER.png" id="10_hwjpe"]
 [ext_resource type="Script" uid="uid://dw7lrgcey2w2f" path="res://Scenes/Fish/Soccer/kick_that_fih_soccer.gd" id="12_wgrfq"]
+[ext_resource type="AudioStream" uid="uid://muonbjqu32py" path="res://Assets/freesound_community-ding-80828.mp3" id="14_2hgtb"]
+[ext_resource type="AudioStream" uid="uid://bdms2oy06mwbk" path="res://Assets/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3" id="15_j1av2"]
+[ext_resource type="Texture2D" uid="uid://bjpig1mo16rj6" path="res://Assets/star.png" id="15_judet"]
 
 [sub_resource type="Curve" id="Curve_3gwi5"]
 _data = [Vector2(0, 0), 1.6932318, 0.2110405, 0, 0, Vector2(1, 1), 2.146931, 0.09517513, 0, 0]
@@ -98,6 +101,78 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_2hgtb"),
 &"breh": SubResource("Animation_judet")
+}
+
+[sub_resource type="Animation" id="Animation_j1av2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bq4u0"]
+resource_name = "test"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1.9318731),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26faf"]
+_data = {
+&"RESET": SubResource("Animation_j1av2"),
+&"test": SubResource("Animation_bq4u0")
+}
+
+[sub_resource type="Animation" id="Animation_26faf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.8784314, 0.8784314, 0.8784314, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k7i15"]
+resource_name = "breh"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m2reo"]
+_data = {
+&"RESET": SubResource("Animation_26faf"),
+&"breh": SubResource("Animation_k7i15")
 }
 
 [node name="Soccer" type="Node2D" unique_id=1576657110]
@@ -212,3 +287,43 @@ visible = false
 position = Vector2(640, 360)
 scale = Vector2(0.6666667, 0.6666667)
 texture = ExtResource("8_jvwiq")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1916713075]
+stream = ExtResource("14_2hgtb")
+volume_db = -13.684
+pitch_scale = 1.42
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." unique_id=626680656 groups=["audio_players"]]
+stream = ExtResource("15_j1av2")
+volume_db = -24.631
+pitch_scale = 1.42
+max_polyphony = 10
+
+[node name="Timer" type="Timer" parent="." unique_id=1392981600]
+wait_time = 0.5
+one_shot = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1745931167]
+visible = false
+position = Vector2(654, 147)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1717543844]
+position = Vector2(9, 14)
+rotation = -0.91629785
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("15_judet")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Sprite2D" unique_id=1880692979]
+libraries/ = SubResource("AnimationLibrary_26faf")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1755397419]
+modulate = Color(0.8784314, 0.8784314, 0.8784314, 0)
+offset_right = 1294.0
+offset_bottom = 724.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect2" unique_id=98823328]
+libraries/ = SubResource("AnimationLibrary_m2reo")
+
+[connection signal="timeout" from="Timer" to="." method="ding"]

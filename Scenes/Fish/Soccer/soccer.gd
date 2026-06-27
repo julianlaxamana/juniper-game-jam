@@ -5,7 +5,7 @@ extends Node2D
 @onready var goalie = $Path2D/PathFollow2D
 @onready var ball = $ball
 @onready var foreground = $Foreground
-@onready var dialogue = $Encounter
+signal finished
 var intervals = [.25 , .75]
 
 # to keep the bar a certain size
@@ -58,8 +58,14 @@ var random_direction
 
 
 #var delta = 1/60.0
+<<<<<<< HEAD
+
+var prevperc = 0
+var percent = 0
+=======
 var noise_playing = false
 
+>>>>>>> 1882646b9908e292f3934b9a9c2cf2de88fc4183
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (win):
@@ -123,8 +129,11 @@ func _process(delta: float) -> void:
 	
 	# aesthetics
 	bar.color = Color.from_hsv((color_curve.sample(bar.size.x / float(max_size)) * 120)/360.0, 0.68, 0.83, 1.0)
-	
-	var percent = bar.size.x / float(max_size)
+	prevperc = percent
+	percent = bar.size.x / float(max_size)
+	if int(percent * 100) % 2 == 0 and (percent - prevperc) > 0:
+		$AudioStreamPlayer3.pitch_scale = percent + 1.0
+		$AudioStreamPlayer3.play()
 	bar.position = initial_position + Vector2(randi_range(-5, 5), randi_range(-5, 5)) * smoothing_curve.sample(percent)
 	
 	# this is linear right now but can become cubic
@@ -154,7 +163,9 @@ func _input(event) -> void:
 			
 			if ( (bar.size.x / float(max_size) > .98) and
 				((goalie.progress_ratio < intervals[0]) or (intervals[1] < goalie.progress_ratio)) ):
-				
+				if !win:
+					$Timer.start()
+					$ColorRect.visible = false
 				get_tree().create_timer(2.0).timeout.connect(_on_timer_timeout_win)
 				win = true
 				
@@ -169,20 +180,39 @@ func _input(event) -> void:
 		#previous_angle = leg.rotation
 
 func _on_timer_timeout_win() -> void:
+	$ColorRect2/AnimationPlayer.play_backwards("breh")
+	$ColorRect2.visible = true
+	await $ColorRect2/AnimationPlayer.animation_finished
 	foreground.visible = true
 	$Path2D/PathFollow2D.visible = false
+	$ColorRect2/AnimationPlayer.play("breh")
 	
 	# delay for foreground
-	get_tree().create_timer(5).timeout.connect(_on_timer_dialogue_timeout)
-
+	get_tree().create_timer(1).timeout.connect(_on_timer_dialogue_timeout)
+func end():
+	finished.emit()
 func _on_timer_dialogue_timeout() -> void:
-	dialogue.visible = true
-	dialogue.initialize_scene("ball_win")
+	var test = preload("res://ui/dialogue.tscn")
+	var scene = test.instantiate()
+	scene.connect("minigame", end)
+	scene.log = "ball_win"
+	add_child(scene)
 	
 
 func _on_timer_timeout() -> void:
 	failure = false
 	ball.position = ball_initial_position
 	ball.rotation = 32.0 * PI / 180.0
+<<<<<<< HEAD
+
+
+func ding() -> void:
+	$Node2D.visible = true
+	$AudioStreamPlayer2.play()
+	$Node2D/Sprite2D/AnimationPlayer.play("test")
+	print("hi")
+	pass # Replace with function body.
+=======
 	
 	noise_playing = false
+>>>>>>> 1882646b9908e292f3934b9a9c2cf2de88fc4183

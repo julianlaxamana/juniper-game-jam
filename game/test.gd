@@ -98,16 +98,25 @@ func minnow_load():
 	$"../AudioStreamPlayer3D2".play(0)
 	for i in range(10):
 		get_parent().get_child(i).visible = false
+var ballin = null
 func ball():
 	$AnimationPlayer.play('dissolbe')
 	await $AnimationPlayer.animation_finished
 	var ball = load("res://Scenes/Fish/Soccer/soccer.tscn")
-	var ballin = ball.instantiate()
+	ballin = ball.instantiate()
+	ballin.connect("finished", ball_done)
 	$"../Node2D".add_child(ballin)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$AnimationPlayer.play_backwards('dissolbe')
 	$"../AudioStreamPlayer3D2".stop()
-	
+func ball_done():
+	$AnimationPlayer.play('dissolbe')
+	await $AnimationPlayer.animation_finished
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	ballin.queue_free()
+	ballin = null
+	$AnimationPlayer.play_backwards('dissolbe')
+	$"../AudioStreamPlayer3D2".play()
 func control():
 	$Control.visible = true
 	$Control2.visible = false

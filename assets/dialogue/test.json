@@ -69,12 +69,11 @@
 	},
 	"ball_win": {
 		"dialogue": [
-		{"speaker": "fih" , "text": "BALL_WIN"},
-		{"speaker": "fisher" , "text": "BALL_WIN"},
+		{"speaker": "fih" , "text": "THANKKKKK YOOOoouuuu... ", "pitch": 0.5},
 		],
 		"position": ["fisher", "fih"],
-		"fisher": "res://assets/Catch_sticker.png",
-		"fih": "res://assets/PUFFERBALL_FLAT_STICKER.png"
+		"fisher": "",
+		"fih": ""
 	},
 	
 	"clock_win":{
