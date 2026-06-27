@@ -35,6 +35,8 @@ func _ready():
 		$WellSalmonSticker,
 		$MinnowWorkerWifeSticker,
 	]
+	
+	$Encounter.initialize_scene("ending_start")
 
 
 var averager = []

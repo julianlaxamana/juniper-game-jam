@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://ckpyqx4tqwst" path="res://game/sky.gdshader" id="3_if17d"]
 [ext_resource type="ArrayMesh" uid="uid://dy8cgwgc6l6s4" path="res://Assets/breh.obj" id="3_x40tj"]
 [ext_resource type="Texture2D" uid="uid://c0dkq3qnj1h5p" path="res://Assets/85b31196-4d2a-4b04-828c-c95818ab81a0.jpg" id="4_5ckld"]
+[ext_resource type="Texture2D" uid="uid://cy5t5gy5wfql" path="res://Assets/TUTORIAL.png" id="4_a1rka"]
 [ext_resource type="AudioStream" uid="uid://b6k83e6dgflp4" path="res://Assets/lake.mp3" id="4_r2j6y"]
 [ext_resource type="Texture2D" uid="uid://ccfvxrv4326vt" path="res://Assets/FISHER_STICKER.png" id="5_x40tj"]
 [ext_resource type="Shader" uid="uid://dfjiso3sn18ob" path="res://game/rod.gdshader" id="7_5ckld"]
@@ -48,9 +49,13 @@ subdivide_depth = 5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3bbx"]
 albedo_color = Color(0.37493291, 0.23757458, 1.92523e-07, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rgm4q"]
+[sub_resource type="BoxMesh" id="BoxMesh_twv7v"]
 material = SubResource("StandardMaterial3D_v3bbx")
-size = Vector2(0.3, 0.6)
+size = Vector3(6.375366, 0.2836914, 11.879639)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3aig1"]
+material = SubResource("StandardMaterial3D_v3bbx")
+size = Vector3(18.706104, 10.916992, 2.2801514)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ci1tc"]
 size = Vector3(5, 0.5, 5)
@@ -118,12 +123,12 @@ mesh = ExtResource("3_x40tj")
 surface_material_override/0 = SubResource("StandardMaterial3D_a1rka")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=2084215699]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, -2.4843993, -5.0570736, -19.684391)
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, -2.182, -4.938, -19.684)
 radius = 0.02
 material = SubResource("StandardMaterial3D_x40tj")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=827088633]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 2.483869, -5.0570736, -19.684391)
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 2.316, -4.891, -19.684)
 radius = 0.02
 material = SubResource("StandardMaterial3D_5ckld")
 
@@ -131,9 +136,17 @@ material = SubResource("StandardMaterial3D_5ckld")
 transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, 0.010217667, -3.0037947, -22.478191)
 mesh = SubResource("PlaneMesh_x40tj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=215667978]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 0.022319794, -0.03853321, -15.138624)
-mesh = SubResource("PlaneMesh_rgm4q")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=375140781]
+transform = Transform3D(-0.937, 0, 0, 0, -0.949, 0, 0, 0, -0.937, 0.023, -0.256, -15.436)
+mesh = SubResource("BoxMesh_twv7v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2" unique_id=755326045]
+transform = Transform3D(0.99244106, -0.12272211, 0, 0.12272211, 0.99244106, 0, 0, 0, 1, -1.3297639, 9.970822, -37.284256)
+mesh = SubResource("BoxMesh_3aig1")
+
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D2/MeshInstance3D" unique_id=222080826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1404762)
+texture = ExtResource("4_a1rka")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=545305540]
 gravity_scale = 0.0

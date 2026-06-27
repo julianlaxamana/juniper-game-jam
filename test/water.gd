@@ -11,19 +11,27 @@ signal skibidi
 var MAX_FISH = 4
 func _ready() -> void:
 	var fish_count = randi_range(1, MAX_FISH)
-	var special = randi_range(10,10)
 	for i in range(fish_count):
 		var new_fish = fih.instantiate()
 		new_fish.position = Vector2(randi_range(100, 1180), (randi_range(100, 680)))
 		add_child(new_fish)
 		new_fish.connect("caught", _on_fih_caught)
 		new_fish.add_to_group("fih")
-	for i in range(special):
+	
+	for i in range(4):
 		var new_fish = story.instantiate()
 		new_fish.position = Vector2(randi_range(100, 1180), (randi_range(100, 680)))
 		add_child(new_fish)
 		new_fish.connect("caught", _on_fih_caught)
 		new_fish.add_to_group("fih")
+		
+	
+	#TODO switch to this
+	#var new_fish = story.instantiate()
+	#new_fish.position = Vector2(randi_range(100, 1180), (randi_range(100, 680)))
+	#add_child(new_fish)
+	#new_fish.connect("caught", _on_fih_caught)
+	#new_fish.add_to_group("fih")
 	
 func _process(delta: float) -> void:
 	$BlueIdle.scale = lerp($BlueIdle.scale, Vector2(0.15, 0.15), 0.5)

@@ -10,8 +10,18 @@ var fishes = [
 "res://Assets/PUFFERBALL_FLAT_STICKER.png"
 ]
 
+static var story_progression = 0
+
 func _ready() -> void:
-	$MinnowWorkerNormalSticker.texture = load(fishes[randi() % len(fishes)])
+	
+	if (story_progression % 3 == 0):
+		$MinnowWorkerNormalSticker.texture = load(fishes[1])
+	elif(story_progression % 3 == 1):
+		$MinnowWorkerNormalSticker.texture = load(fishes[0])
+	elif(story_progression % 3 == 2):
+		$MinnowWorkerNormalSticker.texture = load(fishes[2])
+	
+	story_progression += 1
 
 func _process(delta: float) -> void:
 	if get_parent().caught:

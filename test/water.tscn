@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c6m4fmb7n538r" path="res://Assets/Underwater.png" id="1_fycyv"]
 [ext_resource type="Script" uid="uid://dpcv71bf3elsk" path="res://test/water.gd" id="1_q22b3"]
 [ext_resource type="Script" uid="uid://cmb1jdyfpdsp" path="res://test/cursor.gd" id="3_o8mdw"]
-[ext_resource type="Texture2D" uid="uid://dqaxft405ujmt" path="res://Assets/FISH HOOK.png" id="3_qjf28"]
+[ext_resource type="Texture2D" uid="uid://ch8l8dg81xjs2" path="res://Assets/FISH_HOOK_WORM_STICKER.png" id="4_q22b3"]
 [ext_resource type="Texture2D" uid="uid://ekrn0gul6utm" path="res://Assets/Blue_idle.png" id="5_o8mdw"]
 [ext_resource type="AudioStream" uid="uid://bdms2oy06mwbk" path="res://Assets/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3" id="6_q22b3"]
 
@@ -72,7 +72,7 @@ one_shot = true
 
 [node name="FishHook" type="Sprite2D" parent="Cursor" unique_id=566435158]
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_qjf28")
+texture = ExtResource("4_q22b3")
 
 [node name="Node2D" type="Node2D" parent="Cursor/FishHook" unique_id=1662586676]
 position = Vector2(9.545, -338.905)

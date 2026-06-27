@@ -84,5 +84,15 @@
 		"position": ["fisher", "fih"],
 		"fisher": "res://assets/Catch_sticker.png",
 		"fih": "res://assets/PUFFERBALL_FLAT_STICKER.png"
+	},
+	
+	"ending_start":{
+		"dialogue": [
+		{"speaker": "daniel weng" , "text": "Are you kicking fish??!", "pitch": .5},
+		{"speaker": "fih" , "text": "This is not my wife.", "pitch": 1.5},
+		],
+		"position": ["fisher", "daniel weng"],
+		"fisher": "res://assets/Catch_sticker.png",
+		"daniel weng": "/Assets/DANIEL_WENG_ANGRY.png"
 	}
 }

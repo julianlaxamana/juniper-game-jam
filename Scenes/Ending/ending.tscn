@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://1vwy86l27ou8"]
 
 [ext_resource type="Script" uid="uid://uklf71kxwrii" path="res://Scenes/Ending/ending.gd" id="1_dv4ay"]
+[ext_resource type="PackedScene" uid="uid://bhbbqp2bl8i8l" path="res://ui/dialogue.tscn" id="2_6d8ow"]
 [ext_resource type="Texture2D" uid="uid://tlayftcd283u" path="res://Scenes/Ending/Assets/WHIRLPOOL_CG.png" id="2_cgrmh"]
 [ext_resource type="AudioStream" uid="uid://dwhjp6piyj1xb" path="res://Scenes/Ending/Assets/deltarune-explosion.mp3" id="3_xc8g7"]
 [ext_resource type="Texture2D" uid="uid://bx5g0drcfbw0p" path="res://Scenes/Ending/Assets/PC___Computer_-_Deltarune_-_Objects_-_Rawaawdadaddwdawdawadwealistic_Explosion.png" id="4_cgrmh"]
@@ -156,6 +157,8 @@ animations = [{
 [node name="Ending" type="Node2D" unique_id=2145921057]
 script = ExtResource("1_dv4ay")
 smoothing_curve = SubResource("Curve_dv4ay")
+
+[node name="Encounter" parent="." unique_id=641299931 instance=ExtResource("2_6d8ow")]
 
 [node name="background" type="Sprite2D" parent="." unique_id=278689476]
 position = Vector2(640, 360)

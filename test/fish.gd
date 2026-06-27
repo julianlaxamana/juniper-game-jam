@@ -10,14 +10,34 @@ var fishes = [
 "res://Assets/BOBA.png", 
 "res://Assets/DROY.png", 
 "res://Assets/DEFAULT_FIH.png", 
+"res://Assets/Fodder/FREAKY.png",
+"res://Assets/Fodder/FREDDY_FAZFIH.png",
+"res://Assets/Fodder/FRONT_FACING_FIH.png",
+"res://Assets/Fodder/GALAXY.png",
+"res://Assets/Fodder/GOLDFIH.png",
+"res://Assets/Fodder/GREEN.png",
+"res://Assets/Fodder/GROUPER_AND_WRASS.png",
 "res://Assets/MAN.png", 
 "res://Assets/MENO.png", 
 "res://Assets/MEOWMRFIH.png", 
+"res://Assets/Fodder/MIKU.png",
+"res://Assets/Fodder/MOGUSFIH.png",
+"res://Assets/Fodder/MOLA_MOLA.png",
+"res://Assets/Fodder/PIKMIN.png",
+"res://Assets/Fodder/PROPELLER.png",
 "res://Assets/The_Gooch_STICKER.png", 
+"res://Assets/Fodder/TINY.png"
+
 ]
 
 func _ready() -> void:
-	$MinnowWorkerNormalSticker.texture = load(fishes[randi() % len(fishes)])
+	var file = fishes[randi() % len(fishes)]
+	$MinnowWorkerNormalSticker.texture = load(file)
+	
+	
+	if (file == "res://Assets/Fodder/TINY.png"):
+		scale = Vector2(1, 1)
+		# legit will not be visible if it's not
 
 func _process(delta: float) -> void:
 	if get_parent().caught:
