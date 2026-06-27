@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cxba5vxgkoops" path="res://Scenes/Fish/Peeling Salmon/Assets/minute_hand.png" id="5_bv5ay"]
 [ext_resource type="Material" uid="uid://ecydmr6lgmjj" path="res://Scenes/Fish/Peeling Salmon/static.tres" id="6_02vs4"]
 [ext_resource type="Texture2D" uid="uid://dl7ktff17qw3d" path="res://Scenes/Fish/Peeling Salmon/Assets/BG/ASHES_CG.png" id="7_bv5ay"]
-[ext_resource type="PackedScene" uid="uid://bhbbqp2bl8i8l" path="res://ui/dialogue.tscn" id="8_pmakw"]
 [ext_resource type="Texture2D" uid="uid://ct0py0isq78kh" path="res://Scenes/Fish/Peeling Salmon/Assets/TURN_BACK_TIME_SALMON.png" id="9_oybj4"]
 
 [sub_resource type="Animation" id="Animation_2hgtb"]
@@ -98,6 +97,3 @@ offset_left = 941.0
 offset_top = 484.0
 offset_right = 1080.0
 offset_bottom = 574.0
-
-[node name="Encounter" parent="." unique_id=641299931 instance=ExtResource("8_pmakw")]
-visible = false

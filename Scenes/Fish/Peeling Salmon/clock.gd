@@ -5,12 +5,12 @@ extends Node2D
 @onready var watch = $Watch
 @onready var button = $Button
 @onready var foreground = $foreground
-@onready var dialogue = $Encounter
 
 var lost = false
 
 var win = false
 var hand_ratio: float = 5 + sqrt(2) - 1
+signal done
 # real clock is too fast, 60
 # this could also easily be written to be controlling the minute hand
 
@@ -98,8 +98,8 @@ func _process(delta: float) -> void:
 
 
 func _on_win_timer_timeout() -> void:
-	dialogue.visible = true
-	dialogue.initialize_scene("clock_win")
+	done.emit()
+	queue_free()
 
 #contorlling minute hand
 func _input(event):

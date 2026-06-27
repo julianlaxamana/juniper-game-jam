@@ -58,14 +58,11 @@ var random_direction
 
 
 #var delta = 1/60.0
-<<<<<<< HEAD
 
 var prevperc = 0
 var percent = 0
-=======
 var noise_playing = false
 
->>>>>>> 1882646b9908e292f3934b9a9c2cf2de88fc4183
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (win):
@@ -203,7 +200,6 @@ func _on_timer_timeout() -> void:
 	failure = false
 	ball.position = ball_initial_position
 	ball.rotation = 32.0 * PI / 180.0
-<<<<<<< HEAD
 
 
 func ding() -> void:
@@ -211,8 +207,4 @@ func ding() -> void:
 	$AudioStreamPlayer2.play()
 	$Node2D/Sprite2D/AnimationPlayer.play("test")
 	print("hi")
-	pass # Replace with function body.
-=======
-	
 	noise_playing = false
->>>>>>> 1882646b9908e292f3934b9a9c2cf2de88fc4183

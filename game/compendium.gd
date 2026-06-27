@@ -28,7 +28,7 @@ var items = [
 #"res://assets/The_Gooch_STICKER.png", 
 #"res://assets/PEELING_SALMON_STICKER.png", 
 #"res://assets/MINNOW_WORKER_NORMAL_STICKER.png", 
-"res://assets/PUFFERBALL_FLAT_STICKER.png"
+#"res://assets/PUFFERBALL_FLAT_STICKER.png"
 var on = false
 func toggle():
 	on = !on
@@ -55,16 +55,13 @@ func _ready():
 	for item in items:
 		if !item["caught"]:
 			$ItemList.add_item("???")
-	$Label.visible = false
 	$Label3.visible = false
 	$PeelingSalmonSticker.visible = false
 	
 func _on_item_list_item_selected(index: int) -> void:
-	$Label.visible = true
 	$Label3.visible = true
 	$PeelingSalmonSticker.visible = true
 	$PeelingSalmonSticker.texture = load(items[index]["sprite"])
-	$Label.text = "BIGGEST FIH: " + items[index]["biggest"]
 	if !items[index]["caught"]:
 		$Label3.text = "???"
 		$PeelingSalmonSticker.modulate = Color(0.0, 0.0, 0.0, 1.0)

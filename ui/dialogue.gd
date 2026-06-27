@@ -46,9 +46,12 @@ func _process(delta: float) -> void:
 		$NinePatchRect2/RichTextLabel.text = dialogue["dialogue"][index]["speaker"]
 		$AudioStreamPlayer2D.pitch_scale = dialogue["dialogue"][index]["pitch"]
 		$GrassButtonsArrow.visible = false
-	elif Input.is_action_just_released("m1") and $GrassButtonsArrow.visible:
+	elif Input.is_action_just_released("m1") and $GrassButtonsArrow.visible and log != "ending_start":
 		minigame.emit()
 		queue_free()
+	elif Input.is_action_just_released("m1") and $GrassButtonsArrow.visible and log == "ending_start":
+		Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
+		$Control. visible = true
 	elif  Input.is_action_just_released("m1"):
 		$AudioStreamPlayer2D.stop()
 		$NinePatchRect/RichTextLabel.visible_characters = 1000

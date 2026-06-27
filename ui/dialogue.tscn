@@ -6,6 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://Assets/ARROW_BLUNDER_EDITION.png" id="4_uo1k0"]
 [ext_resource type="AudioStream" uid="uid://s8jd38nemf5c" path="res://Assets/talking.wav" id="5_tqx3j"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwm1w"]
+bg_color = Color(0.9372549, 0.9607843, 0.4509804, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.83137256, 0.6784314, 0.30980393, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
 [node name="Encounter" type="Control" unique_id=641299931]
 layout_mode = 3
 anchors_preset = 15
@@ -105,5 +119,47 @@ position = Vector2(59.85105, 481.87204)
 scale = Vector2(0.51, 0.51)
 stream = ExtResource("5_tqx3j")
 pitch_scale = 0.77
+
+[node name="Control" type="Control" parent="." unique_id=15907759]
+visible = false
+anchors_preset = 0
+offset_left = 383.0
+offset_top = 594.0
+offset_right = 638.0
+offset_bottom = 638.0
+
+[node name="Button" type="Button" parent="Control" unique_id=619587913]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 17.0
+offset_right = 230.0
+offset_bottom = 85.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_jmpb1")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_qwm1w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qwm1w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qwm1w")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qwm1w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qwm1w")
+text = "SPIN HIS GURT"
+
+[node name="Button2" type="Button" parent="Control" unique_id=1108245610]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 17.0
+offset_right = 575.0
+offset_bottom = 85.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_jmpb1")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_qwm1w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qwm1w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qwm1w")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qwm1w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qwm1w")
+text = "GO TO JAIL"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
