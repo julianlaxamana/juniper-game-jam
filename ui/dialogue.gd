@@ -51,6 +51,7 @@ func _process(delta: float) -> void:
 		$GrassButtonsArrow.visible = false
 	elif Input.is_action_just_released("m1") and $GrassButtonsArrow.visible and log != "ending_start":
 		minigame.emit()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		queue_free()
 	elif Input.is_action_just_released("m1") and $GrassButtonsArrow.visible and log == "ending_start":
 		Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxba5vxgkoops" path="res://Scenes/Fish/Peeling Salmon/Assets/minute_hand.png" id="5_bv5ay"]
 [ext_resource type="Material" uid="uid://ecydmr6lgmjj" path="res://Scenes/Fish/Peeling Salmon/static.tres" id="6_02vs4"]
 [ext_resource type="Texture2D" uid="uid://dl7ktff17qw3d" path="res://Scenes/Fish/Peeling Salmon/Assets/BG/ASHES_CG.png" id="7_bv5ay"]
+[ext_resource type="Texture2D" uid="uid://b2sbb7k3um1uc" path="res://Assets/GO_BACK.png" id="9_5nn6w"]
 [ext_resource type="Texture2D" uid="uid://ct0py0isq78kh" path="res://Scenes/Fish/Peeling Salmon/Assets/TURN_BACK_TIME_SALMON.png" id="9_oybj4"]
 
 [sub_resource type="Animation" id="Animation_2hgtb"]
@@ -85,15 +86,14 @@ position = Vector2(640, 360)
 scale = Vector2(0.6666667, 0.6666667)
 texture = ExtResource("7_bv5ay")
 
-[node name="Button" type="Button" parent="." unique_id=702642925]
-offset_left = 983.0
-offset_top = 599.0
-offset_right = 1246.0
-offset_bottom = 694.0
-text = "GO BACK"
-
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1215739954]
-offset_left = 941.0
-offset_top = 484.0
-offset_right = 1080.0
-offset_bottom = 574.0
+offset_left = 966.0
+offset_top = 499.0
+offset_right = 2966.0
+offset_bottom = 2499.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("9_5nn6w")
+texture_pressed = ExtResource("9_5nn6w")
+texture_hover = ExtResource("9_5nn6w")
+texture_disabled = ExtResource("9_5nn6w")
+texture_focused = ExtResource("9_5nn6w")

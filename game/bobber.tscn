@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://c54x250v4elqg" path="res://game/bobber.gdshader" id="2_7gnix"]
 [ext_resource type="Texture2D" uid="uid://dqaxft405ujmt" path="res://Assets/FISH HOOK.png" id="3_awfqx"]
 [ext_resource type="AudioStream" uid="uid://br255cg7lfeb2" path="res://Assets/water01_c.wav" id="4_awfqx"]
+[ext_resource type="AudioStream" uid="uid://b8r21mx5f6y6q" path="res://Assets/ring.wav" id="5_ksu7a"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dwvqn"]
 radius = 0.25
@@ -44,9 +45,15 @@ transform = Transform3D(-0.997247, -5.5725518e-09, 0.07415217, 0.02310304, 0.950
 [node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1938113818]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.42452252, 0)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=816788820]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=816788820 groups=["sfx_players"]]
 stream = ExtResource("4_awfqx")
 volume_db = -19.423
+panning_strength = 0.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=306705696 groups=["sfx_players"]]
+stream = ExtResource("5_ksu7a")
+volume_db = 5.997
+pitch_scale = 2.37
 panning_strength = 0.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

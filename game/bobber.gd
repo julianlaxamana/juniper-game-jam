@@ -38,5 +38,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 
 func _on_timer_timeout() -> void:
+	$AudioStreamPlayer3D2.play()
 	tickle = true
 	pass # Replace with function body.

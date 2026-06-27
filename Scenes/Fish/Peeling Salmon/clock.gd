@@ -3,7 +3,7 @@ extends Node2D
 @onready var hour = $hour
 @onready var minute = $minute
 @onready var watch = $Watch
-@onready var button = $Button
+@onready var button = $TextureButton
 @onready var foreground = $foreground
 
 var lost = false

@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://floelablj4r5" path="res://Assets/Mouse_Right_Key_Light.png" id="13_bjd6m"]
 [ext_resource type="Texture2D" uid="uid://dk5ct2cjws0f5" path="res://Scenes/Fish/Soccer/Assets/IMG_4373.png" id="14_qcc7i"]
 [ext_resource type="AudioStream" uid="uid://c2oj38dcbkk46" path="res://Assets/universfield-level-up-191997.mp3" id="14_sr6vn"]
+[ext_resource type="Texture2D" uid="uid://b7fle5dxpjf38" path="res://Assets/FIH_CAUGHT.png" id="16_0ui5g"]
 [ext_resource type="PackedScene" uid="uid://bkhjwuetbanwi" path="res://game/audio.tscn" id="16_8fgbe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehm57"]
@@ -181,7 +182,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(518, 323)]
+"values": [Vector2(518, 5000)]
 }
 
 [sub_resource type="Animation" id="Animation_gr1x1"]
@@ -194,10 +195,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.36666667, 2.5666666, 2.9833333),
+"times": PackedFloat32Array(0, 0.36666667, 2.5666666, 3),
 "transitions": PackedFloat32Array(2, 1, 1, 2.0000005),
 "update": 0,
-"values": [Vector2(518, 750), Vector2(518, 323), Vector2(518, 323), Vector2(518, 750)]
+"values": [Vector2(640.07, 811.265), Vector2(640.07, 323), Vector2(640.07, 323), Vector2(640.07, 809.09)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0oe8t"]
@@ -238,7 +239,7 @@ transform = Transform3D(0.99244106, -0.12272211, 0, 0.12272211, 0.99244106, 0, 0
 mesh = SubResource("BoxMesh_ehm57")
 
 [node name="Sprite3D" type="Sprite3D" parent="RigidBody3D2/MeshInstance3D/MeshInstance3D" unique_id=1018708705]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1404762)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.592514)
 texture = ExtResource("3_fngf0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=1894211990]
@@ -449,18 +450,12 @@ visible = false
 layout_mode = 1
 offset_bottom = -6.1035156e-05
 
-[node name="Label" type="Label" parent="Control" unique_id=1548597034]
-visible = false
-layout_mode = 0
-offset_left = 518.0
-offset_top = 323.0
-offset_right = 786.0
-offset_bottom = 367.0005
-text = "new fih!"
-label_settings = SubResource("LabelSettings_pgrle")
-horizontal_alignment = 1
+[node name="FihCaught" type="Sprite2D" parent="Control" unique_id=848340876]
+position = Vector2(518, 5000)
+scale = Vector2(0.265, 0.265)
+texture = ExtResource("16_0ui5g")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Label" unique_id=1606373982]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/FihCaught" unique_id=1606373982]
 libraries/ = SubResource("AnimationLibrary_0oe8t")
 
 [node name="Audio" parent="Control" unique_id=936465143 instance=ExtResource("16_8fgbe")]

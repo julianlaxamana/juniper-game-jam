@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqaxft405ujmt" path="res://Assets/FISH HOOK.png" id="4_lpejd"]
 [ext_resource type="Texture2D" uid="uid://ekrn0gul6utm" path="res://Assets/Blue_idle.png" id="5_sq3ui"]
 [ext_resource type="AudioStream" uid="uid://bdms2oy06mwbk" path="res://Assets/freesound_gamestudio-rpg-sword-attack-combo-16-388925.mp3" id="6_n8fqn"]
+[ext_resource type="Texture2D" uid="uid://b7ettj7a64fv3" path="res://Assets/FIND_MY_WIFE.png" id="7_uar67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwvqn"]
 size = Vector2(73, 757.5)
@@ -17,6 +18,43 @@ size = Vector2(1323, 20)
 _data = [Vector2(0, 1), 0.0, -2.8714101, 0, 0, Vector2(1, 0.22471917), 0.05480951, -2.8714101, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_2hgtb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_judet"]
+resource_name = "breh"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 2.5666666, 2.7666667),
+"transitions": PackedFloat32Array(1, 2.0000002, 1.3195174, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.475, 0.475), Vector2(0.26, 0.26), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w6oxy"]
+_data = {
+&"RESET": SubResource("Animation_2hgtb"),
+&"breh": SubResource("Animation_judet")
+}
 
 [node name="Fish" type="Node2D" unique_id=355174588]
 script = ExtResource("1_w6oxy")
@@ -120,6 +158,15 @@ max_polyphony = 10
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=826427352]
 current = true
+
+[node name="text" type="Sprite2D" parent="." unique_id=1832948587]
+z_index = 500
+position = Vector2(640, 500)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("7_uar67")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="text" unique_id=1123620646]
+libraries/ = SubResource("AnimationLibrary_w6oxy")
 
 [connection signal="area_shape_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_2d_area_shape_entered"]
 [connection signal="body_shape_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_2d_body_shape_entered"]

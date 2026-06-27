@@ -156,9 +156,11 @@ func ball_done():
 	$AnimationPlayer.play_backwards('dissolbe')
 	$"../CharacterBody3D".bruh = false
 	$"../AudioStreamPlayer3D2".play()
+	$"../RigidBody3D2/Sprite3D".visible = true
 	$"../RigidBody3D2/Sprite3D/AnimationPlayer".play("new_animation")
 	
 func control():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Control.visible = true
 	$Control2.visible = false
 	bruh = true
@@ -173,8 +175,8 @@ func skibidi(fih: Node2D):
 		if fih.sprite.texture.resource_path == item["sprite"] && !item["caught"]:
 			item["caught"] = true
 			$"../AudioStreamPlayer3D3".play()
-			$Label.visible = true
-			$Label/AnimationPlayer.play("yipee")
+			$FihCaught.visible = true
+			$FihCaught/AnimationPlayer.play("yipee")
 			
 			
 	$Compendium.update_items()
@@ -237,6 +239,10 @@ func peeling():
 	$"../AudioStreamPlayer3D2".stop()
 	
 func peel_done():
+	for item in $Compendium.items:
+		if item["fish_name"] == "Salmon":
+			item.caught = true
+	$Compendium.update_items()
 	$AnimationPlayer.play('dissolbe')
 	await $AnimationPlayer.animation_finished
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -309,6 +315,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	pass # Replace with function body.
 
 func weng():
+	$"../AudioStreamPlayer3D2".stop()
 	$AnimationPlayer.play('dissolbe')
 	await $AnimationPlayer.animation_finished
 	var test = preload("res://Scenes/Ending/ending.tscn")
@@ -320,6 +327,7 @@ func weng():
 	
 func weng2():
 	$AnimationPlayer.play('dissolbe')
+	$"../AudioStreamPlayer3D2".stop()
 	await $AnimationPlayer.animation_finished
 	var test = preload("res://Scenes/Ending/prison.tscn")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -329,6 +337,14 @@ func weng2():
 	$AnimationPlayer.play_backwards('dissolbe')
 
 func a():
+	for item in $Compendium.items:
+		if item["fish_name"] == "Daniel Weng":
+			item.caught = true
+		if item["fish_name"] == "Goalie Flounder":
+			item.caught = true
+	$Compendium.update_items()
 	bruh = true
+	$"../AudioStreamPlayer3D2".stream = load("res://Assets/FishThemeRev2.wav")
+	$"../AudioStreamPlayer3D2".play(0)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$"../CharacterBody3D".bruh = true

@@ -5,6 +5,7 @@ var music_value = 0
 
 var items = [
 	{"fish_name": "Peeling Salmon", "caught": false, "biggest": "N/A", "sprite": "res://Assets/PEELING_SALMON_STICKER.png"},
+	{"fish_name": "Salmon", "caught": false, "biggest": "N/A", "sprite": "res://Assets/WELL_SALMON.png"},
 	{"fish_name": "Minnow-mal Wage Worker", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MINNOW_WORKER_NORMAL_STICKER.png"},
 	{"fish_name": "Minnow-mal Wage Worker's Wife", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MINNOW_WORKER_WIFE_STICKER.png"},
 	{"fish_name": "Pufferball", "caught": false, "biggest": "N/A", "sprite": "res://Assets/PUFFERBALL_FLAT_STICKER.png"},
@@ -26,7 +27,10 @@ var items = [
 	{"fish_name": "Freakfih", "caught": false, "biggest": "N/A", "sprite": "res://Assets/Fodder/FREAKY.png"},
 	{"fish_name": "green", "caught": false, "biggest": "N/A", "sprite": "res://Assets/Fodder/GREEN.png"},
 	{"fish_name": "spinfih", "caught": false, "biggest": "N/A", "sprite": "res://Assets/Fodder/PROPELLER.png"},
-	{"fish_name": ".", "caught": false, "biggest": "N/A", "sprite": "res://Assets/Fodder/TINY.png"}
+	{"fish_name": "Hatsune Fihku", "caught": false, "biggest": "N/A", "sprite": "res://Assets/Fodder/MIKU.png"},
+	{"fish_name": ".", "caught": false, "biggest": "N/A", "sprite": "res://Assets/Fodder/TINY.png"},
+	{"fish_name": "Freddy Fazfih", "caught": false, "biggest": "N/A", "sprite": "res://Assets/Fodder/FREDDY_FAZFIH.png"},
+	{"fish_name": "Daniel Weng", "caught": false, "biggest": "N/A", "sprite": "res://Scenes/Ending/Assets/DANIEL_WENG_SPIN.png"}
 ]
 
 

@@ -9,6 +9,7 @@ signal catch
 signal skibidi
 
 func _ready() -> void:
+	$text/AnimationPlayer.play("breh")
 	var fish_count = 25
 	for i in range(fish_count):
 		var new_fish = fih.instantiate()
