@@ -10,17 +10,58 @@
 [ext_resource type="PackedScene" uid="uid://bhbbqp2bl8i8l" path="res://ui/dialogue.tscn" id="8_pmakw"]
 [ext_resource type="Texture2D" uid="uid://ct0py0isq78kh" path="res://Scenes/Fish/Peeling Salmon/Assets/TURN_BACK_TIME_SALMON.png" id="9_oybj4"]
 
+[sub_resource type="Animation" id="Animation_2hgtb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.17998923, 0.17998925)]
+}
+
+[sub_resource type="Animation" id="Animation_judet"]
+resource_name = "breh"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 2.5666666, 2.7666667),
+"transitions": PackedFloat32Array(1, 2.0000002, 1.3195174, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.475, 0.475), Vector2(0.26, 0.26), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oybj4"]
+_data = {
+&"RESET": SubResource("Animation_2hgtb"),
+&"breh": SubResource("Animation_judet")
+}
+
 [node name="Clock" type="Node2D" unique_id=737982760]
 script = ExtResource("1_kvxpr")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1558852383 groups=["audio_players"]]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1558852383 groups=["music_players"]]
 stream = ExtResource("2_oybj4")
+volume_db = -4.988
 autoplay = true
 
 [node name="text" type="Sprite2D" parent="." unique_id=76198132]
 position = Vector2(640, 79.99999)
-scale = Vector2(0.32725322, 0.32725322)
+scale = Vector2(0.17998923, 0.17998925)
 texture = ExtResource("9_oybj4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="text" unique_id=728575523]
+libraries/ = SubResource("AnimationLibrary_oybj4")
 
 [node name="Watch" type="Sprite2D" parent="." unique_id=1260323256]
 texture_filter = 3
@@ -59,3 +100,4 @@ offset_right = 1080.0
 offset_bottom = 574.0
 
 [node name="Encounter" parent="." unique_id=641299931 instance=ExtResource("8_pmakw")]
+visible = false

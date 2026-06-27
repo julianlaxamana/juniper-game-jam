@@ -58,9 +58,14 @@ var random_direction
 
 
 #var delta = 1/60.0
+<<<<<<< HEAD
 
 var prevperc = 0
 var percent = 0
+=======
+var noise_playing = false
+
+>>>>>>> 1882646b9908e292f3934b9a9c2cf2de88fc4183
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (win):
@@ -74,6 +79,10 @@ func _process(delta: float) -> void:
 		leg.scale = (Vector2(leg_scale, leg_scale) - leg.scale) / 1.03 + leg.scale
 		ball.rotate(delta * 50)
 		ball.translate(random_direction * delta)
+		
+		if not noise_playing:
+			get_tree().create_timer(.09).timeout.connect(_play_ball_block)
+			noise_playing = true
 		
 	if (pressed and (not win) and (not failure)):
 		var location = get_global_mouse_position() - (ball.get_child(0).global_position)
@@ -132,6 +141,9 @@ func _process(delta: float) -> void:
 	leg.scale.x = leg_scale + (squish * smoothing_curve.sample(percent))
 	
 
+func _play_ball_block() -> void:
+	$"ball block".play()
+
 func _input(event) -> void:
 	if (event.is_action("m1") and (not failure) and (not win)):
 		if (tutorial):
@@ -142,8 +154,10 @@ func _input(event) -> void:
 			
 			previous_coordinate = get_global_mouse_position() - ball.position
 			
+			
 		else:
 			pressed = false
+			$"ball punt".play()
 			
 			
 			
@@ -189,6 +203,7 @@ func _on_timer_timeout() -> void:
 	failure = false
 	ball.position = ball_initial_position
 	ball.rotation = 32.0 * PI / 180.0
+<<<<<<< HEAD
 
 
 func ding() -> void:
@@ -197,3 +212,7 @@ func ding() -> void:
 	$Node2D/Sprite2D/AnimationPlayer.play("test")
 	print("hi")
 	pass # Replace with function body.
+=======
+	
+	noise_playing = false
+>>>>>>> 1882646b9908e292f3934b9a9c2cf2de88fc4183

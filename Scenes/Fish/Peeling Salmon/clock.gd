@@ -38,6 +38,8 @@ func _ready():
 	button.button_up.connect(_on_button_button_up)
 	
 	$AudioStreamPlayer.finished.connect(_on_song_end)
+	
+	$text/AnimationPlayer.play("breh")
 
 func _on_song_end() -> void:
 	$AudioStreamPlayer.play()
