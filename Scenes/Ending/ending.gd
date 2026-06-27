@@ -36,7 +36,6 @@ func _ready():
 		$MinnowWorkerWifeSticker,
 	]
 	
-	$Encounter.initialize_scene("ending_start")
 
 
 var averager = []
@@ -71,7 +70,7 @@ func _process(delta: float) -> void:
 		man.texture = preload("res://Scenes/Ending/Assets/DANIEL_WENG_DIES.png")
 		
 		get_tree().create_timer(.4).timeout.connect(_delete_daniel)
-		get_tree().create_timer(1.4).timeout.connect(_show_ending)
+		get_tree().create_timer(5).timeout.connect(_show_ending)
 		
 		pass
 		#ball.translate(Vector2(0, -1 * speed) * delta)
