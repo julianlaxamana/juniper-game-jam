@@ -28,12 +28,16 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	pass # Replace with function body.
 
 
-func _on_music_change(delta) -> void:
-	
+func _on_music_change(new_value) -> void:
+	var diff = new_value - music_value
+
 	for n in get_tree().get_nodes_in_group("music_players"):
-		n.volume_db += delta
+		n.volume_db += diff
+	music_value = new_value
 	
-func _on_sfx_change(delta) -> void:
+func _on_sfx_change(new_value) -> void:
 	
-	for n in get_tree().get_nodes_in_group("sfx_players"):
-		n.volume_db += delta
+	var diff = new_value - sfx_value
+	for n in get_tree().get_nodes_in_group("music_players"):
+		n.volume_db += diff
+	music_value = new_value
