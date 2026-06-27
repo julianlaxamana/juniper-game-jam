@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 		bobber_instance.apply_force(-300.0 * $"../CharacterBody3D".head.transform.basis.z)
 		bobber_instance.apply_force(Vector3(0.0, 250.0, 0.0))
 		currBobber = bobber_instance
-		$"../AudioStreamPlayer3D4".stream = load("res://assets/audiopapkin-fishing-reel-302355.wav")
+		$"../AudioStreamPlayer3D4".stream = load("res://Assets/audiopapkin-fishing-reel-302355.wav")
 		$"../AudioStreamPlayer3D4".play()
 	elif Input.is_action_just_pressed("m2") and $Timer.is_stopped() and currBobber != null:
 		bruh = true
@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 			get_parent().get_child(i).visible = true
 		currBobber.visible = true
 		$"../WorldEnvironment".environment = load("res://test/new_environment.tres")
-		$"../AudioStreamPlayer3D4".stream = load("res://assets/reel-back.wav")
+		$"../AudioStreamPlayer3D4".stream = load("res://Assets/reel-back.wav")
 		$"../AudioStreamPlayer3D4".play()
 	
 	if look:
@@ -130,7 +130,7 @@ func minnow_load():
 	$AnimationPlayer.play_backwards('dissolbe')
 	$"../WorldEnvironment".environment = load("res://test/2d.tres")
 	$"../AudioStreamPlayer3D2".stop()
-	$"../AudioStreamPlayer3D2".stream = load("res://assets/Looking for my Fish Wife.wav")
+	$"../AudioStreamPlayer3D2".stream = load("res://Assets/Looking for my Fish Wife.wav")
 	$"../AudioStreamPlayer3D2".play(0)
 	for i in range(10):
 		get_parent().get_child(i).visible = false
@@ -164,7 +164,7 @@ func control():
 	bruh = true
 	$"../CharacterBody3D".bruh = true
 	$"../AudioStreamPlayer3D2".stop()
-	$"../AudioStreamPlayer3D2".stream = load("res://assets/FishThemeRev2.wav")
+	$"../AudioStreamPlayer3D2".stream = load("res://Assets/FishThemeRev2.wav")
 	$"../AudioStreamPlayer3D2".play(0)
 func skibidi(fih: Node2D):
 	$Control2.visible = false
@@ -254,7 +254,7 @@ func _on_catch() -> void:
 		currBobber.submerged = false
 	catch = true
 	$Timer.start()
-	$"../AudioStreamPlayer3D4".stream = load("res://assets/reel-back.wav")
+	$"../AudioStreamPlayer3D4".stream = load("res://Assets/reel-back.wav")
 	$"../AudioStreamPlayer3D4".play()
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:

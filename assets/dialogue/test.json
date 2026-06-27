@@ -41,8 +41,8 @@
 			"fisher",
 			"fih"
 		],
-		"fisher": "res://assets/Catch_sticker.png",
-		"fih": "res://assets/MINNOW_WORKER_NORMAL_STICKER.png"
+		"fisher": "res://Assets/Catch_sticker.png",
+		"fih": "res://Assets/MINNOW_WORKER_NORMAL_STICKER.png"
 	},
 	"peeling": {
 		"dialogue": [
@@ -111,8 +111,8 @@
 			"fisher",
 			"fih"
 		],
-		"fisher": "res://assets/Catch_sticker.png",
-		"fih": "res://assets/PEELING_SALMON_STICKER.png"
+		"fisher": "res://Assets/Catch_sticker.png",
+		"fih": "res://Assets/PEELING_SALMON_STICKER.png"
 	},
 	"ball": {
 		"dialogue": [
@@ -161,8 +161,8 @@
 			"fisher",
 			"fih"
 		],
-		"fisher": "res://assets/Catch_sticker.png",
-		"fih": "res://assets/PUFFERBALL_FLAT_STICKER.png"
+		"fisher": "res://Assets/Catch_sticker.png",
+		"fih": "res://Assets/PUFFERBALL_FLAT_STICKER.png"
 	},
 	"wife": {
 		"dialogue": [
@@ -181,8 +181,8 @@
 			"fisher",
 			"fih"
 		],
-		"fisher": "res://assets/Catch_sticker.png",
-		"fih": "res://assets/MINNOW_WORKER_NORMAL_STICKER.png"
+		"fisher": "res://Assets/Catch_sticker.png",
+		"fih": "res://Assets/MINNOW_WORKER_NORMAL_STICKER.png"
 	},
 	"not wife": {
 		"dialogue": [
@@ -211,8 +211,8 @@
 			"fisher",
 			"fih"
 		],
-		"fisher": "res://assets/Catch_sticker.png",
-		"fih": "res://assets/MINNOW_WORKER_PANIC_STICKER.png"
+		"fisher": "res://Assets/Catch_sticker.png",
+		"fih": "res://Assets/MINNOW_WORKER_PANIC_STICKER.png"
 	},
 	"ball_win": {
 		"dialogue": [
@@ -244,8 +244,8 @@
 			"fisher",
 			"fih"
 		],
-		"fisher": "res://assets/Catch_sticker.png",
-		"fih": "res://assets/PUFFERBALL_FLAT_STICKER.png"
+		"fisher": "res://Assets/Catch_sticker.png",
+		"fih": "res://Assets/PUFFERBALL_FLAT_STICKER.png"
 	},
 	"ending_start": {
 		"dialogue": [
@@ -269,7 +269,7 @@
 			"fisher",
 			"daniel"
 		],
-		"fisher": "res://assets/Catch_sticker.png",
+		"fisher": "res://Assets/Catch_sticker.png",
 		"daniel": "res://Assets/DANIEL_WENG_ANGRY.png"
 	},
 	"happy_salmon": {
@@ -299,7 +299,7 @@
 			"fisher",
 			"fih"
 		],
-		"fisher": "res://assets/Catch_sticker.png",
+		"fisher": "res://Assets/Catch_sticker.png",
 		"fih": "res://Assets/WELL_SALMON.png"
 	}
 }
