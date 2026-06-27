@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dost47d8gwtew"]
 
-[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://Assets/CherryBombOne-Regular.ttf" id="1_fblgx"]
 [ext_resource type="Script" uid="uid://be0ho637bh08t" path="res://ui/main.gd" id="1_loxbi"]
 [ext_resource type="PackedScene" uid="uid://c6fv1xbnpnkir" path="res://game/dock.tscn" id="2_vcrq8"]
+[ext_resource type="Texture2D" uid="uid://iiittjt5t7c8" path="res://Assets/CREDITS.png" id="4_h17sc"]
+[ext_resource type="Texture2D" uid="uid://bgcjexicvl83p" path="res://Assets/CREDITS_BOX.png" id="5_fc3ap"]
+[ext_resource type="Texture2D" uid="uid://drw61vis834j7" path="res://Assets/FIH_LOGO.png" id="6_fc3ap"]
+[ext_resource type="Texture2D" uid="uid://ylphpibdcov5" path="res://Assets/START.png" id="7_06s8x"]
 
 [node name="Main" type="Control" unique_id=157118352]
 layout_mode = 3
@@ -13,40 +16,51 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_loxbi")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=59181791]
-layout_mode = 0
-offset_left = 91.0
-offset_top = 52.0
-offset_right = 1238.0
-offset_bottom = 336.0
-theme_override_colors/font_outline_color = Color(0.3128576, 0.43300438, 0.94471014, 1)
-theme_override_constants/outline_size = 50
-theme_override_fonts/normal_font = ExtResource("1_fblgx")
-theme_override_font_sizes/normal_font_size = 100
-text = "a serious fishing game."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="." unique_id=1543707482]
-layout_mode = 0
-offset_left = 954.0
-offset_top = 425.0
-offset_right = 1247.0
-offset_bottom = 507.0
-theme_override_fonts/font = ExtResource("1_fblgx")
-theme_override_font_sizes/font_size = 40
-text = "start"
-
-[node name="Button2" type="Button" parent="." unique_id=1145333538]
-layout_mode = 0
-offset_left = 954.0
-offset_top = 530.0
-offset_right = 1247.0
-offset_bottom = 612.0
-theme_override_fonts/font = ExtResource("1_fblgx")
-theme_override_font_sizes/font_size = 40
-text = "credits"
-
 [node name="Dock" parent="." unique_id=1810924153 instance=ExtResource("2_vcrq8")]
 
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[node name="FihLogo" type="Sprite2D" parent="." unique_id=1939880985]
+position = Vector2(890.75, 209.00002)
+scale = Vector2(0.39074996, 0.39074996)
+texture = ExtResource("6_fc3ap")
+
+[node name="Credits" type="Sprite2D" parent="." unique_id=1507267597]
+visible = false
+position = Vector2(557, 127)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_h17sc")
+
+[node name="CreditsBox" type="Sprite2D" parent="." unique_id=65932624]
+visible = false
+position = Vector2(556, 407)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_fc3ap")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1326664253]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 533.0
+offset_right = 2695.0
+offset_bottom = 1301.0
+scale = Vector2(0.22, 0.22)
+texture_normal = ExtResource("4_h17sc")
+texture_pressed = ExtResource("4_h17sc")
+texture_hover = ExtResource("4_h17sc")
+texture_disabled = ExtResource("4_h17sc")
+texture_focused = ExtResource("4_h17sc")
+
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=1237827594]
+layout_mode = 0
+offset_left = 901.99994
+offset_top = 366.0
+offset_right = 2697.0
+offset_bottom = 1134.0
+scale = Vector2(0.22, 0.22)
+texture_normal = ExtResource("7_06s8x")
+texture_pressed = ExtResource("7_06s8x")
+texture_hover = ExtResource("7_06s8x")
+texture_disabled = ExtResource("7_06s8x")
+texture_focused = ExtResource("7_06s8x")
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="button_up" from="TextureButton2" to="." method="_on_texture_button_2_button_up"]
+[connection signal="button_up" from="TextureButton2" to="." method="_on_texture_button_button_up"]
