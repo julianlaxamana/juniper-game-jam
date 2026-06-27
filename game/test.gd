@@ -246,6 +246,7 @@ func peel_done():
 	add_child(scene)
 	$AnimationPlayer.play_backwards('dissolbe')
 	$"../CharacterBody3D".bruh = true
+	bruh = true
 	$"../AudioStreamPlayer3D2".play()
 	
 func _on_catch() -> void:
