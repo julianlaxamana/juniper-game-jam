@@ -20,9 +20,9 @@ var revolutions: float = 0.0
 
 # https://www.desmos.com/calculator/iigrxslpgy
 # 60 feels fair to me since people are going to keep the cursor close to the center and won't really think about being precise
-var epsilon: float = 420
-var intervals: Array[float] = [-2*PI - (epsilon/360 * PI), 
-							   -2*PI + (epsilon/360 * PI), 2*PI ]
+var epsilon: float = 420.0
+var intervals: Array[float] = [-2*PI - (epsilon/360.0 * PI), 
+							   -2*PI + (epsilon/360.0 * PI), 2*PI ]
 # left win boundary + left lose boundary, right win boundary, right lose boundary
 
 var previous_mouse_location: Vector2 = Vector2.ZERO

@@ -173,8 +173,8 @@ func skibidi(fih: Node2D):
 		if fih.sprite.texture.resource_path == item["sprite"] && !item["caught"]:
 			item["caught"] = true
 			$"../AudioStreamPlayer3D3".play()
-			$Label.visible = true
-			$Label/AnimationPlayer.play("yipee")
+			$FihCaught.visible = true
+			$FihCaught/AnimationPlayer.play("yipee")
 			
 			
 	$Compendium.update_items()
@@ -317,6 +317,7 @@ func weng():
 	scene.connect("done", a)
 	add_child(scene)
 	$AnimationPlayer.play_backwards('dissolbe')
+	$"../AudioStreamPlayer3D2".stop()
 	
 func weng2():
 	$AnimationPlayer.play('dissolbe')
