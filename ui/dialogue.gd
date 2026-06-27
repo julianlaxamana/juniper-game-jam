@@ -5,6 +5,8 @@ var index = 0
 var names
 var dialogue
 signal minigame
+signal spin
+signal prison
 
 
 var log = "ball"
@@ -80,4 +82,16 @@ func _on_timer_timeout() -> void:
 		$AudioStreamPlayer2D.stop()
 		$GrassButtonsArrow.visible = true
 		
+	pass # Replace with function body.
+
+
+func _on_button_button_up() -> void:
+	spin.emit()
+	queue_free()
+	pass # Replace with function body.
+
+
+func _on_button_2_button_up() -> void:
+	prison.emit()
+	queue_free()
 	pass # Replace with function body.

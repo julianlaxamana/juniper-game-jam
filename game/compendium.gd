@@ -3,8 +3,24 @@ extends Control
 var sfx_value = 0
 var music_value = 0
 
+var items = [
+	{"fish_name": "Peeling Salmon", "caught": false, "biggest": "N/A", "sprite": "res://Assets/PEELING_SALMON_STICKER.png"},
+	{"fish_name": "Minnow-mal Wage Worker", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MINNOW_WORKER_NORMAL_STICKER.png"},
+	{"fish_name": "Minnow-mal Wage Worker's Wife", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MINNOW_WORKER_WIFE_STICKER.png"},
+	{"fish_name": "Pufferball", "caught": false, "biggest": "N/A", "sprite": "res://Assets/PUFFERBALL_FLAT_STICKER.png"},
+	{"fish_name": "Goalie Flounder", "caught": false, "biggest": "N/A", "sprite": "res://Scenes/Fish/Soccer/Assets/GOALIE_STICKER.png"},
+	{"fish_name": "99 Fihs in The Forest", "caught": false, "biggest": "N/A", "sprite": "res://Assets/99.png"},
+	{"fish_name": "brick", "caught": false, "biggest": "N/A", "sprite": "res://Assets/BRICK.png"},
+	{"fish_name": "Bobafish", "caught": false, "biggest": "N/A", "sprite": "res://Assets/BOBA.png"},
+	{"fish_name": "droy", "caught": false, "biggest": "N/A", "sprite": "res://Assets/DROY.png"},
+	{"fish_name": "default_fih", "caught": false, "biggest": "N/A", "sprite": "res://Assets/DEFAULT_FIH.png"},
+	{"fish_name": "Manfih", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MAN.png"},
+	{"fish_name": "Meno", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MENO.png"},
+	{"fish_name": "MeowMrFih", "caught": false, "biggest": "N/A", "sprite": "res://Assets/MEOWMRFIH.png"},
+	{"fish_name": "The Gooch", "caught": false, "biggest": "N/A", "sprite": "res://Assets/The_Gooch_STICKER.png"}
+]
 
-<<<<<<< HEAD
+
 #"res://assets/99.png", 
 #"res://assets/BRICK.png", 
 #"res://assets/BOBA.png", 
@@ -17,8 +33,7 @@ var music_value = 0
 #"res://assets/PEELING_SALMON_STICKER.png", 
 #"res://assets/MINNOW_WORKER_NORMAL_STICKER.png", 
 #"res://assets/PUFFERBALL_FLAT_STICKER.png"
-=======
->>>>>>> 4c2aab26bbe921a7758e8342fe5768a33698fdae
+
 var on = false
 func toggle():
 	on = !on
@@ -29,7 +44,7 @@ func toggle():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		$Control.visible = false
 		$AnimationPlayer.play_backwards("test")
-<<<<<<< HEAD
+
 func update_items():
 	for item in items:
 		if item["caught"]:
@@ -62,32 +77,3 @@ func _on_item_list_item_selected(index: int) -> void:
 	
 		
 	pass # Replace with function body.
-=======
->>>>>>> 4c2aab26bbe921a7758e8342fe5768a33698fdae
-
-func _process(delta: float) -> void:
-	pass
-	
-func _ready():
-	$HSlider.value_changed.connect(_on_music_change)
-	$HSlider2.value_changed.connect(_on_sfx_change)
-	
-	music_value = $HSlider.value
-	sfx_value = $HSlider2.value
-	
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if on:
-		$Control.visible = true
-	pass # Replace with function body.
-
-
-func _on_music_change(delta) -> void:
-	
-	for n in get_tree().get_nodes_in_group("music_players"):
-		n.volume_db += delta
-	
-func _on_sfx_change(delta) -> void:
-	
-	for n in get_tree().get_nodes_in_group("sfx_players"):
-		n.volume_db += delta

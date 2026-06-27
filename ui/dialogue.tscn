@@ -163,3 +163,5 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_qwm1w")
 text = "GO TO JAIL"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Control/Button2" to="." method="_on_button_2_button_up"]

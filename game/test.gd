@@ -257,7 +257,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	await $AnimationPlayer.animation_finished
 	var test = preload("res://ui/dialogue.tscn")
 	scene = test.instantiate()
-	scene.connect("minigame", weng)
+	scene.connect("spin", weng)
 	scene.log = "ending_start"
 	add_child(scene)
 	$AnimationPlayer.play_backwards('dissolbe')
@@ -265,4 +265,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	pass # Replace with function body.
 
 func weng():
+	$AnimationPlayer.play('dissolbe')
+	await $AnimationPlayer.animation_finished
+	var test = preload("res://Scenes/Ending/ending.tscn")
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	scene = test.instantiate()
+	add_child(scene)
+	$AnimationPlayer.play_backwards('dissolbe')
 	print("hi")
