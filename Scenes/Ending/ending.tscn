@@ -231,10 +231,10 @@ texture = ExtResource("11_cf2k0")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=2135795822]
 visible = false
-offset_left = 31.0
-offset_top = -128.0
-offset_right = 2031.0
-offset_bottom = 1872.0
+offset_left = 810.0
+offset_top = 309.0
+offset_right = 2810.0
+offset_bottom = 2309.0
 scale = Vector2(0.23, 0.23)
 texture_normal = ExtResource("12_6d8ow")
 texture_pressed = ExtResource("12_6d8ow")

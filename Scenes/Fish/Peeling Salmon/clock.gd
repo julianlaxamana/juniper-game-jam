@@ -20,7 +20,7 @@ var revolutions: float = 0.0
 
 # https://www.desmos.com/calculator/iigrxslpgy
 # 60 feels fair to me since people are going to keep the cursor close to the center and won't really think about being precise
-var epsilon: float = 60
+var epsilon: float = 420
 var intervals: Array[float] = [-2*PI - (epsilon/360 * PI), 
 							   -2*PI + (epsilon/360 * PI), 2*PI ]
 # left win boundary + left lose boundary, right win boundary, right lose boundary
@@ -65,14 +65,14 @@ func _process(delta: float) -> void:
 				
 		
 		# visual feedback shader code
-		if (revolutions < intervals[0]):
+		if (revolutions < -2*PI):
 			#print(clampf(    (revolutions - intervals[0]) / (PI / 2.0), 0, 1    ))
-			watch.material.set_shader_parameter("alpha_value", clampf(    -1 * (revolutions - intervals[0]) / (2 * PI * 3), 0, 1    ))
+			watch.material.set_shader_parameter("alpha_value", clampf(    -1 * (revolutions - (-2 * PI)) / (2 * PI * .5), 0, 1    ))
 			watch.material.set_shader_parameter("seed_delta", watch.material.get_shader_parameter("seed_delta") + delta)
 			
 			
 		elif (intervals[2] < revolutions):
-			watch.material.set_shader_parameter("alpha_value", clampf( (revolutions - intervals[2]) / (2 * PI * 3), 0, 1    ))
+			watch.material.set_shader_parameter("alpha_value", clampf( (revolutions - intervals[2]) / (2 * PI * .5), 0, 1    ))
 			watch.material.set_shader_parameter("seed_delta", watch.material.get_shader_parameter("seed_delta") + delta)
 		
 	else:
