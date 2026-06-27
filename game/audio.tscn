@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://bkhjwuetbanwi"]
+
+[ext_resource type="Script" uid="uid://c7eburg40w27p" path="res://game/compendium.gd" id="1_0n7go"]
+[ext_resource type="Texture2D" uid="uid://c1vvxeao1qcbx" path="res://Assets/TEXTBOX.png" id="2_54o2j"]
+[ext_resource type="FontFile" uid="uid://b6gy2utyvoygf" path="res://Assets/CherryBombOne-Regular.ttf" id="3_rilkr"]
+[ext_resource type="Texture2D" uid="uid://mswsxlkacojg" path="res://Assets/ARROW_BLUNDER_EDITION.png" id="5_31x12"]
+
+[sub_resource type="Animation" id="Animation_fttgk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jrd3g"]
+resource_name = "test"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.6245052, 0.48296815),
+"update": 0,
+"values": [Vector2(1500, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nifsm"]
+_data = {
+&"RESET": SubResource("Animation_fttgk"),
+&"test": SubResource("Animation_jrd3g")
+}
+
+[node name="Compendium" type="Control" unique_id=1767288917]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0009765625
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0n7go")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1683887816]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 176.0
+offset_right = 2700.0
+offset_bottom = 1266.1409
+scale = Vector2(0.355, 0.355)
+texture = ExtResource("2_54o2j")
+region_rect = Rect2(298.44226, 293.7753, 1403.5562, 1436.972)
+patch_margin_left = 180
+patch_margin_top = 180
+patch_margin_right = 180
+patch_margin_bottom = 180
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1058122556]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 209.0
+offset_right = 1058.0
+offset_bottom = 304.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("3_rilkr")
+theme_override_font_sizes/normal_font_size = 58
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=327097251]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 343.0
+offset_right = 1058.0
+offset_bottom = 438.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("3_rilkr")
+theme_override_font_sizes/normal_font_size = 58
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1801749366]
+libraries/ = SubResource("AnimationLibrary_nifsm")
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1885155707]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 286.0
+offset_right = 704.4203
+offset_bottom = 320.0
+scale = Vector2(1.725, 1.725)
+min_value = -24.0
+max_value = 5.0
+step = 0.01
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HSlider" unique_id=741580223]
+
+[node name="HSlider2" type="HSlider" parent="." unique_id=1030521109]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 430.0
+offset_right = 704.4203
+offset_bottom = 464.0
+scale = Vector2(1.725, 1.725)
+min_value = -24.0
+max_value = 5.0
+step = 0.01
+
+[node name="Control" type="Control" parent="." unique_id=276959142]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ArrowBlunderEdition" type="Sprite2D" parent="Control" unique_id=313798701]
+position = Vector2(18.515, 13.165)
+rotation = 0.70685834
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("5_31x12")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
