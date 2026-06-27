@@ -167,7 +167,7 @@ func skibidi(fih: Node2D):
 		print(ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)))
 		var test = preload("res://ui/dialogue.tscn")
 		scene = test.instantiate()
-		scene.connect("minigame", control)
+		scene.connect("minigame", minnow_load)
 		scene.log = "not wife"
 	elif ResourceUID.id_to_text(ResourceLoader.get_resource_uid(fih.sprite.texture.resource_path)) == "uid://nxfxhceuqsxk":
 		var test = preload("res://ui/dialogue.tscn")
@@ -199,7 +199,6 @@ func peel_done():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var test = preload("res://ui/dialogue.tscn")
 	scene = test.instantiate()
-	scene.connect("minigame", weng)
 	scene.log = "happy_salmon"
 	add_child(scene)
 	$AnimationPlayer.play_backwards('dissolbe')
@@ -251,13 +250,13 @@ func _on_audio_stream_player_3d_finished() -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	print("hi")
 	look = false
 	$AnimationPlayer.play('dissolbe')
 	await $AnimationPlayer.animation_finished
 	var test = preload("res://ui/dialogue.tscn")
 	scene = test.instantiate()
 	scene.connect("spin", weng)
+	scene.connect("prison", weng2)
 	scene.log = "ending_start"
 	add_child(scene)
 	$AnimationPlayer.play_backwards('dissolbe')
@@ -270,6 +269,20 @@ func weng():
 	var test = preload("res://Scenes/Ending/ending.tscn")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	scene = test.instantiate()
+	scene.connect("done", a)
 	add_child(scene)
 	$AnimationPlayer.play_backwards('dissolbe')
-	print("hi")
+	
+func weng2():
+	$AnimationPlayer.play('dissolbe')
+	await $AnimationPlayer.animation_finished
+	var test = preload("res://Scenes/Ending/prison.tscn")
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	scene = test.instantiate()
+	scene.connect("done", a)
+	add_child(scene)
+	$AnimationPlayer.play_backwards('dissolbe')
+
+func a():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$"../CharacterBody3D".bruh = true

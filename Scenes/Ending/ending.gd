@@ -9,6 +9,8 @@ var timer_minimum: float = 3
 var scaler: float = 1.0/7.0
 var angular_velocity: float = 0.0
 
+signal done
+
 
 var win = false
 var pressed = false
@@ -164,3 +166,9 @@ func _input(event) -> void:
 			pressed = false
 			
 			
+
+
+func _on_texture_button_button_up() -> void:
+	done.emit()
+	queue_free()
+	pass # Replace with function body.

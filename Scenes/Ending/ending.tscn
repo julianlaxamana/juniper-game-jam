@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ws57b2yl4skw" path="res://Assets/MINNOW_WORKER_NORMAL_STICKER.png" id="7_qk1fr"]
 [ext_resource type="Material" uid="uid://dhd45tdf80ar1" path="res://Scenes/Ending/Assets/transparent.tres" id="7_xc8g7"]
 [ext_resource type="Texture2D" uid="uid://o8qgbh3qgeal" path="res://Scenes/Ending/Assets/GOOD_ENDING_CG.png" id="11_cf2k0"]
+[ext_resource type="Texture2D" uid="uid://b2sbb7k3um1uc" path="res://Assets/GO_BACK.png" id="12_6d8ow"]
 
 [sub_resource type="Curve" id="Curve_dv4ay"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.8573025, 0.0, 0, 0]
@@ -220,7 +221,15 @@ texture = ExtResource("11_cf2k0")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=2135795822]
 visible = false
-offset_left = 640.0
-offset_top = 360.0
-offset_right = 680.0
-offset_bottom = 400.0
+offset_left = 31.0
+offset_top = -128.0
+offset_right = 2031.0
+offset_bottom = 1872.0
+scale = Vector2(0.23, 0.23)
+texture_normal = ExtResource("12_6d8ow")
+texture_pressed = ExtResource("12_6d8ow")
+texture_hover = ExtResource("12_6d8ow")
+texture_disabled = ExtResource("12_6d8ow")
+texture_focused = ExtResource("12_6d8ow")
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
